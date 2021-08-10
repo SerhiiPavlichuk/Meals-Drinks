@@ -1,14 +1,15 @@
 
+
 import Foundation
 
-struct Meals : Codable {
+struct MealInformation : Codable {
 	let idMeal : String?
 	let mealName : String?
 	let strDrinkAlternate : String?
 	let mealCategory : String?
 	let strArea : String?
 	let strInstructions : String?
-	let mealImage : String?
+	let strMealThumb : String?
 	let strTags : String?
 	let strYoutube : String?
 	let strIngredient1 : String?
@@ -64,7 +65,7 @@ struct Meals : Codable {
 		case mealCategory = "strCategory"
 		case strArea = "strArea"
 		case strInstructions = "strInstructions"
-		case mealImage = "strMealThumb"
+		case strMealThumb = "strMealThumb"
 		case strTags = "strTags"
 		case strYoutube = "strYoutube"
 		case strIngredient1 = "strIngredient1"
@@ -121,7 +122,7 @@ struct Meals : Codable {
         mealCategory = try values.decodeIfPresent(String.self, forKey: .mealCategory)
 		strArea = try values.decodeIfPresent(String.self, forKey: .strArea)
 		strInstructions = try values.decodeIfPresent(String.self, forKey: .strInstructions)
-        mealImage = try values.decodeIfPresent(String.self, forKey: .mealImage)
+        strMealThumb = try values.decodeIfPresent(String.self, forKey: .strMealThumb)
 		strTags = try values.decodeIfPresent(String.self, forKey: .strTags)
 		strYoutube = try values.decodeIfPresent(String.self, forKey: .strYoutube)
 		strIngredient1 = try values.decodeIfPresent(String.self, forKey: .strIngredient1)

@@ -1,10 +1,9 @@
 
-
 import Foundation
 
-struct RandomMeals : Codable {
+struct AllMeals : Codable {
     
-	let meals : [MealInformation]?
+	let meals : [Meals]?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -13,7 +12,7 @@ struct RandomMeals : Codable {
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		meals = try values.decodeIfPresent([MealInformation].self, forKey: .meals)
+		meals = try values.decodeIfPresent([Meals].self, forKey: .meals)
 	}
 
 }
