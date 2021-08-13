@@ -6,24 +6,30 @@
 //
 
 import UIKit
+import SDWebImage
 
-class CategoryCollectionViewCell: UICollectionViewCell {
+
+class RandomMealCollectionViewCell: UICollectionViewCell {
+    
+    var randomMeal: MealInformation? = nil
+    
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var cellLabelView: UILabel!
-    
+   
+  
     override func awakeFromNib() {
         super.awakeFromNib()
-      
+        
         
     }
     override func layoutSubviews() {
         super.layoutSubviews()
         
         self.cellImageView.layer.cornerRadius = self.cellImageView.frame.height / 2
+        
     }
-    func configureWith(nameCategory: String?, imageCategory: String?) {
-          self.cellLabelView.text = nameCategory
-      
-      }
-
+    
+    func configureWith(randomMealName: String?, randomMealImage: String?) {
+        self.cellLabelView.text = randomMealName
+    }
 }

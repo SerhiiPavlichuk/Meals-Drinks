@@ -26,7 +26,7 @@
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Qg-0I-nim">
                                 <rect key="frame" x="0.0" y="102" width="414" height="132"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ply-MV-bfO">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -89,15 +89,10 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkJ-6m-eVj">
-                                                <rect key="frame" x="55" y="446" width="322" height="51"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                                <state key="normal" title="Play Video Instructions!"/>
-                                                <connections>
-                                                    <action selector="playVideo:" destination="i1s-GD-VK2" eventType="touchUpInside" id="QSe-2W-bae"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqY-tl-4V4">
+                                                <rect key="frame" x="16" y="426.5" width="374" height="179.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -106,8 +101,12 @@
                                             <constraint firstAttribute="width" constant="406" id="51D-Tt-f77"/>
                                             <constraint firstItem="PGi-ap-zVC" firstAttribute="top" secondItem="yL5-vO-cUF" secondAttribute="top" constant="50" id="8bb-Cb-O8T"/>
                                             <constraint firstAttribute="trailing" secondItem="ZuK-A9-gO1" secondAttribute="trailing" constant="16" id="Ib8-mJ-zp0"/>
+                                            <constraint firstItem="sqY-tl-4V4" firstAttribute="top" secondItem="ZuK-A9-gO1" secondAttribute="bottom" constant="16" id="OYF-C7-V9o"/>
                                             <constraint firstItem="ZuK-A9-gO1" firstAttribute="top" secondItem="PGi-ap-zVC" secondAttribute="bottom" constant="16" id="Ouk-ZC-k8k"/>
                                             <constraint firstItem="ZuK-A9-gO1" firstAttribute="leading" secondItem="yL5-vO-cUF" secondAttribute="leading" constant="16" id="Qk5-KM-i0b"/>
+                                            <constraint firstAttribute="trailing" secondItem="sqY-tl-4V4" secondAttribute="trailing" constant="16" id="Uhk-ij-nmc"/>
+                                            <constraint firstAttribute="bottom" secondItem="sqY-tl-4V4" secondAttribute="bottom" constant="738" id="fQu-jw-Jnl"/>
+                                            <constraint firstItem="sqY-tl-4V4" firstAttribute="leading" secondItem="yL5-vO-cUF" secondAttribute="leading" constant="16" id="weR-Pa-yca"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -136,11 +135,12 @@
                     <connections>
                         <outlet property="mealImageView" destination="PGi-ap-zVC" id="hGZ-aE-59j"/>
                         <outlet property="methodLabel" destination="ZuK-A9-gO1" id="wdT-NZ-TGr"/>
+                        <outlet property="videoPlayer" destination="sqY-tl-4V4" id="7uw-R4-AGn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oJF-1L-aFf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902.8985507246377" y="241.74107142857142"/>
+            <point key="canvasLocation" x="1928.985507246377" y="-160.04464285714286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rwP-VR-bpU">
@@ -160,13 +160,40 @@
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="93.75"/>
         </scene>
+        <!--Meals Category Detail View Controller-->
+        <scene sceneID="1c9-Ss-onb">
+            <objects>
+                <viewController storyboardIdentifier="MealsCategoryDetailViewController" id="4HC-id-hPQ" customClass="MealsCategoryDetailViewController" customModule="Meals_Drinks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eKE-Ts-XI3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fLY-2H-Qme">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sar-va-BUP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sar-va-BUP" firstAttribute="trailing" secondItem="fLY-2H-Qme" secondAttribute="trailing" id="9LO-Ql-ygG"/>
+                            <constraint firstItem="fLY-2H-Qme" firstAttribute="leading" secondItem="sar-va-BUP" secondAttribute="leading" id="9fP-kf-b88"/>
+                            <constraint firstItem="fLY-2H-Qme" firstAttribute="top" secondItem="sar-va-BUP" secondAttribute="top" constant="-44" id="azg-81-3aF"/>
+                            <constraint firstItem="sar-va-BUP" firstAttribute="bottom" secondItem="fLY-2H-Qme" secondAttribute="bottom" constant="-34" id="kzH-uW-iBn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="fLY-2H-Qme" id="65c-Wr-Kbs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DHd-y5-vyP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1929" y="574"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

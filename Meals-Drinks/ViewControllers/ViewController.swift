@@ -22,8 +22,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        self.collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil),
-                                     forCellWithReuseIdentifier: "CategoryCollectionViewCell")
+        self.collectionView.register(UINib(nibName: "RandomMealCollectionViewCell", bundle: nil),
+                                     forCellWithReuseIdentifier: "RandomMealCollectionViewCell")
         
     }
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     func requestRandomMeals() {
         
-        let url = "https://www.themealdb.com/api/json/v2/api-key/randomselection.php"
+        let url = "https://www.themealdb.com/api/json/v2/9973533/randomselection.php"
         
         AF.request(url).responseJSON { responce in
             
@@ -46,15 +46,14 @@ class ViewController: UIViewController {
             
             if let data = try? decoder.decode(RandomMeals.self, from: responce.data!) {
                 self.randomMeals = data.meals ?? []
-                self.tableView.reloadData()
-                
+                self.collectionView.reloadData()
             }
         }
     }
     
     func requestAllMeals(){
         
-        let url = "https://www.themealdb.com/api/json/v2/api-key/search.php?s="
+        let url = "https://www.themealdb.com/api/json/v2/9973533/search.php?s="
         
         AF.request(url).responseJSON { responce in
             
@@ -87,28 +86,28 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.randomMeals.count
+        return self.mealCategory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
             return UITableViewCell()
         }
-        cell.textLabel?.text = self.randomMeals[indexPath.row].mealName
+        cell.textLabel?.text = self.mealCategory[indexPath.row].nameCategory
         return cell
     }
 }
 
 extension ViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let identifier = String(describing: RandomMealDetailViewController.self)
+        let identifier = String(describing: MealsCategoryDetailViewController.self)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? RandomMealDetailViewController {
+        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? MealsCategoryDetailViewController {
             
-            detailViewController.meals = self.randomMeals[indexPath.row]
+            detailViewController.mealCategory = self.mealCategory[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
@@ -118,19 +117,33 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.mealCategory.count
+        return self.randomMeals.count
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    //    func collectionView(_ collectionView: UICollectionView,
+    //                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    //
+    //        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RandomMealCollectionViewCell",
+    //                                                         for: indexPath) as? RandomMealCollectionViewCell {
+    //            cell.configureWith(randomMealName: self.randomMeals[indexPath.row].mealName, randomMealImage: "")
+    //            return cell
+    //        }
+    //
+    //        return UICollectionViewCell()
+    //    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell",
-                                                         for: indexPath) as? CategoryCollectionViewCell {
-            cell.configureWith(nameCategory: self.mealCategory[indexPath.row].nameCategory, imageCategory: "")
-            return cell
+       
+        let urlBase = randomMeals[indexPath.row].strMealThumb!
+        let imageUrl = URL(string: urlBase)!
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RandomMealCollectionViewCell", for: indexPath) as! RandomMealCollectionViewCell
+        cell.cellLabelView.text = randomMeals[indexPath.row].mealName
+        cell.cellImageView.sd_setImage(with: imageUrl) { (image, erro, cache, url) in
+            
         }
-        
-        return UICollectionViewCell()
+        return (cell)
     }
 }
 
@@ -142,3 +155,18 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 100, height: 150)
     }
 }
+extension ViewController: UICollectionViewDelegate {
+    
+    private func collectionView(_ collectionView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+            let identifier = String(describing: RandomMealDetailViewController.self)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? RandomMealDetailViewController {
+                
+                detailViewController.meals = self.randomMeals[indexPath.row]
+                
+                self.navigationController?.pushViewController(detailViewController, animated: true)
+            }
+        }
+    }

@@ -5,26 +5,31 @@
 //  Created by admin on 10.08.2021.
 //
 
+import Foundation
 import UIKit
 import SDWebImage
-import AVKit
+import youtube_ios_player_helper
 
 
 class RandomMealDetailViewController: UIViewController {
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var methodLabel: UILabel!
+    @IBOutlet weak var videoPlayer: YTPlayerView!
     
     
     
     var meals: MealInformation? = nil
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-        //        if let mealVideo = self.meals?.strYoutube {
-        //            self.videoPlayerView.load.
-        //        }
+        
+        if let id = self.meals?.strYoutube {
+            let stringID = String(describing: id)
+            self.requestVideos(with: stringID)
+        }
         
         
         if let mealImage = self.meals?.strMealThumb {
@@ -32,24 +37,33 @@ class RandomMealDetailViewController: UIViewController {
         }
         self.title = self.meals?.mealName
         self.methodLabel.text = self.meals?.strInstructions
+        
+        
+        
+        
+        
     }
     
-    @IBAction func playVideo(_ sender: UIButton) {
-        if let mealVideo = self.meals?.strYoutube{
-            guard let url = URL(string: mealVideo) else {
-                return
-            }
-            
-            let player = AVPlayer(url: url)
-            
-            let controller = AVPlayerViewController()
-            controller.player = player
-            present(controller, animated: true) {
-                player.play()
-            }
+    func requestVideos(with id: String) {
+        
+        var baseUrl = self.meals?.strYoutube
+        
+        if let range = baseUrl!.range(of: "v=") {
+            let id = baseUrl![range.upperBound...]
+            self.videoPlayer.load(withVideoId: String(id))
         }
+        
+        //    func requestVideos(with id: String) {
+        //
+        //        var url = self.meals?.strYoutube
+        //              let id = url?.components(separatedBy: "=")
+        //              print(url)
+        //
+        //        self.videoPlayerView.load(withVideoId: id!)
+        //
+        //
+        //
+        //         }
     }
-    
     
 }
-
