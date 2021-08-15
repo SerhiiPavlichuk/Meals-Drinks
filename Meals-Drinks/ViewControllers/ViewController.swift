@@ -134,7 +134,7 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-       
+        
         let urlBase = randomMeals[indexPath.row].strMealThumb!
         let imageUrl = URL(string: urlBase)!
         
@@ -157,16 +157,20 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 extension ViewController: UICollectionViewDelegate {
     
-    private func collectionView(_ collectionView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
-            let identifier = String(describing: RandomMealDetailViewController.self)
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? RandomMealDetailViewController {
-                
-                detailViewController.meals = self.randomMeals[indexPath.row]
-                
-                self.navigationController?.pushViewController(detailViewController, animated: true)
-            }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // Выполнить запрос на список блюд по категории
+//        let category = self.mealCategory[indexPath.row]
+        //AF. ... url = "adas/"
+        // тейбл вью - релдоад дата
+        let identifier = String(describing: RandomMealDetailViewController.self)
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? RandomMealDetailViewController {
+
+            detailViewController.meals = self.randomMeals[indexPath.row]
+
+            self.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
+}
