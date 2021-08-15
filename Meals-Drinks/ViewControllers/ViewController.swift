@@ -120,18 +120,6 @@ extension ViewController: UICollectionViewDataSource {
         return self.randomMeals.count
     }
     
-    //    func collectionView(_ collectionView: UICollectionView,
-    //                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    //
-    //        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RandomMealCollectionViewCell",
-    //                                                         for: indexPath) as? RandomMealCollectionViewCell {
-    //            cell.configureWith(randomMealName: self.randomMeals[indexPath.row].mealName, randomMealImage: "")
-    //            return cell
-    //        }
-    //
-    //        return UICollectionViewCell()
-    //    }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
