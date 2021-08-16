@@ -8,10 +8,15 @@
 import Foundation
 import UIKit
 import Alamofire
+import youtube_ios_player_helper
 
 
 
 class MealDetailViewController: UIViewController {
+    
+    var detailMealArray: [DetailMealInformation] = []
+    var mealForCategory: MealsInCategory? = nil
+    var detailMeal: DetailMealInformation? = nil
     
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var instructionsLabel: UILabel!
@@ -31,12 +36,11 @@ class MealDetailViewController: UIViewController {
     @IBOutlet weak var measure6Label: UILabel!
     @IBOutlet weak var measure7Label: UILabel!
     @IBOutlet weak var measure8Label: UILabel!
+    @IBOutlet weak var videoPlayer: YTPlayerView!
     
     
-    var detailMealArray: [DetailMealInformation] = []
-    var mealForCategory: MealsInCategory? = nil
-    var detailMeal: DetailMealInformation? = nil
-
+    
+    
     
     
     
@@ -66,6 +70,9 @@ class MealDetailViewController: UIViewController {
         self.measure6Label.text = self.detailMeal?.strMeasure6
         self.measure7Label.text = self.detailMeal?.strMeasure7
         self.measure8Label.text = self.detailMeal?.strMeasure8
+        if let video = self.detailMeal?.strYoutube {
+                  self.requestVideos()
+              }
         
     }
     func detailMealRequest(){
@@ -73,6 +80,7 @@ class MealDetailViewController: UIViewController {
         if let mealID = mealForCategory?.idMeal{
             let stringID = String(describing : mealID)
             let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
+
 
             AF.request(url).responseJSON { responce in
 
@@ -82,6 +90,14 @@ class MealDetailViewController: UIViewController {
                     self.detailMealArray = data.meal ?? []
                 }
             }
+        }
+    }
+    func requestVideos (){
+        
+        var baseUrl = self.detailMeal?.strYoutube
+        if let range = baseUrl!.range(of: "=") {
+            let id = baseUrl![range.upperBound...]
+            self.videoPlayer.load(withVideoId: String(id))
         }
     }
 }

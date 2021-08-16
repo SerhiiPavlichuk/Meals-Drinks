@@ -18,12 +18,14 @@
 		8439CFCA26C1B1D100BB2105 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439CFC926C1B1D100BB2105 /* ViewController.swift */; };
 		8439CFCD26C1B1D100BB2105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8439CFCB26C1B1D100BB2105 /* Main.storyboard */; };
 		8439CFCF26C1B1D200BB2105 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8439CFCE26C1B1D200BB2105 /* Assets.xcassets */; };
-		8439CFD226C1B1D200BB2105 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8439CFD026C1B1D200BB2105 /* LaunchScreen.storyboard */; };
 		8439CFE026C1B36900BB2105 /* RandomMeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439CFDE26C1B36900BB2105 /* RandomMeals.swift */; };
 		8439CFE126C1B36900BB2105 /* MealInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439CFDF26C1B36900BB2105 /* MealInformation.swift */; };
 		8439D87226C6E530000A56B6 /* MealsCategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D87126C6E530000A56B6 /* MealsCategoryDetailViewController.swift */; };
 		845560AC26C2FDBC009CEE0F /* RandomMealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845560AB26C2FDBC009CEE0F /* RandomMealDetailViewController.swift */; };
 		845560AE26C313B3009CEE0F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 845560AD26C313B3009CEE0F /* Podfile */; };
+		845948B326CAA6430097BF81 /* MealsRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845948B226CAA6430097BF81 /* MealsRealm.swift */; };
+		845948B626CAB29A0097BF81 /* CookLaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845948B526CAB29A0097BF81 /* CookLaterViewController.swift */; };
+		845948B826CAC1DF0097BF81 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845948B726CAC1DF0097BF81 /* Launch Screen.storyboard */; };
 		849C359526C1C11D00665B60 /* RandomMealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C359326C1C11D00665B60 /* RandomMealCollectionViewCell.swift */; };
 		849C359626C1C11D00665B60 /* RandomMealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849C359426C1C11D00665B60 /* RandomMealCollectionViewCell.xib */; };
 		849C359926C1C43800665B60 /* MealCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C359726C1C43700665B60 /* MealCategory.swift */; };
@@ -45,13 +47,15 @@
 		8439CFC926C1B1D100BB2105 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8439CFCC26C1B1D100BB2105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8439CFCE26C1B1D200BB2105 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8439CFD126C1B1D200BB2105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8439CFD326C1B1D200BB2105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8439CFDE26C1B36900BB2105 /* RandomMeals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomMeals.swift; sourceTree = "<group>"; };
 		8439CFDF26C1B36900BB2105 /* MealInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealInformation.swift; sourceTree = "<group>"; };
 		8439D87126C6E530000A56B6 /* MealsCategoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsCategoryDetailViewController.swift; sourceTree = "<group>"; };
 		845560AB26C2FDBC009CEE0F /* RandomMealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMealDetailViewController.swift; sourceTree = "<group>"; };
 		845560AD26C313B3009CEE0F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		845948B226CAA6430097BF81 /* MealsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsRealm.swift; sourceTree = "<group>"; };
+		845948B526CAB29A0097BF81 /* CookLaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookLaterViewController.swift; sourceTree = "<group>"; };
+		845948B726CAC1DF0097BF81 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		849C359326C1C11D00665B60 /* RandomMealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMealCollectionViewCell.swift; sourceTree = "<group>"; };
 		849C359426C1C11D00665B60 /* RandomMealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RandomMealCollectionViewCell.xib; sourceTree = "<group>"; };
 		849C359726C1C43700665B60 /* MealCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealCategory.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				8439CFD926C1B30600BB2105 /* Common */,
 				8439CFCB26C1B1D100BB2105 /* Main.storyboard */,
 				8439CFD326C1B1D200BB2105 /* Info.plist */,
+				845948B726CAC1DF0097BF81 /* Launch Screen.storyboard */,
 			);
 			path = "Meals-Drinks";
 			sourceTree = "<group>";
@@ -117,7 +122,6 @@
 				8439CFC526C1B1D100BB2105 /* AppDelegate.swift */,
 				8439CFC726C1B1D100BB2105 /* SceneDelegate.swift */,
 				8439CFCE26C1B1D200BB2105 /* Assets.xcassets */,
-				8439CFD026C1B1D200BB2105 /* LaunchScreen.storyboard */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -129,6 +133,7 @@
 				845560AB26C2FDBC009CEE0F /* RandomMealDetailViewController.swift */,
 				8439D87126C6E530000A56B6 /* MealsCategoryDetailViewController.swift */,
 				8420B9FF26C98DAE00ABE4F2 /* MealDetailViewController.swift */,
+				845948B526CAB29A0097BF81 /* CookLaterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 		8439CFDC26C1B33B00BB2105 /* RealmModels */ = {
 			isa = PBXGroup;
 			children = (
+				845948B226CAA6430097BF81 /* MealsRealm.swift */,
 			);
 			path = RealmModels;
 			sourceTree = "<group>";
@@ -240,9 +246,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845948B826CAC1DF0097BF81 /* Launch Screen.storyboard in Resources */,
 				845560AE26C313B3009CEE0F /* Podfile in Resources */,
 				849C359626C1C11D00665B60 /* RandomMealCollectionViewCell.xib in Resources */,
-				8439CFD226C1B1D200BB2105 /* LaunchScreen.storyboard in Resources */,
 				8439CFCF26C1B1D200BB2105 /* Assets.xcassets in Resources */,
 				8439CFCD26C1B1D100BB2105 /* Main.storyboard in Resources */,
 			);
@@ -311,7 +317,9 @@
 				8439CFE026C1B36900BB2105 /* RandomMeals.swift in Sources */,
 				849C359A26C1C43800665B60 /* MealsCategory.swift in Sources */,
 				8420B9FE26C98A5400ABE4F2 /* OpenMealCategory.swift in Sources */,
+				845948B326CAA6430097BF81 /* MealsRealm.swift in Sources */,
 				8439CFE126C1B36900BB2105 /* MealInformation.swift in Sources */,
+				845948B626CAB29A0097BF81 /* CookLaterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,14 +332,6 @@
 				8439CFCC26C1B1D100BB2105 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8439CFD026C1B1D200BB2105 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8439CFD126C1B1D200BB2105 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

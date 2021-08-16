@@ -9,9 +9,13 @@ import Foundation
 import UIKit
 import SDWebImage
 import youtube_ios_player_helper
+import RealmSwift
 
 
 class RandomMealDetailViewController: UIViewController {
+    
+    let realm = try? Realm()
+    
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var methodLabel: UILabel!
     @IBOutlet weak var videoPlayer: YTPlayerView!
@@ -37,6 +41,8 @@ class RandomMealDetailViewController: UIViewController {
         
         self.title = self.meals?.mealName
         self.methodLabel.text = self.meals?.strInstructions
+        let addToWatchLaterBarButtonItem = UIBarButtonItem(title: "Cook Later", style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+        self.navigationItem.rightBarButtonItem = addToWatchLaterBarButtonItem
     }
     
     func requestVideos (){
@@ -45,6 +51,22 @@ class RandomMealDetailViewController: UIViewController {
         if let range = baseUrl!.range(of: "=") {
             let id = baseUrl![range.upperBound...]
             self.videoPlayer.load(withVideoId: String(id))
+        }
+    }
+    
+    @objc func addToCookLaterButtonPressed(){
+
+        let mealsRealm = MealsRealm()
+        mealsRealm.idMeal = self.meals?.idMeal ?? ""
+        mealsRealm.mealName = self.meals?.mealName ?? ""
+        mealsRealm.mealCategory = self.meals?.mealCategory ?? ""
+        mealsRealm.strInstructions = self.meals?.strInstructions ?? ""
+        mealsRealm.strMealThumb = self.meals?.strMealThumb ?? ""
+        mealsRealm.strYoutube = self.meals?.strYoutube ?? ""
+        mealsRealm.strSource = self.meals?.strSource ?? ""
+
+        try? realm?.write {
+            realm?.add(mealsRealm)
         }
     }
 }
