@@ -1,14 +1,15 @@
 
+
 import Foundation
 
-struct Meals : Codable {
+struct DetailMealInformation : Codable {
 	let idMeal : String?
-	let mealName : String?
+	let strMeal : String?
 	let strDrinkAlternate : String?
-	let mealCategory : String?
+	let strCategory : String?
 	let strArea : String?
 	let strInstructions : String?
-	let mealImage : String?
+	let strMealThumb : String?
 	let strTags : String?
 	let strYoutube : String?
 	let strIngredient1 : String?
@@ -59,12 +60,12 @@ struct Meals : Codable {
 	enum CodingKeys: String, CodingKey {
 
 		case idMeal = "idMeal"
-		case mealName = "strMeal"
+		case strMeal = "strMeal"
 		case strDrinkAlternate = "strDrinkAlternate"
-		case mealCategory = "strCategory"
+		case strCategory = "strCategory"
 		case strArea = "strArea"
 		case strInstructions = "strInstructions"
-		case mealImage = "strMealThumb"
+		case strMealThumb = "strMealThumb"
 		case strTags = "strTags"
 		case strYoutube = "strYoutube"
 		case strIngredient1 = "strIngredient1"
@@ -116,12 +117,12 @@ struct Meals : Codable {
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		idMeal = try values.decodeIfPresent(String.self, forKey: .idMeal)
-        mealName = try values.decodeIfPresent(String.self, forKey: .mealName)
+		strMeal = try values.decodeIfPresent(String.self, forKey: .strMeal)
 		strDrinkAlternate = try values.decodeIfPresent(String.self, forKey: .strDrinkAlternate)
-        mealCategory = try values.decodeIfPresent(String.self, forKey: .mealCategory)
+		strCategory = try values.decodeIfPresent(String.self, forKey: .strCategory)
 		strArea = try values.decodeIfPresent(String.self, forKey: .strArea)
 		strInstructions = try values.decodeIfPresent(String.self, forKey: .strInstructions)
-        mealImage = try values.decodeIfPresent(String.self, forKey: .mealImage)
+		strMealThumb = try values.decodeIfPresent(String.self, forKey: .strMealThumb)
 		strTags = try values.decodeIfPresent(String.self, forKey: .strTags)
 		strYoutube = try values.decodeIfPresent(String.self, forKey: .strYoutube)
 		strIngredient1 = try values.decodeIfPresent(String.self, forKey: .strIngredient1)

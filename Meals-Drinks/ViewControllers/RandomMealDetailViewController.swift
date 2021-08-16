@@ -37,11 +37,6 @@ class RandomMealDetailViewController: UIViewController {
         
         self.title = self.meals?.mealName
         self.methodLabel.text = self.meals?.strInstructions
-        
-        
-        
-        
-        
     }
     
     func requestVideos (){

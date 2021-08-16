@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     
     
     var randomMeals: [MealInformation] = []
-    var allMeals: [Meals] = []
     var mealCategory: [MealsCategory] = []
     
     override func viewDidLoad() {
@@ -31,7 +30,6 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.requestRandomMeals()
-        self.requestAllMeals()
         self.requestMealCategory()
     }
     
@@ -47,22 +45,6 @@ class ViewController: UIViewController {
             if let data = try? decoder.decode(RandomMeals.self, from: responce.data!) {
                 self.randomMeals = data.meals ?? []
                 self.collectionView.reloadData()
-            }
-        }
-    }
-    
-    func requestAllMeals(){
-        
-        let url = "https://www.themealdb.com/api/json/v2/9973533/search.php?s="
-        
-        AF.request(url).responseJSON { responce in
-            
-            let decoder = JSONDecoder()
-            
-            if let data = try? decoder.decode(AllMeals.self, from: responce.data!) {
-                self.allMeals = data.meals ?? []
-                self.tableView.reloadData()
-                
             }
         }
     }
@@ -147,10 +129,6 @@ extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        // Выполнить запрос на список блюд по категории
-//        let category = self.mealCategory[indexPath.row]
-        //AF. ... url = "adas/"
-        // тейбл вью - релдоад дата
         let identifier = String(describing: RandomMealDetailViewController.self)
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

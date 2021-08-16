@@ -15,9 +15,12 @@ class MealsCategoryDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
+   
     var mealsInCategory: [MealsInCategory] = []
+    var mealsInCategoryForIdReuest: MealsInCategory? = nil
     var mealCategory: MealsCategory? = nil
+    var detailMeal: [DetailMealInformation] = []
+    var responcedetailmeal: DetailMealInformation? = nil
     
     
     override func viewDidLoad() {
@@ -27,8 +30,25 @@ class MealsCategoryDetailViewController: UIViewController {
         
         self.title = self.mealCategory?.nameCategory
         self.requestMealsInCategory()
+//        self.detailMealRequest()
     }
-    
+  
+//    func detailMealRequest(){
+//
+//        if let mealID = mealsInCategoryForIdReuest?.idMeal{
+//            let stringID = String(describing : mealID)
+//            let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
+//
+//            AF.request(url).responseJSON { responce in
+//
+//                let decoder = JSONDecoder()
+//
+//                if let data = try? decoder.decode(Meal.self, from: responce.data!) {
+//                    self.detailMeal = data.meal ?? []
+//                }
+//            }
+//        }
+//    }
     
     func requestMealsInCategory(){
 
@@ -75,7 +95,7 @@ extension MealsCategoryDetailViewController: UITableViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? MealDetailViewController {
             
-            detailViewController.detailMeal = self.mealsInCategory[indexPath.row]
+            detailViewController.mealForCategory = self.mealsInCategory[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
