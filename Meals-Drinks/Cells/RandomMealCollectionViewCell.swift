@@ -28,8 +28,4 @@ class RandomMealCollectionViewCell: UICollectionViewCell {
         self.cellImageView.layer.cornerRadius = self.cellImageView.frame.height / 2
         
     }
-    
-    func configureWith(randomMealName: String?, randomMealImage: String?) {
-        self.cellLabelView.text = randomMealName
-    }
 }

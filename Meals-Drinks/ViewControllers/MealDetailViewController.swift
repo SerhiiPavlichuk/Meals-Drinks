@@ -18,6 +18,7 @@ class MealDetailViewController: UIViewController {
     var mealForCategory: MealsInCategory? = nil
     var detailMeal: DetailMealInformation? = nil
     
+    
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var ingredient1Label: UILabel!
@@ -40,14 +41,44 @@ class MealDetailViewController: UIViewController {
     
     
     
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.detailMealRequest()
+        self.displayMealInformation()
+        
+        
+    }
+//    func detailMealRequest(){
+//
+//        if let mealID = mealForCategory?.idMeal{
+//            let stringID = String(describing : mealID)
+//            let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
+//
+//            AF.request(url).responseJSON { responce in
+//
+//                let decoder = JSONDecoder()
+//
+//                if let data = try? decoder.decode(Meal.self, from: responce.data!) {
+//                    self.detailMealArray = data.meal ?? []
+//                    self.displayMealInformation()
+//                }
+//            }
+//        }
+//    }
+    func requestVideos (){
+        
+        let meal = self.detailMealArray.first
+        var baseUrl = self.detailMeal?.strYoutube
+        if let range = baseUrl!.range(of: "=") {
+            let id = baseUrl![range.upperBound...]
+            self.videoPlayer.load(withVideoId: String(id))
+        }
+    }
+    func displayMealInformation(){
+        
+        let meal = detailMealArray.first
         
         self.title = self.mealForCategory?.strMeal
         self.instructionsLabel.text = self.detailMeal?.strInstructions
@@ -71,33 +102,7 @@ class MealDetailViewController: UIViewController {
         self.measure7Label.text = self.detailMeal?.strMeasure7
         self.measure8Label.text = self.detailMeal?.strMeasure8
         if let video = self.detailMeal?.strYoutube {
-                  self.requestVideos()
-              }
-        
-    }
-    func detailMealRequest(){
-
-        if let mealID = mealForCategory?.idMeal{
-            let stringID = String(describing : mealID)
-            let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
-
-
-            AF.request(url).responseJSON { responce in
-
-                let decoder = JSONDecoder()
-
-                if let data = try? decoder.decode(Meal.self, from: responce.data!) {
-                    self.detailMealArray = data.meal ?? []
-                }
-            }
-        }
-    }
-    func requestVideos (){
-        
-        var baseUrl = self.detailMeal?.strYoutube
-        if let range = baseUrl!.range(of: "=") {
-            let id = baseUrl![range.upperBound...]
-            self.videoPlayer.load(withVideoId: String(id))
+            self.requestVideos()
         }
     }
 }

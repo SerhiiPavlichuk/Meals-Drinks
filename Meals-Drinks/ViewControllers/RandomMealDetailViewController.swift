@@ -41,7 +41,7 @@ class RandomMealDetailViewController: UIViewController {
         
         self.title = self.meals?.mealName
         self.methodLabel.text = self.meals?.strInstructions
-        let addToWatchLaterBarButtonItem = UIBarButtonItem(title: "Cook Later", style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+        let addToWatchLaterBarButtonItem = UIBarButtonItem(title: Constants.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
         self.navigationItem.rightBarButtonItem = addToWatchLaterBarButtonItem
     }
     

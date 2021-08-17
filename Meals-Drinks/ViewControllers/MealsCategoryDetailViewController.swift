@@ -30,44 +30,28 @@ class MealsCategoryDetailViewController: UIViewController {
         
         self.title = self.mealCategory?.nameCategory
         self.requestMealsInCategory()
-//        self.detailMealRequest()
+        
+        
     }
-  
-//    func detailMealRequest(){
+    
+//    func requestMealsInCategory(){
 //
-//        if let mealID = mealsInCategoryForIdReuest?.idMeal{
-//            let stringID = String(describing : mealID)
-//            let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
+//        if let categoryNameForURL = mealCategory?.nameCategory{
+//            let stringID = String(describing : categoryNameForURL)
+//            let url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(stringID)"
 //
 //            AF.request(url).responseJSON { responce in
 //
 //                let decoder = JSONDecoder()
 //
-//                if let data = try? decoder.decode(Meal.self, from: responce.data!) {
-//                    self.detailMeal = data.meal ?? []
+//                if let data = try? decoder.decode(OpenMealCategory.self, from: responce.data!) {
+//                    self.mealsInCategory = data.mealsInCategory ?? []
+//                    self.tableView.reloadData()
+//
 //                }
 //            }
 //        }
 //    }
-    
-    func requestMealsInCategory(){
-
-        if let categoryNameForURL = mealCategory?.nameCategory{
-            let stringID = String(describing : categoryNameForURL)
-            let url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(stringID)"
-
-            AF.request(url).responseJSON { responce in
-
-                let decoder = JSONDecoder()
-
-                if let data = try? decoder.decode(OpenMealCategory.self, from: responce.data!) {
-                    self.mealsInCategory = data.mealsInCategory ?? []
-                    self.tableView.reloadData()
-
-                }
-            }
-        }
-    }
 }
 
 extension MealsCategoryDetailViewController: UITableViewDataSource{

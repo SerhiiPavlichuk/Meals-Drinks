@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Alamofire
+
 
 class ViewController: UIViewController {
     
@@ -20,51 +20,31 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let randomMealCollectionViewCellIdentifier = String(describing: RandomMealCollectionViewCell.self)
+        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        self.collectionView.register(UINib(nibName: "RandomMealCollectionViewCell", bundle: nil),
-                                     forCellWithReuseIdentifier: "RandomMealCollectionViewCell")
+        self.collectionView.register(UINib(nibName: randomMealCollectionViewCellIdentifier, bundle: nil),
+                                     forCellWithReuseIdentifier: randomMealCollectionViewCellIdentifier)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.requestRandomMeals()
-        self.requestMealCategory()
-    }
+        NetworkManager.shared.requestRandomMeals(completion: { randomMeals in
+            self.randomMeals = randomMeals
+            self.collectionView.reloadData()
+            
+        })
     
-    func requestRandomMeals() {
-        
-        let url = "https://www.themealdb.com/api/json/v2/9973533/randomselection.php"
-        
-        AF.request(url).responseJSON { responce in
+        NetworkManager.shared.requestMealCategory(completion: { mealCategory in
+            self.mealCategory = mealCategory
+            self.tableView.reloadData()
             
-            
-            let decoder = JSONDecoder()
-            
-            if let data = try? decoder.decode(RandomMeals.self, from: responce.data!) {
-                self.randomMeals = data.meals ?? []
-                self.collectionView.reloadData()
-            }
-        }
-    }
-    
-    func requestMealCategory(){
-        
-        let url = "https://www.themealdb.com/api/json/v1/1/categories.php"
-        
-        AF.request(url).responseJSON { responce in
-            
-            let decoder = JSONDecoder()
-            
-            if let data = try? decoder.decode(MealCategory.self, from: responce.data!) {
-                self.mealCategory = data.categories ?? []
-                self.tableView.reloadData()
-                
-            }
-        }
-    }
+        })
+     }
 }
+    
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
