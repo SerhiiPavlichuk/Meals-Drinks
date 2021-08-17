@@ -29,7 +29,13 @@ class MealsCategoryDetailViewController: UIViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
         self.title = self.mealCategory?.nameCategory
-        self.requestMealsInCategory()
+//        self.requestMealsInCategory()
+        
+        NetworkManagerForUrlWithTwoPath.shared.requestMealsInCategory(completion: { mealsInCategory in
+            self.mealsInCategory = mealsInCategory ?? []
+            self.tableView.reloadData()
+                   
+               })
         
         
     }

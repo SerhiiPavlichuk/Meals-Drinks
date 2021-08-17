@@ -13,28 +13,6 @@ struct NetworkManager {
     
     static let shared = NetworkManager()
     
-    enum FullUrl: String {
-        
-        case fullUrlRequest
-        
-        var baseURL: URL {
-            return URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?c=")!
-        }
-        
-        var path: String {
-            switch self {
-            case .fullUrlRequest:
-                return "/server"
-            }
-        }
-        
-        var url: URL {
-            let path = self.path
-            let baseURL = self.baseURL
-            let url = URL(string: path, relativeTo: baseURL)
-            return url!
-        }
-    }
     
     func requestRandomMeals(completion: @escaping(([MealInformation]) -> ())){
         
@@ -68,6 +46,48 @@ struct NetworkManager {
             }
         }
     }
+//    func requestMealsInCategory(completion: @escaping(([MealsInCategory]?) -> ())) {
+//
+//        if let categoryNameForURL = mealCategory?.nameCategory{
+//            let stringID = String(describing : categoryNameForURL)
+//            let url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(stringID)"
+//
+//            AF.request(url).responseJSON { responce in
+//
+//                let decoder = JSONDecoder()
+//
+//                if let data = try? decoder.decode(OpenMealCategory.self, from: responce.data!) {
+//                    self.mealsInCategory = data.mealsInCategory ?? []
+//                    self.tableView.reloadData()
+//
+//                }
+//            }
+//        }
+//    }
+//    func detailMealRequest(){
+//
+//        if let mealID = mealForCategory?.idMeal{
+//            let stringID = String(describing : mealID)
+//            let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
+//
+//            AF.request(url).responseJSON { responce in
+//
+//                let decoder = JSONDecoder()
+//
+//                if let data = try? decoder.decode(Meal.self, from: responce.data!) {
+//                    self.detailMealArray = data.meal ?? []
+//                    self.displayMealInformation()
+//                }
+//            }
+//        }
+//    }
+//}
+}
+
+class NetworkManagerForUrlWithTwoPath: MealsCategoryDetailViewController {
+    
+    static let shared = NetworkManagerForUrlWithTwoPath()
+    
     func requestMealsInCategory(completion: @escaping(([MealsInCategory]?) -> ())) {
         
         if let categoryNameForURL = mealCategory?.nameCategory{
@@ -79,31 +99,13 @@ struct NetworkManager {
                 let decoder = JSONDecoder()
                 
                 if let data = try? decoder.decode(OpenMealCategory.self, from: responce.data!) {
-                    self.mealsInCategory = data.mealsInCategory ?? []
-                    self.tableView.reloadData()
+                    let mealsInCategory = data.mealsInCategory ?? []
+                    completion(mealsInCategory)
                     
                 }
             }
         }
     }
-    func detailMealRequest(){
-        
-        if let mealID = mealForCategory?.idMeal{
-            let stringID = String(describing : mealID)
-            let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
-            
-            AF.request(url).responseJSON { responce in
-                
-                let decoder = JSONDecoder()
-                
-                if let data = try? decoder.decode(Meal.self, from: responce.data!) {
-                    self.detailMealArray = data.meal ?? []
-                    self.displayMealInformation()
-                }
-            }
-        }
-    }
-}
-
+ }
 
 

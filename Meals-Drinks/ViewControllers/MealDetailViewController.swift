@@ -45,7 +45,7 @@ class MealDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.detailMealRequest()
+//        self.detailMealRequest()
         self.displayMealInformation()
         
         
