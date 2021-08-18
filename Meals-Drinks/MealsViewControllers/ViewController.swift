@@ -31,13 +31,13 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NetworkManager.shared.requestRandomMeals(completion: { randomMeals in
+        MealsNetworkManager.shared.requestRandomMeals(completion: { randomMeals in
             self.randomMeals = randomMeals
             self.collectionView.reloadData()
             
         })
     
-        NetworkManager.shared.requestMealCategory(completion: { mealCategory in
+        MealsNetworkManager.shared.requestMealCategory(completion: { mealCategory in
             self.mealCategory = mealCategory
             self.tableView.reloadData()
             

@@ -9,9 +9,9 @@ import Foundation
 import Alamofire
 
 
-struct NetworkManager {
+struct MealsNetworkManager {
     
-    static let shared = NetworkManager()
+    static let shared = MealsNetworkManager()
     
     
     func requestRandomMeals(completion: @escaping(([MealInformation]) -> ())){
@@ -46,49 +46,7 @@ struct NetworkManager {
             }
         }
     }
-//    func requestMealsInCategory(completion: @escaping(([MealsInCategory]?) -> ())) {
-//
-//        if let categoryNameForURL = mealCategory?.nameCategory{
-//            let stringID = String(describing : categoryNameForURL)
-//            let url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(stringID)"
-//
-//            AF.request(url).responseJSON { responce in
-//
-//                let decoder = JSONDecoder()
-//
-//                if let data = try? decoder.decode(OpenMealCategory.self, from: responce.data!) {
-//                    self.mealsInCategory = data.mealsInCategory ?? []
-//                    self.tableView.reloadData()
-//
-//                }
-//            }
-//        }
-//    }
-//    func detailMealRequest(){
-//
-//        if let mealID = mealForCategory?.idMeal{
-//            let stringID = String(describing : mealID)
-//            let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
-//
-//            AF.request(url).responseJSON { responce in
-//
-//                let decoder = JSONDecoder()
-//
-//                if let data = try? decoder.decode(Meal.self, from: responce.data!) {
-//                    self.detailMealArray = data.meal ?? []
-//                    self.displayMealInformation()
-//                }
-//            }
-//        }
-//    }
-//}
-}
-
-class NetworkManagerForUrlWithTwoPath: MealsCategoryDetailViewController {
-    
-    static let shared = NetworkManagerForUrlWithTwoPath()
-    
-    func requestMealsInCategory(completion: @escaping(([MealsInCategory]?) -> ())) {
+    func requestMealsInCategory(mealCategory: MealsCategory?, completion: @escaping(([MealsInCategory]?) -> ())) {
         
         if let categoryNameForURL = mealCategory?.nameCategory{
             let stringID = String(describing : categoryNameForURL)
@@ -106,6 +64,25 @@ class NetworkManagerForUrlWithTwoPath: MealsCategoryDetailViewController {
             }
         }
     }
- }
+    func detailMealRequest(mealId: MealsInCategory?, completion: @escaping(([DetailMealInformation]?) -> ())) {
+        
+        if let mealIdForUrl = mealId?.idMeal{
+            let stringID = String(describing : mealIdForUrl)
+            let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
+            
+            AF.request(url).responseJSON { responce in
+                
+                let decoder = JSONDecoder()
+                
+                if let data = try? decoder.decode(Meal.self, from: responce.data!) {
+                    let detailMeal = data.meal ?? []
+                    completion(detailMeal)
+                    
+                }
+            }
+        }
+    }
+}
+
 
 

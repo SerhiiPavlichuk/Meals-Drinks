@@ -9,4 +9,5 @@ import Foundation
 struct Constants {
     
     static let RandomDetailViewControllerBarButtonItem = "Cook Later"
+    static let RandomDrinkDetailViewControllerBarButtonItem = "Cook Later"
 }

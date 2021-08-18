@@ -1,22 +1,23 @@
 //
-//  CookLaterViewController.swift
+//  CookDrinkLater.swift
 //  Meals-Drinks
 //
-//  Created by admin on 16.08.2021.
+//  Created by admin on 18.08.2021.
 //
 
 import Foundation
 import UIKit
 import RealmSwift
 
-class CookLaterViewController: UIViewController {
-    
+class CookDrinkLater: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
         
         
         let realm = try? Realm()
-        var meal: [MealsRealm] = []
+    
+        var drink: [DrinksRealm] = []
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -28,33 +29,35 @@ class CookLaterViewController: UIViewController {
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             
-            self.meal = self.getMeals()
+            self.drink = self.getDrinks()
             self.tableView.reloadData()
         }
         
-        func getMeals() -> [MealsRealm] {
+        func getDrinks() -> [DrinksRealm] {
             
-            var meals = [MealsRealm]()
-            guard let mealsResult = realm?.objects(MealsRealm.self) else { return [] }
-            for meal in mealsResult {
-                meals.append(meal)
+            var drinks = [DrinksRealm]()
+            guard let drinksResult = realm?.objects(DrinksRealm.self) else { return [] }
+            for drink in drinksResult {
+                drinks.append(drink)
             }
-            return meals
+            return drinks
         }
         
     }
 
-    extension CookLaterViewController: UITableViewDataSource{
+    extension CookDrinkLater: UITableViewDataSource{
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return meal.count
+            return drink.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-            cell?.textLabel?.text = self.meal[indexPath.row].mealName
+            cell?.textLabel?.text = self.drink[indexPath.row].strDrink
             
             return cell ?? UITableViewCell()
         }
     }
+
+
 

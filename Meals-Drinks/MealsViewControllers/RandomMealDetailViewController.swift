@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 import youtube_ios_player_helper
 import RealmSwift
+import SafariServices
 
 
 class RandomMealDetailViewController: UIViewController {
@@ -17,10 +18,8 @@ class RandomMealDetailViewController: UIViewController {
     let realm = try? Realm()
     
     @IBOutlet weak var mealImageView: UIImageView!
-    @IBOutlet weak var methodLabel: UILabel!
+    @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var videoPlayer: YTPlayerView!
-    
-    
     
     var meals: MealInformation? = nil
     
@@ -34,15 +33,13 @@ class RandomMealDetailViewController: UIViewController {
             self.requestVideos()
         }
         
-        
         if let mealImage = self.meals?.strMealThumb {
             self.mealImageView.sd_setImage(with: URL(string: mealImage), completed: nil)
         }
-        
         self.title = self.meals?.mealName
-        self.methodLabel.text = self.meals?.strInstructions
-        let addToWatchLaterBarButtonItem = UIBarButtonItem(title: Constants.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
-        self.navigationItem.rightBarButtonItem = addToWatchLaterBarButtonItem
+        self.instructionsLabel.text = self.meals?.strInstructions
+        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+        self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
     }
     
     func requestVideos (){
@@ -69,4 +66,16 @@ class RandomMealDetailViewController: UIViewController {
             realm?.add(mealsRealm)
         }
     }
+    @IBAction func loadSiteInSafariButtonPressed(_ sender: Any) {
+        
+        if let optionalStringURL = self.meals?.strSource{
+            let stringUrl = String(describing: optionalStringURL)
+            let url = URL(string: stringUrl)!
+               let config = SFSafariViewController.Configuration()
+               config.entersReaderIfAvailable = true
+
+               let vc = SFSafariViewController(url: url, configuration: config)
+               present(vc, animated: true)
+           }
+       }
 }

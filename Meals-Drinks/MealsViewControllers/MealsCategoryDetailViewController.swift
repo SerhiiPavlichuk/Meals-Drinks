@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Alamofire
 
 
 
@@ -19,9 +18,7 @@ class MealsCategoryDetailViewController: UIViewController {
     var mealsInCategory: [MealsInCategory] = []
     var mealsInCategoryForIdReuest: MealsInCategory? = nil
     var mealCategory: MealsCategory? = nil
-    var detailMeal: [DetailMealInformation] = []
-    var responcedetailmeal: DetailMealInformation? = nil
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,35 +26,13 @@ class MealsCategoryDetailViewController: UIViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
         self.title = self.mealCategory?.nameCategory
-//        self.requestMealsInCategory()
         
-        NetworkManagerForUrlWithTwoPath.shared.requestMealsInCategory(completion: { mealsInCategory in
+        MealsNetworkManager.shared.requestMealsInCategory(mealCategory: mealCategory, completion: {
+            mealsInCategory in
             self.mealsInCategory = mealsInCategory ?? []
-            self.tableView.reloadData()
-                   
-               })
-        
-        
+                       self.tableView.reloadData()
+        })
     }
-    
-//    func requestMealsInCategory(){
-//
-//        if let categoryNameForURL = mealCategory?.nameCategory{
-//            let stringID = String(describing : categoryNameForURL)
-//            let url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(stringID)"
-//
-//            AF.request(url).responseJSON { responce in
-//
-//                let decoder = JSONDecoder()
-//
-//                if let data = try? decoder.decode(OpenMealCategory.self, from: responce.data!) {
-//                    self.mealsInCategory = data.mealsInCategory ?? []
-//                    self.tableView.reloadData()
-//
-//                }
-//            }
-//        }
-//    }
 }
 
 extension MealsCategoryDetailViewController: UITableViewDataSource{
