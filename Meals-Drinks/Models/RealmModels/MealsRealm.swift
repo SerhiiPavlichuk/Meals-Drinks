@@ -16,5 +16,4 @@ class MealsRealm: Object {
     @objc dynamic var strMealThumb = ""
     @objc dynamic var strYoutube = ""
     @objc dynamic var strSource = ""
-
 }

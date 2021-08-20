@@ -8,17 +8,13 @@
 import Foundation
 import UIKit
 
-
-
 class MealsCategoryDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-   
     var mealsInCategory: [MealsInCategory] = []
-    var mealsInCategoryForIdReuest: MealsInCategory? = nil
     var mealCategory: MealsCategory? = nil
-
+    var detailMealArray: [DetailMealInformation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +26,17 @@ class MealsCategoryDetailViewController: UIViewController {
         MealsNetworkManager.shared.requestMealsInCategory(mealCategory: mealCategory, completion: {
             mealsInCategory in
             self.mealsInCategory = mealsInCategory ?? []
-                       self.tableView.reloadData()
+            self.tableView.reloadData()
         })
     }
 }
 
 extension MealsCategoryDetailViewController: UITableViewDataSource{
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.mealsInCategory.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
             return UITableViewCell()
@@ -48,7 +44,6 @@ extension MealsCategoryDetailViewController: UITableViewDataSource{
         cell.textLabel?.text = self.mealsInCategory[indexPath.row].strMeal
         return cell
     }
-
 }
 
 extension MealsCategoryDetailViewController: UITableViewDelegate {

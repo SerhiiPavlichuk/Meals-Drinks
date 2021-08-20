@@ -9,21 +9,18 @@ import UIKit
 
 class RandomDrinksCollectionViewCell: UICollectionViewCell {
     
-    var randomDrinks: RandomDrinks? = nil
-    
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var cellLabelView: UILabel!
     
-    
+    var randomDrinks: RandomDrinks? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
     }
+    
     override func layoutSubviews() {
-          super.layoutSubviews()
-          
-          self.cellImageView.layer.cornerRadius = self.cellImageView.frame.height / 2
-          
-      }
-  }
+        super.layoutSubviews()
+        
+        self.cellImageView.layer.cornerRadius = self.cellImageView.frame.height / 2
+    }
+}

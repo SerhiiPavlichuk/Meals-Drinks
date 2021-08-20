@@ -7,12 +7,10 @@
 
 import UIKit
 
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     var randomMeals: [MealInformation] = []
     var mealCategory: [MealsCategory] = []
@@ -25,7 +23,6 @@ class ViewController: UIViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.collectionView.register(UINib(nibName: randomMealCollectionViewCellIdentifier, bundle: nil),
                                      forCellWithReuseIdentifier: randomMealCollectionViewCellIdentifier)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,15 +33,14 @@ class ViewController: UIViewController {
             self.collectionView.reloadData()
             
         })
-    
+        
         MealsNetworkManager.shared.requestMealCategory(completion: { mealCategory in
             self.mealCategory = mealCategory
             self.tableView.reloadData()
             
         })
-     }
+    }
 }
-    
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,10 +80,8 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
         let urlBase = randomMeals[indexPath.row].strMealThumb!
         let imageUrl = URL(string: urlBase)!
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RandomMealCollectionViewCell", for: indexPath) as! RandomMealCollectionViewCell
         cell.cellLabelView.text = randomMeals[indexPath.row].mealName
         cell.cellImageView.sd_setImage(with: imageUrl) { (image, erro, cache, url) in
@@ -110,12 +104,12 @@ extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let identifier = String(describing: RandomMealDetailViewController.self)
-
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? RandomMealDetailViewController {
-
+            
             detailViewController.meals = self.randomMeals[indexPath.row]
-
+            
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }

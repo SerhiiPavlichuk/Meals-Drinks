@@ -1,20 +1,20 @@
 //
-//  CookMealLaterViewController.swift
+//  CookDrinkLaterViewController.swift
 //  Meals-Drinks
 //
-//  Created by admin on 16.08.2021.
+//  Created by admin on 18.08.2021.
 //
 
 import Foundation
 import UIKit
 import RealmSwift
 
-class CookMealLaterViewController: UIViewController {
+class CookDrinkLaterFromRandomSheetViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     let realm = try? Realm()
-    var meal: [MealsRealm] = []
+    var drink: [DrinksRealm] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,45 +25,45 @@ class CookMealLaterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.meal = self.getMeals()
+        self.drink = self.getDrinks()
         self.tableView.reloadData()
     }
     
-    func getMeals() -> [MealsRealm] {
+    func getDrinks() -> [DrinksRealm] {
         
-        var meals = [MealsRealm]()
-        guard let mealsResult = realm?.objects(MealsRealm.self) else { return [] }
-        for meal in mealsResult {
-            meals.append(meal)
+        var drinks = [DrinksRealm]()
+        guard let drinksResult = realm?.objects(DrinksRealm.self) else { return [] }
+        for drink in drinksResult {
+            drinks.append(drink)
         }
-        return meals
+        return drinks
     }
 }
 
-extension CookMealLaterViewController: UITableViewDataSource{
+extension CookDrinkLaterFromRandomSheetViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meal.count
+        return drink.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = self.meal[indexPath.row].mealName
+        cell?.textLabel?.text = self.drink[indexPath.row].strDrink
         
         return cell ?? UITableViewCell()
     }
 }
 
-extension CookMealLaterViewController: UITableViewDelegate{
+extension CookDrinkLaterFromRandomSheetViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            let item = meal[indexPath.row]
+            let item = drink[indexPath.row]
             tableView.beginUpdates()
-            meal.remove(at: indexPath.row)
+            drink.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
             let realm = try! Realm()
@@ -74,14 +74,15 @@ extension CookMealLaterViewController: UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let identifier = String(describing: CoockLaterDetailMealViewController.self)
+        let identifier = String(describing: CoockLaterDetailDrinkViewController.self)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? CoockLaterDetailMealViewController {
+        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? CoockLaterDetailDrinkViewController {
             
-            detailViewController.meal = self.meal[indexPath.row]
+            detailViewController.drink = self.drink[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
 }
+

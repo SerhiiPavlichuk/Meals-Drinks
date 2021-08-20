@@ -8,27 +8,21 @@
 import Foundation
 import UIKit
 import SDWebImage
-import youtube_ios_player_helper
 import RealmSwift
 import SafariServices
-
 
 class RandomDrinkDetailViewController: UIViewController {
     
     let realm = try? Realm()
     
-    
     @IBOutlet weak var drinkImageView: UIImageView!
     @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var ingredientsTextView: UITextView!
     
     var drink : RandomDrinks? = nil
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         if let drinkImage = self.drink?.strDrinkThumb {
             self.drinkImageView.sd_setImage(with: URL(string: drinkImage), completed: nil)
@@ -39,8 +33,6 @@ class RandomDrinkDetailViewController: UIViewController {
         let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.RandomDrinkDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
         self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
     }
-    
-    
     
     @objc func addToCookLaterButtonPressed(){
         
@@ -65,6 +57,5 @@ class RandomDrinkDetailViewController: UIViewController {
         let vc = SFSafariViewController(url: url, configuration: config)
         present(vc, animated: true)
     }
-    
 }
 
