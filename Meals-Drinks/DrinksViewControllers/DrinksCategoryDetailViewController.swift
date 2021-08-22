@@ -14,7 +14,7 @@ class DrinksCategoryDetailViewController: UIViewController {
     
     var drinksInCategory: [DrinksInCategory] = []
     var drinksCategory: DrinksCategory? = nil
-    //    var detailMealArray: [DetailMealInformation] = []
+    var drinkArray: [DetailDrinkInformation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,21 +45,21 @@ extension DrinksCategoryDetailViewController: UITableViewDataSource{
     }
 }
 
-//extension DrinksCategoryDetailViewController: UITableViewDelegate {
-//    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        let identifier = String(describing: MealDetailViewController.self)
-//        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? MealDetailViewController {
-//            
-//            detailViewController.mealForCategory = self.mealsInCategory[indexPath.row]
-//            
-//            self.navigationController?.pushViewController(detailViewController, animated: true)
-//        }
-//    }
-//}
+extension DrinksCategoryDetailViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let identifier = String(describing: DrinkDetailViewController.self)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? DrinkDetailViewController {
+            
+            detailViewController.drinkInCategory = self.drinksInCategory[indexPath.row]
+            
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
+    }
+}
 
 
 

@@ -13,13 +13,12 @@ import SafariServices
 
 class RandomDrinkDetailViewController: UIViewController {
     
-    let realm = try? Realm()
-    
     @IBOutlet weak var drinkImageView: UIImageView!
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var ingredientsTextView: UITextView!
     
     var drink : RandomDrinks? = nil
+    let realm = try? Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 
+
 struct DrinksNetworkManager {
     
     static let shared = DrinksNetworkManager()
@@ -41,7 +42,8 @@ struct DrinksNetworkManager {
         
         if let categoryNameForURL = drinkCategory?.strCategory{
             let stringID = String(describing : categoryNameForURL)
-            let url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=\(stringID)"
+            let urlString = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=\(stringID)"
+            let url = urlString.replacingOccurrences(of: " ", with: "%20")
             
             AF.request(url).responseJSON { responce in
                 let decoder = JSONDecoder()
@@ -52,22 +54,19 @@ struct DrinksNetworkManager {
             }
         }
     }
-    //    func detailMealRequest(mealId: MealsInCategory?, completion: @escaping(([DetailMealInformation]?) -> ())) {
-    //
-    //        if let mealIdForUrl = mealId?.idMeal{
-    //            let stringID = String(describing : mealIdForUrl)
-    //            let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
-    //
-    //            AF.request(url).responseJSON { responce in
-    //
-    //                let decoder = JSONDecoder()
-    //
-    //                if let data = try? decoder.decode(Meal.self, from: responce.data!) {
-    //                    let detailMeal = data.meal ?? []
-    //                    completion(detailMeal)
-    //
-    //                }
-    //            }
-    //        }
-    //    }
+    func detailDrinkRequest(drinkId: DrinksInCategory?, completion: @escaping(([DetailDrinkInformation]?) -> ())) {
+        
+        if let drinkIdforUrl = drinkId?.idDrink{
+            let stringID = String(describing : drinkIdforUrl)
+            let url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=\(stringID)"
+            
+            AF.request(url).responseJSON { responce in
+                let decoder = JSONDecoder()
+                if let data = try? decoder.decode(Drink.self, from: responce.data!) {
+                    let detailDrink = data.drink ?? []
+                    completion(detailDrink)
+                }
+            }
+        }
+    }
 }
