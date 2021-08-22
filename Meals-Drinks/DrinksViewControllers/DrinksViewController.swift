@@ -19,11 +19,16 @@ class DrinksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let randomDrinksCollectionViewCellIdentifier = String(describing: RandomDrinksCollectionViewCell.self)
+        let categoryDrinksCollectionViewCellIdentifier = String(describing: CategoryDrinksCollectionViewCell.self)
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        self.collectionView.register(UINib(nibName: randomDrinksCollectionViewCellIdentifier, bundle: nil),
-                                     forCellWithReuseIdentifier: randomDrinksCollectionViewCellIdentifier)
+        self.collectionView.register(UINib(nibName: categoryDrinksCollectionViewCellIdentifier, bundle: nil),
+                                     forCellWithReuseIdentifier: categoryDrinksCollectionViewCellIdentifier)
+        
+        DrinksNetworkManager.shared.requestDrinkCategory(completion: { drinksCategory in
+               self.drinksCategory = drinksCategory
+               self.collectionView.reloadData()
+           })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,11 +36,6 @@ class DrinksViewController: UIViewController {
         
         DrinksNetworkManager.shared.requestRandomDrinks(completion: { randomDrinks in
             self.randomDrinks = randomDrinks
-            self.collectionView.reloadData()
-        })
-        
-        DrinksNetworkManager.shared.requestDrinkCategory(completion: { drinksCategory in
-            self.drinksCategory = drinksCategory
             self.tableView.reloadData()
         })
     }
@@ -43,14 +43,14 @@ class DrinksViewController: UIViewController {
 
 extension DrinksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.drinksCategory.count
+        return self.randomDrinks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
             return UITableViewCell()
         }
-        cell.textLabel?.text = self.drinksCategory[indexPath.row].strCategory
+        cell.textLabel?.text = self.randomDrinks[indexPath.row].strDrink
         return cell
     }
 }
@@ -59,12 +59,12 @@ extension DrinksViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let identifier = String(describing: DrinksCategoryDetailViewController.self)
+        let identifier = String(describing: RandomDrinkDetailViewController.self)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? DrinksCategoryDetailViewController {
+        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? RandomDrinkDetailViewController {
             
-            detailViewController.drinksCategory = self.drinksCategory[indexPath.row]
+            detailViewController.drink = self.randomDrinks[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
@@ -74,18 +74,18 @@ extension DrinksViewController: UITableViewDelegate {
 extension DrinksViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.randomDrinks.count
+        return self.drinksCategory.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let urlBase = randomDrinks[indexPath.row].strDrinkThumb!
-        let imageUrl = URL(string: urlBase)!
+//        let urlBase = drinksCategory[indexPath.row].strDrinkThumb!
+//        let imageUrl = URL(string: urlBase)!
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RandomDrinksCollectionViewCell", for: indexPath) as! RandomDrinksCollectionViewCell
-        cell.cellLabelView.text = randomDrinks[indexPath.row].strDrink
-        cell.cellImageView.sd_setImage(with: imageUrl) { (image, erro, cache, url) in
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryDrinksCollectionViewCell", for: indexPath) as! CategoryDrinksCollectionViewCell
+        cell.cellLabelView.text = drinksCategory[indexPath.row].strCategory
+//        cell.cellImageView.sd_setImage(with: imageUrl) { (image, erro, cache, url) in
+//        }
         return (cell)
     }
 }
@@ -102,12 +102,12 @@ extension DrinksViewController : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let identifier = String(describing: RandomDrinkDetailViewController.self)
+        let identifier = String(describing: DrinksCategoryDetailViewController.self)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? RandomDrinkDetailViewController {
+        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? DrinksCategoryDetailViewController {
             
-            detailViewController.drink = self.randomDrinks[indexPath.row]
+            detailViewController.drinksCategory = self.drinksCategory[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }

@@ -1,18 +1,18 @@
 //
-//  CategoryCollectionViewCell.swift
+//  RandomDrinksCollectionViewCell.swift
 //  Meals-Drinks
 //
-//  Created by admin on 09.08.2021.
+//  Created by admin on 18.08.2021.
 //
 
 import UIKit
 
-class RandomMealCollectionViewCell: UICollectionViewCell {
+class CategoryDrinksCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var cellLabelView: UILabel!
     
-    var randomMeal: MealInformation? = nil
+    var categoryDrinks: DrinksCategory? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()

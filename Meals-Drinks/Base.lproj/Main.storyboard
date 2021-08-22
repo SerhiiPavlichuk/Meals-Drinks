@@ -891,7 +891,6 @@
         <!--Coock Later Detail Drink View Controller-->
         <scene sceneID="rgG-MH-0x0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uEh-Za-Ox2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CoockLaterDetailDrinkViewController" id="3HI-ty-3av" customClass="CoockLaterDetailDrinkViewController" customModule="Meals_Drinks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6VX-v0-Pys">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -1007,13 +1006,13 @@
                         <outlet property="instructionsLabel" destination="Dhv-62-F3T" id="tyz-Ky-pz2"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uEh-Za-Ox2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4406" y="1780"/>
         </scene>
         <!--Drink Detail View Controller-->
         <scene sceneID="4EO-ui-kQP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RYO-MT-uyJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DrinkDetailViewController" id="wm2-yw-KWu" customClass="DrinkDetailViewController" customModule="Meals_Drinks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xZ1-Bb-f0b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -1052,7 +1051,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CM7-kH-qBr">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CM7-kH-qBr">
                                                 <rect key="frame" x="16" y="296" width="382" height="135.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -1129,6 +1128,7 @@
                         <outlet property="instructionsLabel" destination="MYP-RW-N5y" id="7xP-Ea-y6h"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RYO-MT-uyJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4406" y="2527"/>
         </scene>

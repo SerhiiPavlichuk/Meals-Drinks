@@ -24,6 +24,7 @@ class DrinkDetailViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            
             DrinksNetworkManager.shared.detailDrinkRequest(drinkId: drinkInCategory, completion: {
                 detailDrink in
                 let dataArray = detailDrink ?? []
@@ -31,12 +32,29 @@ class DrinkDetailViewController: UIViewController {
                 
                 self.displayDrinkDetailInformation(detailDrinkResponce)
                 self.detailDrink = detailDrinkResponce
+                
+                var text = ""
+                for i in 1...10 {
+                    text += detailDrinkResponce?.strIngredient1 ?? "" + "\n"
+                    text += detailDrinkResponce?.strIngredient2 ?? "" + "\n"
+                    text += detailDrinkResponce?.strIngredient3 ?? "" + "\n"
+                    text += detailDrinkResponce?.strIngredient4 ?? "" + "\n"
+                    text += detailDrinkResponce?.strIngredient5 ?? "" + "\n"
+                    text += detailDrinkResponce?.strIngredient6 ?? "" + "\n"
+                    text += detailDrinkResponce?.strIngredient7 ?? "" + "\n"
+                    text += detailDrinkResponce?.strIngredient8 ?? "" + "\n"
+                    text += detailDrinkResponce?.strIngredient9 ?? "" + "\n"
+                    text += detailDrinkResponce?.strIngredient10 ?? "" + "\n"
+
+                self.ingredientsTextView.text = text
+                }
+               
             })
             
             let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
             self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
         }
-        
+    
         func displayDrinkDetailInformation(_ drink: DetailDrinkInformation?) {
             
             self.title = self.drinkInCategory?.strDrink
@@ -45,7 +63,7 @@ class DrinkDetailViewController: UIViewController {
                 self.drinkImageView.sd_setImage(with: URL(string: drinkImage), completed: nil)
             }
         }
-
+    
     @IBAction func loadSiteInSafariButtonPressed(_ sender: Any) {
         
         let url = URL(string: "https://iba-world.com/")!
