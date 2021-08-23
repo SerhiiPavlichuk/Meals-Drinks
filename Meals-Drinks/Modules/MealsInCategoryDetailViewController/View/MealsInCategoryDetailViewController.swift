@@ -8,45 +8,39 @@
 import Foundation
 import UIKit
 
-class MealsCategoryDetailViewController: UIViewController {
+class MealsInCategoryDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var mealsInCategory: [MealsInCategory] = []
-    var mealCategory: MealsCategory? = nil
-    var detailMealArray: [DetailMealInformation] = []
+    var viewModel: MealsInCategoryDetailViewModel = MealsInCategoryDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        
-        self.title = self.mealCategory?.nameCategory
-        
-        MealsNetworkManager.shared.requestMealsInCategory(mealCategory: mealCategory, completion: {
-            mealsInCategory in
-            self.mealsInCategory = mealsInCategory ?? []
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
+        self.title = self.viewModel.mealCategory?.nameCategory
+        self.viewModel.loadMealsInCategory(completion: {
             self.tableView.reloadData()
         })
     }
 }
 
-extension MealsCategoryDetailViewController: UITableViewDataSource{
+extension MealsInCategoryDetailViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.mealsInCategory.count
+        return self.viewModel.mealsInCategory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ui.defaultCellIdentifier) else {
             return UITableViewCell()
         }
-        cell.textLabel?.text = self.mealsInCategory[indexPath.row].strMeal
+        cell.textLabel?.text = self.viewModel.mealsInCategory[indexPath.row].strMeal
         return cell
     }
 }
 
-extension MealsCategoryDetailViewController: UITableViewDelegate {
+extension MealsInCategoryDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -55,7 +49,7 @@ extension MealsCategoryDetailViewController: UITableViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? MealDetailViewController {
             
-            detailViewController.mealForCategory = self.mealsInCategory[indexPath.row]
+            detailViewController.viewModel.mealForCategory = self.viewModel.mealsInCategory[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }

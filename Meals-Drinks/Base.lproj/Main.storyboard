@@ -374,7 +374,7 @@
         <!--Item-->
         <scene sceneID="1c9-Ss-onb">
             <objects>
-                <viewController storyboardIdentifier="MealsCategoryDetailViewController" id="4HC-id-hPQ" customClass="MealsCategoryDetailViewController" customModule="Meals_Drinks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MealsInCategoryDetailViewController" id="4HC-id-hPQ" customClass="MealsInCategoryDetailViewController" customModule="Meals_Drinks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eKE-Ts-XI3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

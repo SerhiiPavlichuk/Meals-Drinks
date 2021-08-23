@@ -10,7 +10,6 @@ import UIKit
 import youtube_ios_player_helper
 import SDWebImage
 import SafariServices
-import RealmSwift
 
 class MealDetailViewController: UIViewController {
     
@@ -18,34 +17,27 @@ class MealDetailViewController: UIViewController {
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var videoPlayer: YTPlayerView!
     
-    var detailMeal: DetailMealInformation? = nil
-    var mealForCategory: MealsInCategory? = nil
-    let realm = try? Realm()
+    var viewModel: MealDetailViewModel = MealDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        MealsNetworkManager.shared.detailMealRequest(mealId: mealForCategory, completion: {
-            detailMeal in
-            let dataArray = detailMeal ?? []
-            let detailMealResponce = dataArray.first
-            
-            self.displayMealDetailInformation(detailMealResponce)
-            self.detailMeal = detailMealResponce
+        self.viewModel.loadDetailMeal(completion: {
+            self.displayMealDetailInformation()
         })
         
         let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
         self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
     }
     
-    func displayMealDetailInformation(_ meal: DetailMealInformation?) {
+    func displayMealDetailInformation() {
         
-        self.title = self.mealForCategory?.strMeal
-        self.instructionsLabel.text = meal?.strInstructions
-        if let mealImage = meal?.strMealThumb {
+        self.title = self.viewModel.mealForCategory?.strMeal
+        self.instructionsLabel.text = self.viewModel.detailMeal?.strInstructions
+        if let mealImage = self.viewModel.detailMeal?.strMealThumb {
             self.mealImageView.sd_setImage(with: URL(string: mealImage), completed: nil)
         }
-        if let videoURL = meal?.strYoutube {
+        if let videoURL = self.viewModel.detailMeal?.strYoutube {
             self.requestVideos(with: videoURL)
         }
     }
@@ -60,9 +52,9 @@ class MealDetailViewController: UIViewController {
             self.videoPlayer.load(withVideoId: String(id))
         }
     }
-
+    
     @IBAction func loadSiteInSafaryButtonPressed(_ sender: Any) {
-        if let optionalStringURL = self.detailMeal?.strSource {
+        if let optionalStringURL = self.viewModel.detailMeal?.strSource {
             let stringUrl = String(describing: optionalStringURL)
             let url = URL(string: stringUrl)!
             let config = SFSafariViewController.Configuration()
@@ -74,17 +66,16 @@ class MealDetailViewController: UIViewController {
     
     @objc func addToCookLaterButtonPressed(){
         
-        let mealsRealm = MealsRealm()
-        mealsRealm.idMeal = self.detailMeal?.idMeal ?? ""
-        mealsRealm.mealName = self.detailMeal?.mealName ?? ""
-        mealsRealm.mealCategory = self.detailMeal?.mealCategory ?? ""
-        mealsRealm.strInstructions = self.detailMeal?.strInstructions ?? ""
-        mealsRealm.strMealThumb = self.detailMeal?.strMealThumb ?? ""
-        mealsRealm.strYoutube = self.detailMeal?.strYoutube ?? ""
-        mealsRealm.strSource = self.detailMeal?.strSource ?? ""
-        
-        try? realm?.write {
-            realm?.add(mealsRealm)
-        }
+        self.viewModel.saveDetailMealRealm(self.viewModel.detailMeal, completion: {
+            
+            let alert = UIAlertController(title: Constants.ui.mealSavedMessage,
+                                          message: nil,
+                                          preferredStyle: UIAlertController.Style.alert)
+            
+            alert.addAction(UIAlertAction(title: Constants.ui.okMessage,
+                                          style: UIAlertAction.Style.default,
+                                          handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        })
     }
 }

@@ -17,7 +17,7 @@ class RandomMealDetailViewModel {
             return
         }
         
-        MealsDataManager.shared.saveMeal(meal, completion: completion)
+        MealsDataManager.shared.saveRandomMeal(meal, completion: completion)
     }
 }
 

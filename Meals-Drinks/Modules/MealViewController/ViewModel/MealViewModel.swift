@@ -13,7 +13,7 @@ class MealViewModel {
     let realm = try? Realm()
     var randomMeals: [MealInformation] = []
     var mealCategories: [MealsCategory] = []
-
+    
     func loadRandomMeals(completion: @escaping(() -> ())) {
         MealsNetworkManager.shared.requestRandomMeals(completion: { randomMeals in
             self.randomMeals = randomMeals

@@ -16,7 +16,7 @@ struct MealsDataManager {
 
     private init() { }
     
-    func saveMeal(_ meal: MealInformation, completion: @escaping(() -> ())) {
+    func saveRandomMeal(_ meal: MealInformation, completion: @escaping(() -> ())) {
         
         let mealRealm = MealsRealm()
         
@@ -33,6 +33,24 @@ struct MealsDataManager {
         }
         completion()
     }
+    
+    func saveDetailMeal(_ meal: DetailMealInformation, completion: @escaping(() -> ())) {
+         
+         let mealRealm = MealsRealm()
+         
+         mealRealm.idMeal = meal.idMeal ?? ""
+         mealRealm.mealName = meal.mealName ?? ""
+         mealRealm.mealCategory = meal.mealCategory ?? ""
+         mealRealm.strInstructions = meal.strInstructions ?? ""
+         mealRealm.strMealThumb = meal.strMealThumb ?? ""
+         mealRealm.strYoutube = meal.strYoutube ?? ""
+         mealRealm.strSource = meal.strSource ?? ""
+
+         try? realm?.write {
+             realm?.add(mealRealm)
+         }
+         completion()
+     }
     
     func getAllMeals(completion: ([MealInformation])->()) {
         
