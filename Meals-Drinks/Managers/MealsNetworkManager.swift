@@ -14,7 +14,7 @@ struct MealsNetworkManager {
     
     func requestRandomMeals(completion: @escaping(([MealInformation]) -> ())){
         
-        let url = "https://www.themealdb.com/api/json/v2/9973533/randomselection.php"
+        let url = Constants.network.randomMealPath + Constants.network.apiKey + Constants.network.randomMealSecondPath
         
         AF.request(url).responseJSON { responce in
             let decoder = JSONDecoder()
@@ -27,7 +27,7 @@ struct MealsNetworkManager {
     
     func requestMealCategory(completion: @escaping(([MealsCategory]) -> ())) {
         
-        let url = "https://www.themealdb.com/api/json/v1/1/categories.php"
+        let url = Constants.network.mealcategoryUrl
         
         AF.request(url).responseJSON { responce in
             let decoder = JSONDecoder()
@@ -41,7 +41,7 @@ struct MealsNetworkManager {
         
         if let categoryNameForURL = mealCategory?.nameCategory{
             let stringID = String(describing : categoryNameForURL)
-            let url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(stringID)"
+            let url = Constants.network.mealsInCategoryPath + "c=\(stringID)"
             
             AF.request(url).responseJSON { responce in
                 let decoder = JSONDecoder()
@@ -56,7 +56,7 @@ struct MealsNetworkManager {
         
         if let mealIdForUrl = mealId?.idMeal{
             let stringID = String(describing : mealIdForUrl)
-            let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(stringID)"
+            let url = Constants.network.detailMealPath + "i=\(stringID)"
             
             AF.request(url).responseJSON { responce in
                 let decoder = JSONDecoder()

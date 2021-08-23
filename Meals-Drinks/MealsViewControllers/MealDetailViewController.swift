@@ -34,7 +34,7 @@ class MealDetailViewController: UIViewController {
             self.detailMeal = detailMealResponce
         })
         
-        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
         self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
     }
     

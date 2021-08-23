@@ -78,14 +78,9 @@ extension DrinksViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-//        let urlBase = drinksCategory[indexPath.row].strDrinkThumb!
-//        let imageUrl = URL(string: urlBase)!
-        
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryDrinksCollectionViewCell", for: indexPath) as! CategoryDrinksCollectionViewCell
         cell.cellLabelView.text = drinksCategory[indexPath.row].strCategory
-//        cell.cellImageView.sd_setImage(with: imageUrl) { (image, erro, cache, url) in
-//        }
         return (cell)
     }
 }

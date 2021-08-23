@@ -170,5 +170,13 @@ struct MealInformation : Codable {
 		strCreativeCommonsConfirmed = try values.decodeIfPresent(String.self, forKey: .strCreativeCommonsConfirmed)
 		dateModified = try values.decodeIfPresent(String.self, forKey: .dateModified)
 	}
-
+//    init(from mealRealm: MealsRealm) {
+//        self.idMeal = mealRealm.idMeal
+//        self.mealName = mealRealm.mealName
+//        self.mealCategory = mealRealm.mealCategory
+//        self.strInstructions = mealRealm.strInstructions
+//        self.strMealThumb = mealRealm.strMealThumb
+//        self.strYoutube = mealRealm.strYoutube
+//        self.strSource = mealRealm.strSource
+//    }
 }

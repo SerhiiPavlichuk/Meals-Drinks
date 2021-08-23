@@ -48,10 +48,9 @@ class DrinkDetailViewController: UIViewController {
 
                 self.ingredientsTextView.text = text
                 }
-               
             })
             
-            let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+            let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
             self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
         }
     

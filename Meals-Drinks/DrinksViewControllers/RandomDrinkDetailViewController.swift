@@ -29,8 +29,24 @@ class RandomDrinkDetailViewController: UIViewController {
         self.title = self.drink?.strDrink
         self.instructionsLabel.text = self.drink?.strInstructions
         
-        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.RandomDrinkDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDrinkDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
         self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
+        
+        var text = ""
+        for i in 1...10 {
+            text += drink?.strIngredient1 ?? "" + "\n"
+            text += drink?.strIngredient2 ?? "" + "\n"
+            text += drink?.strIngredient3 ?? "" + "\n"
+            text += drink?.strIngredient4 ?? "" + "\n"
+            text += drink?.strIngredient5 ?? "" + "\n"
+            text += drink?.strIngredient6 ?? "" + "\n"
+            text += drink?.strIngredient7 ?? "" + "\n"
+            text += drink?.strIngredient8 ?? "" + "\n"
+            text += drink?.strIngredient9 ?? "" + "\n"
+            text += drink?.strIngredient10 ?? "" + "\n"
+            
+            self.ingredientsTextView.text = text
+        }
     }
     
     @objc func addToCookLaterButtonPressed(){
