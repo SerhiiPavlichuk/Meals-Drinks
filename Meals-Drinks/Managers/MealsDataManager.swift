@@ -1,58 +1,58 @@
-////
-////  MealsDataManager.swift
-////  Meals-Drinks
-////
-////  Created by admin on 22.08.2021.
-////
 //
-//import Foundation
-//import RealmSwift
+//  MealsDataManager.swift
+//  Meals-Drinks
 //
-//struct MealsDataManager {
-//    
-//    let realm = try? Realm()
+//  Created by admin on 22.08.2021.
 //
-//    static let shared = MealsDataManager()
-//
-//    private init() { }
-//    
-//    func saveMovie(_ movie: Movie, completion: @escaping(() -> ())) {
-//        
-//        let movieRealm = MovieRealm()
-//        
-//        movieRealm.title = movie.title ?? ""
-//        movieRealm.popularity = movie.popularity ?? 0.0
-//        movieRealm.overview = movie.overview ?? ""
-//        movieRealm.id = movie.id ?? 0
-//        movieRealm.backdropPath = movie.backdropPath ?? ""
-//        movieRealm.mediaType = movie.mediaType ?? ""
-//        movieRealm.posterPath = movie.posterPath ?? ""
-//
-//        try? realm?.write {
-//            realm?.add(movieRealm)
-//        }
-//        completion()
-//    }
-//    
-//    func getAllMovies(completion: ([Movie])->()) {
-//        
-//        var moviesRealm = [MovieRealm]()
-//        guard let movieResults = realm?.objects(MovieRealm.self) else { return }
-//        for movie in movieResults {
-//            moviesRealm.append(movie)
-//        }
-//        
-//        completion(convertToMoviesList(moviesRealm: moviesRealm))
-//    }
-//    
-//    private func convertToMoviesList(moviesRealm: [MovieRealm]) -> [Movie] {
-//
-//        var movies = [Movie]()
-//        for movieRealm in moviesRealm {
-//            let movie = Movie(from: movieRealm)
-//            movies.append(movie)
-//        }
-//        return movies
-//    }
-//}
-//
+
+import Foundation
+import RealmSwift
+
+struct MealsDataManager {
+    
+    let realm = try? Realm()
+
+    static let shared = MealsDataManager()
+
+    private init() { }
+    
+    func saveMeal(_ meal: MealInformation, completion: @escaping(() -> ())) {
+        
+        let mealRealm = MealsRealm()
+        
+        mealRealm.idMeal = meal.idMeal ?? ""
+        mealRealm.mealName = meal.mealName ?? ""
+        mealRealm.mealCategory = meal.mealCategory ?? ""
+        mealRealm.strInstructions = meal.strInstructions ?? ""
+        mealRealm.strMealThumb = meal.strMealThumb ?? ""
+        mealRealm.strYoutube = meal.strYoutube ?? ""
+        mealRealm.strSource = meal.strSource ?? ""
+
+        try? realm?.write {
+            realm?.add(mealRealm)
+        }
+        completion()
+    }
+    
+    func getAllMeals(completion: ([MealInformation])->()) {
+        
+        var mealsRealm = [MealsRealm]()
+        guard let mealsResult = realm?.objects(MealsRealm.self) else { return }
+        for meal in mealsResult {
+            mealsRealm.append(meal)
+        }
+        
+        completion(convertToMealsList(mealsRealm: mealsRealm))
+    }
+    
+    private func convertToMealsList(mealsRealm: [MealsRealm]) -> [MealInformation] {
+
+        var meals = [MealInformation]()
+        for mealRealm in mealsRealm {
+            let meal = MealInformation(from: mealRealm)
+            meals.append(meal)
+        }
+        return meals
+    }
+}
+

@@ -76,8 +76,8 @@ class MealDetailViewController: UIViewController {
         
         let mealsRealm = MealsRealm()
         mealsRealm.idMeal = self.detailMeal?.idMeal ?? ""
-        mealsRealm.mealName = self.detailMeal?.strMeal ?? ""
-        mealsRealm.mealCategory = self.detailMeal?.strCategory ?? ""
+        mealsRealm.mealName = self.detailMeal?.mealName ?? ""
+        mealsRealm.mealCategory = self.detailMeal?.mealCategory ?? ""
         mealsRealm.strInstructions = self.detailMeal?.strInstructions ?? ""
         mealsRealm.strMealThumb = self.detailMeal?.strMealThumb ?? ""
         mealsRealm.strYoutube = self.detailMeal?.strYoutube ?? ""

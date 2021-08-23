@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import SDWebImage
 import youtube_ios_player_helper
-import RealmSwift
 import SafariServices
 
 class RandomMealDetailViewController: UIViewController {
@@ -18,53 +17,52 @@ class RandomMealDetailViewController: UIViewController {
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var videoPlayer: YTPlayerView!
     
-    let realm = try? Realm()
-    var meals: MealInformation? = nil
+    var viewModel: RandomMealDetailViewModel = RandomMealDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let video = self.meals?.strYoutube {
+        if let video = self.viewModel.randomMeal?.strYoutube {
             self.requestVideos()
         }
         
-        if let mealImage = self.meals?.strMealThumb {
+        if let mealImage = self.viewModel.randomMeal?.strMealThumb {
             self.mealImageView.sd_setImage(with: URL(string: mealImage), completed: nil)
         }
         
-        self.title = self.meals?.mealName
-        self.instructionsLabel.text = self.meals?.strInstructions
+        self.title = self.viewModel.randomMeal?.mealName
+        self.instructionsLabel.text = self.viewModel.randomMeal?.strInstructions
+        
         let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
         self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
     }
     
     func requestVideos (){
         
-        var baseUrl = self.meals?.strYoutube
+        let baseUrl = self.viewModel.randomMeal?.strYoutube
         if let range = baseUrl!.range(of: "=") {
             let id = baseUrl![range.upperBound...]
             self.videoPlayer.load(withVideoId: String(id))
         }
     }
-    
     @objc func addToCookLaterButtonPressed(){
-        
-        let mealsRealm = MealsRealm()
-        mealsRealm.idMeal = self.meals?.idMeal ?? ""
-        mealsRealm.mealName = self.meals?.mealName ?? ""
-        mealsRealm.mealCategory = self.meals?.mealCategory ?? ""
-        mealsRealm.strInstructions = self.meals?.strInstructions ?? ""
-        mealsRealm.strMealThumb = self.meals?.strMealThumb ?? ""
-        mealsRealm.strYoutube = self.meals?.strYoutube ?? ""
-        mealsRealm.strSource = self.meals?.strSource ?? ""
-        
-        try? realm?.write {
-            realm?.add(mealsRealm)
-        }
+
+        self.viewModel.saveMealRealm(self.viewModel.randomMeal, completion: {
+
+            let alert = UIAlertController(title: Constants.ui.mealSavedMessage,
+                                          message: nil,
+                                          preferredStyle: UIAlertController.Style.alert)
+
+            alert.addAction(UIAlertAction(title: Constants.ui.okMessage,
+                                          style: UIAlertAction.Style.default,
+                                          handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        })
     }
+    
     @IBAction func loadSiteInSafariButtonPressed(_ sender: Any) {
         
-        if let optionalStringURL = self.meals?.strSource{
+        if let optionalStringURL = self.viewModel.randomMeal?.strSource{
             let stringUrl = String(describing: optionalStringURL)
             let url = URL(string: stringUrl)!
             let config = SFSafariViewController.Configuration()
@@ -74,3 +72,4 @@ class RandomMealDetailViewController: UIViewController {
         }
     }
 }
+

@@ -64,7 +64,7 @@ class MealViewController: UIViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? RandomMealDetailViewController {
                 
-                detailViewController.meals = self.viewModel.randomMeals[indexPath.row]
+                detailViewController.viewModel.randomMeal = self.viewModel.randomMeals[indexPath.row]
                 
                 self.navigationController?.pushViewController(detailViewController, animated: true)
             }
