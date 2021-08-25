@@ -1,7 +1,9 @@
 
 import Foundation
 
-struct DetailDrinkInformation : Codable {
+import Foundation
+
+struct RandomDrinks : Codable {
     let idDrink : String?
     let strDrink : String?
     var strDrinkAlternate : String?

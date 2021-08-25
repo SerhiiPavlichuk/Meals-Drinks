@@ -14,7 +14,7 @@ struct MealsNetworkManager {
     
     func requestRandomMeals(completion: @escaping(([MealInformation]) -> ())){
         
-        let url = Constants.network.randomMealPath + Constants.network.apiKey + Constants.network.randomMealSecondPath
+        let url = Constants.mealNetwork.randomMealPath + Constants.mealNetwork.apiKey + Constants.mealNetwork.randomMealSecondPath
         
         AF.request(url).responseJSON { responce in
             let decoder = JSONDecoder()
@@ -27,7 +27,7 @@ struct MealsNetworkManager {
     
     func requestMealCategory(completion: @escaping(([MealsCategory]) -> ())) {
         
-        let url = Constants.network.mealcategoryUrl
+        let url = Constants.mealNetwork.mealCategoryUrl
         
         AF.request(url).responseJSON { responce in
             let decoder = JSONDecoder()
@@ -41,7 +41,7 @@ struct MealsNetworkManager {
         
         if let categoryNameForURL = mealCategory?.nameCategory{
             let stringID = String(describing : categoryNameForURL)
-            let url = Constants.network.mealsInCategoryPath + "c=\(stringID)"
+            let url = Constants.mealNetwork.mealsInCategoryPath + "c=\(stringID)"
             
             AF.request(url).responseJSON { responce in
                 let decoder = JSONDecoder()
@@ -56,7 +56,7 @@ struct MealsNetworkManager {
         
         if let mealIdForUrl = mealId?.idMeal{
             let stringID = String(describing : mealIdForUrl)
-            let url = Constants.network.detailMealPath + "i=\(stringID)"
+            let url = Constants.mealNetwork.detailMealPath + "i=\(stringID)"
             
             AF.request(url).responseJSON { responce in
                 let decoder = JSONDecoder()

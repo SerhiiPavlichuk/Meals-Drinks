@@ -8,16 +8,25 @@
 import Foundation
 struct Constants {
     
-    struct network {
+    struct mealNetwork {
         
         static let apiKey = "v2/9973533"
         static let randomMealPath = "https://www.themealdb.com/api/json/"
         static let randomMealSecondPath = "/randomselection.php"
-        static let mealcategoryUrl = "https://www.themealdb.com/api/json/v1/1/categories.php"
+        static let mealCategoryUrl = "https://www.themealdb.com/api/json/v1/1/categories.php"
         static let mealsInCategoryPath = "https://www.themealdb.com/api/json/v1/1/filter.php?"
         static let detailMealPath = "https://www.themealdb.com/api/json/v1/1/lookup.php?"
-        static let defaultImagePath = "https://image.tmdb.org/t/p/original/"
-        static let defaultPath = "https://api.themoviedb.org/3/"
+    }
+    struct drinkNetwork {
+        
+        static let apiKey = "v2/9973533"
+        static let randomDrinkPath = "https://www.thecocktaildb.com/api/json/"
+        static let randomDrinkSecondPath = "/randomselection.php"
+        static let drinkCategoryUrl = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
+        static let drinksInCategoryPath = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?"
+        static let detailDrinkPath = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?"
+        static let iBAUrl = "https://iba-world.com/"
+
     }
     
     struct ui {
@@ -25,7 +34,9 @@ struct Constants {
         static let RandomDetailViewControllerBarButtonItem = "Cook Later"
         static let RandomDrinkDetailViewControllerBarButtonItem = "Cook Later"
         static let mealSavedMessage = "Meal saved!"
-        static let okMessage = "Cool 🍲"
+        static let drinkSavedMessage = "Drink saved!"
+        static let okMealMessage = "Ok 🍲" 
+        static let okDrinkMessage = "Ok 🍹"
     }
     
 }

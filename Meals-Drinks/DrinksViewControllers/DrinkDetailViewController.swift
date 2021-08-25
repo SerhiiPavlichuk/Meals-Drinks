@@ -81,7 +81,6 @@ class DrinkDetailViewController: UIViewController {
             drinksRealm.strCategory = self.detailDrink?.strCategory ?? ""
             drinksRealm.strInstructions = self.detailDrink?.strInstructions ?? ""
             drinksRealm.strDrinkThumb = self.detailDrink?.strDrinkThumb ?? ""
-            drinksRealm.strGlass = self.detailDrink?.strGlass ?? ""
             
             try? realm?.write {
                 realm?.add(drinksRealm)

@@ -53,7 +53,7 @@ class RandomMealDetailViewController: UIViewController {
                                           message: nil,
                                           preferredStyle: UIAlertController.Style.alert)
 
-            alert.addAction(UIAlertAction(title: Constants.ui.okMessage,
+            alert.addAction(UIAlertAction(title: Constants.ui.okMealMessage,
                                           style: UIAlertAction.Style.default,
                                           handler: nil))
             self.present(alert, animated: true, completion: nil)
