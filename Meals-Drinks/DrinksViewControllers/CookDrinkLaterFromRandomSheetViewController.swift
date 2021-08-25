@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class CookDrinkLaterFromRandomSheetViewController: UIViewController {
+class CookDrinkLaterViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,7 +40,7 @@ class CookDrinkLaterFromRandomSheetViewController: UIViewController {
     }
 }
 
-extension CookDrinkLaterFromRandomSheetViewController: UITableViewDataSource{
+extension CookDrinkLaterViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return drink.count
     }
@@ -54,7 +54,7 @@ extension CookDrinkLaterFromRandomSheetViewController: UITableViewDataSource{
     }
 }
 
-extension CookDrinkLaterFromRandomSheetViewController: UITableViewDelegate{
+extension CookDrinkLaterViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete

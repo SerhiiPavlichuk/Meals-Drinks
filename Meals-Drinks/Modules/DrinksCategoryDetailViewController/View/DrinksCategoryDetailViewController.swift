@@ -12,35 +12,31 @@ class DrinksCategoryDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var drinksInCategory: [DrinksInCategory] = []
-    var drinksCategory: DrinksCategory? = nil
-    var drinkArray: [DetailDrinkInformation] = []
+    var viewModel: DrinksCategoryDetailViewModel = DrinksCategoryDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        self.title = self.drinksCategory?.strCategory
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
+        self.title = self.viewModel.drinksCategory?.strCategory
         
-        DrinksNetworkManager.shared.requestDrinksInCategory(drinkCategory: drinksCategory, completion: {
-            drinksInCategory in
-            self.drinksInCategory = drinksInCategory ?? []
-            self.tableView.reloadData()
-        })
+        self.viewModel.loadDrinksInCategory(completion: {
+                   self.tableView.reloadData()
+               })
     }
 }
 
 extension DrinksCategoryDetailViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.drinksInCategory.count
+        return self.viewModel.drinksInCategory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
             return UITableViewCell()
         }
-        cell.textLabel?.text = self.drinksInCategory[indexPath.row].strDrink
+        cell.textLabel?.text = self.viewModel.drinksInCategory[indexPath.row].strDrink
         return cell
     }
 }
@@ -54,7 +50,7 @@ extension DrinksCategoryDetailViewController: UITableViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? DrinkDetailViewController {
             
-            detailViewController.drinkInCategory = self.drinksInCategory[indexPath.row]
+            detailViewController.drinkInCategory = self.viewModel.drinksInCategory[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }

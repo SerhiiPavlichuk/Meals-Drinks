@@ -99,7 +99,7 @@ extension DrinksViewController : UICollectionViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? DrinksCategoryDetailViewController {
             
-            detailViewController.drinksCategory = self.viewModel.drinkCategories[indexPath.row]
+            detailViewController.viewModel.drinksCategory = self.viewModel.drinkCategories[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
