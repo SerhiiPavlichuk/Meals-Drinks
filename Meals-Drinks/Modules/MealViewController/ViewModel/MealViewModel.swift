@@ -6,11 +6,9 @@
 //
 
 import Foundation
-import RealmSwift
 
 class MealViewModel {
     
-    let realm = try? Realm()
     var randomMeals: [MealInformation] = []
     var mealCategories: [MealsCategory] = []
     

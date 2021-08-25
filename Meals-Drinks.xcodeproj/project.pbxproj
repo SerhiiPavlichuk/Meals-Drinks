@@ -59,6 +59,7 @@
 		84CEE3DA26D6D42B0099EA78 /* DrinksDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE3D926D6D42B0099EA78 /* DrinksDataManager.swift */; };
 		84E01B5C26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B5B26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift */; };
 		84E01B6326D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B6226D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift */; };
+		84E01B6A26D6E2E3008CDA0B /* DrinkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B6926D6E2E3008CDA0B /* DrinkDetailViewModel.swift */; };
 		84F614DB26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F614DA26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		84CEE3D926D6D42B0099EA78 /* DrinksDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksDataManager.swift; sourceTree = "<group>"; };
 		84E01B5B26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDrinkDetailViewModel.swift; sourceTree = "<group>"; };
 		84E01B6226D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksCategoryDetailViewModel.swift; sourceTree = "<group>"; };
+		84E01B6926D6E2E3008CDA0B /* DrinkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailViewModel.swift; sourceTree = "<group>"; };
 		84F614DA26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookDrinkLaterFromRandomSheetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,7 +226,6 @@
 				8439CFDA26C1B32400BB2105 /* MealsViewControllers */,
 				84CA469926CC523A004A12B4 /* DrinksViewControllers */,
 				8439B7BD26CB8A9000C1AE85 /* Managers */,
-				8439CFDB26C1B32F00BB2105 /* Models */,
 				8439CFD926C1B30600BB2105 /* Common */,
 				8439CFCB26C1B1D100BB2105 /* Main.storyboard */,
 				8439CFD326C1B1D200BB2105 /* Info.plist */,
@@ -249,24 +250,17 @@
 			path = MealsViewControllers;
 			sourceTree = "<group>";
 		};
-		8439CFDB26C1B32F00BB2105 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				84CA469E26CC5893004A12B4 /* DrinksNetworkModels */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		84A62E8F26D2D75400816292 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				84BAD42B26D4006F006418AE /* RandomMealDetailViewController */,
-				84A62E9226D2D9A900816292 /* MealViewController */,
-				84001CA126D41D950053DB20 /* MealsInCategoryDetailViewController */,
 				84AF47D726D4256C002B0776 /* MealDetailViewController */,
-				84E01B5726D6D7F8008CDA0B /* RandomDrinkDetailViewController */,
-				84CEE3CF26D6D2440099EA78 /* DrinksViewController */,
+				84001CA126D41D950053DB20 /* MealsInCategoryDetailViewController */,
+				84A62E9226D2D9A900816292 /* MealViewController */,
 				84E01B5D26D6DC83008CDA0B /* DrinksCategoryDetailViewController */,
+				84CEE3CF26D6D2440099EA78 /* DrinksViewController */,
+				84E01B5726D6D7F8008CDA0B /* RandomDrinkDetailViewController */,
+				84BAD42B26D4006F006418AE /* RandomMealDetailViewController */,
+				84E01B6426D6E231008CDA0B /* DrinkDetailViewController */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -451,18 +445,8 @@
 			children = (
 				84F614DA26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift */,
 				847065A626CFCAE9000E0D56 /* CoockLaterDetailDrink.swift */,
-				84916E7626D12155004BA3BB /* DrinkDetailViewController.swift */,
 			);
 			path = DrinksViewControllers;
-			sourceTree = "<group>";
-		};
-		84CA469E26CC5893004A12B4 /* DrinksNetworkModels */ = {
-			isa = PBXGroup;
-			children = (
-				845BA5FA26D2118B0018C44A /* Drink.swift */,
-				845BA5F926D2118B0018C44A /* DetailDrinkInformation.swift */,
-			);
-			path = DrinksNetworkModels;
 			sourceTree = "<group>";
 		};
 		84CEE3CF26D6D2440099EA78 /* DrinksViewController */ = {
@@ -617,6 +601,49 @@
 			children = (
 				847D71BB26CE9D69005514D5 /* DrinksInCategory.swift */,
 				847D71BA26CE9D69005514D5 /* DrinksInCategoryResult.swift */,
+			);
+			path = NetworkModels;
+			sourceTree = "<group>";
+		};
+		84E01B6426D6E231008CDA0B /* DrinkDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84E01B6726D6E291008CDA0B /* ViewModel */,
+				84E01B6626D6E28B008CDA0B /* View */,
+				84E01B6526D6E285008CDA0B /* Model */,
+			);
+			path = DrinkDetailViewController;
+			sourceTree = "<group>";
+		};
+		84E01B6526D6E285008CDA0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84E01B6826D6E2AF008CDA0B /* NetworkModels */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84E01B6626D6E28B008CDA0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84916E7626D12155004BA3BB /* DrinkDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84E01B6726D6E291008CDA0B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84E01B6926D6E2E3008CDA0B /* DrinkDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84E01B6826D6E2AF008CDA0B /* NetworkModels */ = {
+			isa = PBXGroup;
+			children = (
+				845BA5FA26D2118B0018C44A /* Drink.swift */,
+				845BA5F926D2118B0018C44A /* DetailDrinkInformation.swift */,
 			);
 			path = NetworkModels;
 			sourceTree = "<group>";
@@ -782,6 +809,7 @@
 				8420BA0426CA3E9E00ABE4F2 /* Meal.swift in Sources */,
 				8439CFE026C1B36900BB2105 /* RandomMeals.swift in Sources */,
 				84BAD43026D401C1006418AE /* RandomMealDetailViewModel.swift in Sources */,
+				84E01B6A26D6E2E3008CDA0B /* DrinkDetailViewModel.swift in Sources */,
 				849C359A26C1C43800665B60 /* MealsCategory.swift in Sources */,
 				8420B9FE26C98A5400ABE4F2 /* OpenMealCategory.swift in Sources */,
 				845A048026CCF42B00B38B5E /* DrinksRealm.swift in Sources */,

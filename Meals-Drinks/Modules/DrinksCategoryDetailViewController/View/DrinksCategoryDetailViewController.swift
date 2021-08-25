@@ -50,7 +50,7 @@ extension DrinksCategoryDetailViewController: UITableViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? DrinkDetailViewController {
             
-            detailViewController.drinkInCategory = self.viewModel.drinksInCategory[indexPath.row]
+            detailViewController.viewModel.drinkInCategory = self.viewModel.drinksInCategory[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }

@@ -44,7 +44,6 @@ class MealDetailViewController: UIViewController {
     
     func requestVideos(with url: String?) {
         guard let url = url else {
-            print("Meal youtube video url is empty")
             return
         }
         if let range = url.range(of: "=") {
