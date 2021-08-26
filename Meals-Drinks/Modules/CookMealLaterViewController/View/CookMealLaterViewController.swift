@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import RealmSwift
+
 
 class CookMealLaterViewController: UIViewController {
     
@@ -70,7 +70,7 @@ extension CookMealLaterViewController: UITableViewDelegate{
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? CoockLaterDetailMealViewController {
             
-            detailViewController.meal = self.viewModel.meal[indexPath.row]
+            detailViewController.viewModel.meal = self.viewModel.meal[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }

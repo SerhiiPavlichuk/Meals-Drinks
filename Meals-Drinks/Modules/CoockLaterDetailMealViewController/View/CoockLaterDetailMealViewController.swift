@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RealmSwift
 import SDWebImage
 import SafariServices
 import youtube_ios_player_helper
@@ -18,26 +17,25 @@ class CoockLaterDetailMealViewController: UIViewController {
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var videoPlayer: YTPlayerView!
     
-    let realm = try? Realm()
-    var meal: MealsRealm? = nil
+    var viewModel: CoockLaterDetailMealViewModel = CoockLaterDetailMealViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let video = self.meal?.strYoutube {
+        if let video = self.viewModel.meal?.strYoutube {
             self.requestVideos()
         }
         
-        if let mealImage = self.meal?.strMealThumb {
+        if let mealImage = self.viewModel.meal?.strMealThumb {
             self.mealImageView.sd_setImage(with: URL(string: mealImage), completed: nil)
         }
-        self.title = self.meal?.mealName
-        self.instructionsLabel.text = self.meal?.strInstructions
+        self.title = self.viewModel.meal?.mealName
+        self.instructionsLabel.text = self.viewModel.meal?.strInstructions
     }
     
     func requestVideos (){
         
-        var baseUrl = self.meal?.strYoutube
+        var baseUrl = self.viewModel.meal?.strYoutube
         if let range = baseUrl!.range(of: "=") {
             let id = baseUrl![range.upperBound...]
             self.videoPlayer.load(withVideoId: String(id))
@@ -46,7 +44,7 @@ class CoockLaterDetailMealViewController: UIViewController {
     
     @IBAction func loadSiteInSafariButtonPressed(_ sender: Any) {
         
-        if let optionalStringURL = self.meal?.strSource{
+        if let optionalStringURL = self.viewModel.meal?.strSource{
             let stringUrl = String(describing: optionalStringURL)
             let url = URL(string: stringUrl)!
             let config = SFSafariViewController.Configuration()
