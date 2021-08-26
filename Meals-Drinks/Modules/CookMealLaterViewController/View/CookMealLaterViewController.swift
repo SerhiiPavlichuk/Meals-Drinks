@@ -13,42 +13,33 @@ class CookMealLaterViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let realm = try? Realm()
-    var meal: [MealsRealm] = []
+    var viewModel: CookMealLaterViewModel = CookMealLaterViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.meal = self.getMeals()
+        self.viewModel.meal = self.viewModel.getMeals()
         self.tableView.reloadData()
     }
     
-    func getMeals() -> [MealsRealm] {
-        
-        var meals = [MealsRealm]()
-        guard let mealsResult = realm?.objects(MealsRealm.self) else { return [] }
-        for meal in mealsResult {
-            meals.append(meal)
-        }
-        return meals
-    }
+
 }
 
 extension CookMealLaterViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meal.count
+        return viewModel.meal.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = self.meal[indexPath.row].mealName
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ui.defaultCellIdentifier)
+        cell?.textLabel?.text = self.viewModel.meal[indexPath.row].mealName
         
         return cell ?? UITableViewCell()
     }
@@ -61,14 +52,14 @@ extension CookMealLaterViewController: UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            let item = meal[indexPath.row]
+            let item = viewModel.meal[indexPath.row]
             tableView.beginUpdates()
-            meal.remove(at: indexPath.row)
+            viewModel.meal.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
-            let realm = try! Realm()
-            try! realm.write {
-                realm.delete(item)
+            let realm = try! viewModel.realm
+            try! viewModel.realm?.write {
+                viewModel.realm?.delete(item)
             }
         }
     }
@@ -79,7 +70,7 @@ extension CookMealLaterViewController: UITableViewDelegate{
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? CoockLaterDetailMealViewController {
             
-            detailViewController.meal = self.meal[indexPath.row]
+            detailViewController.meal = self.viewModel.meal[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }

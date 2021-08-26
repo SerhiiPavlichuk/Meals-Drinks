@@ -60,6 +60,7 @@
 		84E01B5C26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B5B26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift */; };
 		84E01B6326D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B6226D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift */; };
 		84E01B6A26D6E2E3008CDA0B /* DrinkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B6926D6E2E3008CDA0B /* DrinkDetailViewModel.swift */; };
+		84E01B8426D82C84008CDA0B /* CookMealLaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B8326D82C84008CDA0B /* CookMealLaterViewModel.swift */; };
 		84F614DB26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F614DA26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +122,7 @@
 		84E01B5B26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDrinkDetailViewModel.swift; sourceTree = "<group>"; };
 		84E01B6226D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksCategoryDetailViewModel.swift; sourceTree = "<group>"; };
 		84E01B6926D6E2E3008CDA0B /* DrinkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailViewModel.swift; sourceTree = "<group>"; };
+		84E01B8326D82C84008CDA0B /* CookMealLaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CookMealLaterViewModel.swift; path = ../../../../../../Documents/CookMealLaterViewModel.swift; sourceTree = "<group>"; };
 		84F614DA26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookDrinkLaterFromRandomSheetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -244,7 +246,6 @@
 		8439CFDA26C1B32400BB2105 /* MealsViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				845948B526CAB29A0097BF81 /* CookMealLaterViewController.swift */,
 				849B1F6726CF980500C7A8FE /* CoockLaterDetailMealViewController.swift */,
 			);
 			path = MealsViewControllers;
@@ -253,6 +254,7 @@
 		84A62E8F26D2D75400816292 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				84E01B7F26D82C5F008CDA0B /* CookMealLaterViewController */,
 				84AF47D726D4256C002B0776 /* MealDetailViewController */,
 				84001CA126D41D950053DB20 /* MealsInCategoryDetailViewController */,
 				84A62E9226D2D9A900816292 /* MealViewController */,
@@ -648,6 +650,39 @@
 			path = NetworkModels;
 			sourceTree = "<group>";
 		};
+		84E01B7F26D82C5F008CDA0B /* CookMealLaterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84E01B8226D82C6E008CDA0B /* ViewModel */,
+				84E01B8126D82C6A008CDA0B /* View */,
+				84E01B8026D82C64008CDA0B /* Model */,
+			);
+			path = CookMealLaterViewController;
+			sourceTree = "<group>";
+		};
+		84E01B8026D82C64008CDA0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84E01B8126D82C6A008CDA0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				845948B526CAB29A0097BF81 /* CookMealLaterViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84E01B8226D82C6E008CDA0B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84E01B8326D82C84008CDA0B /* CookMealLaterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F4CF4430A103051E89A09B1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -811,6 +846,7 @@
 				84BAD43026D401C1006418AE /* RandomMealDetailViewModel.swift in Sources */,
 				84E01B6A26D6E2E3008CDA0B /* DrinkDetailViewModel.swift in Sources */,
 				849C359A26C1C43800665B60 /* MealsCategory.swift in Sources */,
+				84E01B8426D82C84008CDA0B /* CookMealLaterViewModel.swift in Sources */,
 				8420B9FE26C98A5400ABE4F2 /* OpenMealCategory.swift in Sources */,
 				845A048026CCF42B00B38B5E /* DrinksRealm.swift in Sources */,
 				845948B326CAA6430097BF81 /* MealsRealm.swift in Sources */,
