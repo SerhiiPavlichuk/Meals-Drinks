@@ -62,7 +62,8 @@
 		84E01B6A26D6E2E3008CDA0B /* DrinkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B6926D6E2E3008CDA0B /* DrinkDetailViewModel.swift */; };
 		84E01B8426D82C84008CDA0B /* CookMealLaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B8326D82C84008CDA0B /* CookMealLaterViewModel.swift */; };
 		84E01B8A26D82EEE008CDA0B /* CoockLaterDetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B8926D82EEE008CDA0B /* CoockLaterDetailMealViewModel.swift */; };
-		84F614DB26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F614DA26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift */; };
+		84E01B9026D833CB008CDA0B /* CookDrinkLaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B8F26D833CB008CDA0B /* CookDrinkLaterViewModel.swift */; };
+		84F614DB26CD2F2B00BACDDD /* CookDrinkLaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F614DA26CD2F2B00BACDDD /* CookDrinkLaterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,7 +126,8 @@
 		84E01B6926D6E2E3008CDA0B /* DrinkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailViewModel.swift; sourceTree = "<group>"; };
 		84E01B8326D82C84008CDA0B /* CookMealLaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CookMealLaterViewModel.swift; path = ../../../../../../Documents/CookMealLaterViewModel.swift; sourceTree = "<group>"; };
 		84E01B8926D82EEE008CDA0B /* CoockLaterDetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoockLaterDetailMealViewModel.swift; sourceTree = "<group>"; };
-		84F614DA26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookDrinkLaterFromRandomSheetViewController.swift; sourceTree = "<group>"; };
+		84E01B8F26D833CB008CDA0B /* CookDrinkLaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookDrinkLaterViewModel.swift; sourceTree = "<group>"; };
+		84F614DA26CD2F2B00BACDDD /* CookDrinkLaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookDrinkLaterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,7 +229,6 @@
 			children = (
 				84A62E9126D2D77D00816292 /* Default Files */,
 				84A62E8F26D2D75400816292 /* Modules */,
-				8439CFDA26C1B32400BB2105 /* MealsViewControllers */,
 				84CA469926CC523A004A12B4 /* DrinksViewControllers */,
 				8439B7BD26CB8A9000C1AE85 /* Managers */,
 				8439CFD926C1B30600BB2105 /* Common */,
@@ -245,26 +246,20 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		8439CFDA26C1B32400BB2105 /* MealsViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MealsViewControllers;
-			sourceTree = "<group>";
-		};
 		84A62E8F26D2D75400816292 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				84A62E9226D2D9A900816292 /* MealViewController */,
-				84AF47D726D4256C002B0776 /* MealDetailViewController */,
 				84001CA126D41D950053DB20 /* MealsInCategoryDetailViewController */,
-				84E01B8526D82EA4008CDA0B /* CoockLaterDetailMealViewController */,
+				84AF47D726D4256C002B0776 /* MealDetailViewController */,
+				84A62E9226D2D9A900816292 /* MealViewController */,
 				84E01B7F26D82C5F008CDA0B /* CookMealLaterViewController */,
-				84E01B5D26D6DC83008CDA0B /* DrinksCategoryDetailViewController */,
-				84CEE3CF26D6D2440099EA78 /* DrinksViewController */,
-				84E01B5726D6D7F8008CDA0B /* RandomDrinkDetailViewController */,
-				84BAD42B26D4006F006418AE /* RandomMealDetailViewController */,
+				84E01B8526D82EA4008CDA0B /* CookLaterDetailMealViewController */,
 				84E01B6426D6E231008CDA0B /* DrinkDetailViewController */,
+				84BAD42B26D4006F006418AE /* RandomMealDetailViewController */,
+				84E01B5726D6D7F8008CDA0B /* RandomDrinkDetailViewController */,
+				84CEE3CF26D6D2440099EA78 /* DrinksViewController */,
+				84E01B5D26D6DC83008CDA0B /* DrinksCategoryDetailViewController */,
+				84E01B8B26D8330D008CDA0B /* CookDrinkLaterViewController */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -447,7 +442,6 @@
 		84CA469926CC523A004A12B4 /* DrinksViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				84F614DA26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift */,
 				847065A626CFCAE9000E0D56 /* CoockLaterDetailDrink.swift */,
 			);
 			path = DrinksViewControllers;
@@ -685,14 +679,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		84E01B8526D82EA4008CDA0B /* CoockLaterDetailMealViewController */ = {
+		84E01B8526D82EA4008CDA0B /* CookLaterDetailMealViewController */ = {
 			isa = PBXGroup;
 			children = (
 				84E01B8826D82ED7008CDA0B /* ViewModel */,
 				84E01B8726D82ED2008CDA0B /* View */,
 				84E01B8626D82ECC008CDA0B /* Model */,
 			);
-			path = CoockLaterDetailMealViewController;
+			path = CookLaterDetailMealViewController;
 			sourceTree = "<group>";
 		};
 		84E01B8626D82ECC008CDA0B /* Model */ = {
@@ -714,6 +708,39 @@
 			isa = PBXGroup;
 			children = (
 				84E01B8926D82EEE008CDA0B /* CoockLaterDetailMealViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84E01B8B26D8330D008CDA0B /* CookDrinkLaterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84E01B8E26D83372008CDA0B /* ViewModel */,
+				84E01B8D26D8336D008CDA0B /* View */,
+				84E01B8C26D8335C008CDA0B /* Model */,
+			);
+			path = CookDrinkLaterViewController;
+			sourceTree = "<group>";
+		};
+		84E01B8C26D8335C008CDA0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84E01B8D26D8336D008CDA0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84F614DA26CD2F2B00BACDDD /* CookDrinkLaterViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84E01B8E26D83372008CDA0B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84E01B8F26D833CB008CDA0B /* CookDrinkLaterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -845,6 +872,7 @@
 			files = (
 				847065A726CFCAE9000E0D56 /* CoockLaterDetailDrink.swift in Sources */,
 				84CA469D26CC52A7004A12B4 /* DrinksViewController.swift in Sources */,
+				84E01B9026D833CB008CDA0B /* CookDrinkLaterViewModel.swift in Sources */,
 				84BAD42626D2E04C006418AE /* MealViewModel.swift in Sources */,
 				8439B7BF26CB8AB600C1AE85 /* MealsNetworkManager.swift in Sources */,
 				84E01B6326D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift in Sources */,
@@ -887,7 +915,7 @@
 				845948B326CAA6430097BF81 /* MealsRealm.swift in Sources */,
 				8439CFE126C1B36900BB2105 /* MealInformation.swift in Sources */,
 				845948B626CAB29A0097BF81 /* CookMealLaterViewController.swift in Sources */,
-				84F614DB26CD2F2B00BACDDD /* CookDrinkLaterFromRandomSheetViewController.swift in Sources */,
+				84F614DB26CD2F2B00BACDDD /* CookDrinkLaterViewController.swift in Sources */,
 				847D71BC26CE9D69005514D5 /* DrinksInCategoryResult.swift in Sources */,
 				84AF47DD26D42B0B002B0776 /* MealDetailViewModel.swift in Sources */,
 				84E01B8A26D82EEE008CDA0B /* CoockLaterDetailMealViewModel.swift in Sources */,
