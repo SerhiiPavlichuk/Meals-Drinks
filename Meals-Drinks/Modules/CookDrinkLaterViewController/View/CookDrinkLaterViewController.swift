@@ -63,12 +63,12 @@ extension CookDrinkLaterViewController: UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let identifier = String(describing: CoockLaterDetailDrinkViewController.self)
+        let identifier = String(describing: CookLaterDetailDrinkViewController.self)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? CoockLaterDetailDrinkViewController {
+        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? CookLaterDetailDrinkViewController {
             
-            detailViewController.drink = self.viewModel.drink[indexPath.row]
+            detailViewController.viewModel.drink = self.viewModel.drink[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
