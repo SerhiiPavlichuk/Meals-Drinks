@@ -26,6 +26,7 @@
 		843E630C26CBAAF700C74D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E630B26CBAAF700C74D11 /* Constants.swift */; };
 		845560AC26C2FDBC009CEE0F /* RandomMealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845560AB26C2FDBC009CEE0F /* RandomMealDetailViewController.swift */; };
 		845560AE26C313B3009CEE0F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 845560AD26C313B3009CEE0F /* Podfile */; };
+		8456861826DE3BBE00E3017B /* SearchTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456861726DE3BBE00E3017B /* SearchTableViewModel.swift */; };
 		845948B326CAA6430097BF81 /* MealsRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845948B226CAA6430097BF81 /* MealsRealm.swift */; };
 		845948B626CAB29A0097BF81 /* CookMealLaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845948B526CAB29A0097BF81 /* CookMealLaterViewController.swift */; };
 		845948B826CAC1DF0097BF81 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845948B726CAC1DF0097BF81 /* Launch Screen.storyboard */; };
@@ -33,6 +34,9 @@
 		845A048026CCF42B00B38B5E /* DrinksRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A047F26CCF42B00B38B5E /* DrinksRealm.swift */; };
 		845BA5FB26D2118B0018C44A /* DetailDrinkInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845BA5F926D2118B0018C44A /* DetailDrinkInformation.swift */; };
 		845BA5FC26D2118B0018C44A /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845BA5FA26D2118B0018C44A /* Drink.swift */; };
+		845C825326DD638F00A1D2F7 /* SearchMealByIngredientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C825226DD638F00A1D2F7 /* SearchMealByIngredientTableViewController.swift */; };
+		845C825626DD6F1E00A1D2F7 /* IngredientsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C825426DD6F1E00A1D2F7 /* IngredientsResult.swift */; };
+		845C825726DD6F1E00A1D2F7 /* MealsByIngridients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C825526DD6F1E00A1D2F7 /* MealsByIngridients.swift */; };
 		847065A726CFCAE9000E0D56 /* CookLaterDetailDrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847065A626CFCAE9000E0D56 /* CookLaterDetailDrinkViewController.swift */; };
 		847D71BC26CE9D69005514D5 /* DrinksInCategoryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D71BA26CE9D69005514D5 /* DrinksInCategoryResult.swift */; };
 		847D71BD26CE9D69005514D5 /* DrinksInCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D71BB26CE9D69005514D5 /* DrinksInCategory.swift */; };
@@ -91,6 +95,7 @@
 		843E630B26CBAAF700C74D11 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		845560AB26C2FDBC009CEE0F /* RandomMealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMealDetailViewController.swift; sourceTree = "<group>"; };
 		845560AD26C313B3009CEE0F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8456861726DE3BBE00E3017B /* SearchTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModel.swift; sourceTree = "<group>"; };
 		845948B226CAA6430097BF81 /* MealsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsRealm.swift; sourceTree = "<group>"; };
 		845948B526CAB29A0097BF81 /* CookMealLaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookMealLaterViewController.swift; sourceTree = "<group>"; };
 		845948B726CAC1DF0097BF81 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -98,6 +103,9 @@
 		845A047F26CCF42B00B38B5E /* DrinksRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksRealm.swift; sourceTree = "<group>"; };
 		845BA5F926D2118B0018C44A /* DetailDrinkInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDrinkInformation.swift; sourceTree = "<group>"; };
 		845BA5FA26D2118B0018C44A /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		845C825226DD638F00A1D2F7 /* SearchMealByIngredientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMealByIngredientTableViewController.swift; sourceTree = "<group>"; };
+		845C825426DD6F1E00A1D2F7 /* IngredientsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsResult.swift; sourceTree = "<group>"; };
+		845C825526DD6F1E00A1D2F7 /* MealsByIngridients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsByIngridients.swift; sourceTree = "<group>"; };
 		847065A626CFCAE9000E0D56 /* CookLaterDetailDrinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookLaterDetailDrinkViewController.swift; sourceTree = "<group>"; };
 		847D71BA26CE9D69005514D5 /* DrinksInCategoryResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksInCategoryResult.swift; sourceTree = "<group>"; };
 		847D71BB26CE9D69005514D5 /* DrinksInCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksInCategory.swift; sourceTree = "<group>"; };
@@ -247,6 +255,49 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		8456861126DE3B6000E3017B /* SearchMealByIngredientTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8456861226DE3B6800E3017B /* ViewModel */,
+				8456861326DE3B6F00E3017B /* View */,
+				8456861426DE3B7800E3017B /* Model */,
+			);
+			path = SearchMealByIngredientTableViewController;
+			sourceTree = "<group>";
+		};
+		8456861226DE3B6800E3017B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8456861726DE3BBE00E3017B /* SearchTableViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8456861326DE3B6F00E3017B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				845C825226DD638F00A1D2F7 /* SearchMealByIngredientTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8456861426DE3B7800E3017B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8456861926DE3BE800E3017B /* NetworkModels */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8456861926DE3BE800E3017B /* NetworkModels */ = {
+			isa = PBXGroup;
+			children = (
+				845C825426DD6F1E00A1D2F7 /* IngredientsResult.swift */,
+				845C825526DD6F1E00A1D2F7 /* MealsByIngridients.swift */,
+			);
+			path = NetworkModels;
+			sourceTree = "<group>";
+		};
 		84A62E8F26D2D75400816292 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +307,7 @@
 				84E01B7F26D82C5F008CDA0B /* CookMealLaterViewController */,
 				84AF47D726D4256C002B0776 /* MealDetailViewController */,
 				84001CA126D41D950053DB20 /* MealsInCategoryDetailViewController */,
+				8456861126DE3B6000E3017B /* SearchMealByIngredientTableViewController */,
 				84E01B6426D6E231008CDA0B /* DrinkDetailViewController */,
 				84E01B5726D6D7F8008CDA0B /* RandomDrinkDetailViewController */,
 				84CEE3CF26D6D2440099EA78 /* DrinksViewController */,
@@ -889,6 +941,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845C825726DD6F1E00A1D2F7 /* MealsByIngridients.swift in Sources */,
 				847065A726CFCAE9000E0D56 /* CookLaterDetailDrinkViewController.swift in Sources */,
 				84CA469D26CC52A7004A12B4 /* DrinksViewController.swift in Sources */,
 				84E01B9026D833CB008CDA0B /* CookDrinkLaterViewModel.swift in Sources */,
@@ -896,6 +949,7 @@
 				8439B7BF26CB8AB600C1AE85 /* MealsNetworkManager.swift in Sources */,
 				84E01B6326D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift in Sources */,
 				84C5BE2E26CE9206006B4D91 /* DrinksCategoryDetailViewController.swift in Sources */,
+				8456861826DE3BBE00E3017B /* SearchTableViewModel.swift in Sources */,
 				84CA46A926CC626E004A12B4 /* DrinksCategory.swift in Sources */,
 				843E630C26CBAAF700C74D11 /* Constants.swift in Sources */,
 				84E01B5C26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift in Sources */,
@@ -912,11 +966,13 @@
 				84001CA726D41FCE0053DB20 /* MealsInCategoryDetailViewModel.swift in Sources */,
 				845A047E26CCEEA000B38B5E /* RandomDrinkDetailViewController.swift in Sources */,
 				845560AC26C2FDBC009CEE0F /* RandomMealDetailViewController.swift in Sources */,
+				845C825326DD638F00A1D2F7 /* SearchMealByIngredientTableViewController.swift in Sources */,
 				84E01B9626D83887008CDA0B /* CookLaterDetailDrinkViewModel.swift in Sources */,
 				84CA46A526CC5C7A004A12B4 /* CategoryDrinksCollectionViewCell.swift in Sources */,
 				84CA46A126CC5992004A12B4 /* RandomDrinks.swift in Sources */,
 				8420B9FD26C98A5400ABE4F2 /* MealsInCategory.swift in Sources */,
 				84CA469826CC513E004A12B4 /* DrinksNetworkManager.swift in Sources */,
+				845C825626DD6F1E00A1D2F7 /* IngredientsResult.swift in Sources */,
 				847D71BD26CE9D69005514D5 /* DrinksInCategory.swift in Sources */,
 				84916E7726D12155004BA3BB /* DrinkDetailViewController.swift in Sources */,
 				8439CFC626C1B1D100BB2105 /* AppDelegate.swift in Sources */,

@@ -21,6 +21,7 @@ class CookLaterDetailDrinkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         if let drinkImageView = self.viewModel.drink?.strDrinkThumb {
             self.drinkImageView.sd_setImage(with: URL(string: drinkImageView), completed: nil)
         }
