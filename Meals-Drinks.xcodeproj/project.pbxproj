@@ -96,7 +96,7 @@
 		845560AB26C2FDBC009CEE0F /* RandomMealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMealDetailViewController.swift; sourceTree = "<group>"; };
 		845560AD26C313B3009CEE0F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8456861726DE3BBE00E3017B /* SearchTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModel.swift; sourceTree = "<group>"; };
-		845948B226CAA6430097BF81 /* MealsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsRealm.swift; sourceTree = "<group>"; };
+		845948B226CAA6430097BF81 /* MealsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MealsRealm.swift; path = RealmModels/MealsRealm.swift; sourceTree = "<group>"; };
 		845948B526CAB29A0097BF81 /* CookMealLaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookMealLaterViewController.swift; sourceTree = "<group>"; };
 		845948B726CAC1DF0097BF81 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		845A047D26CCEEA000B38B5E /* RandomDrinkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDrinkDetailViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		84E01B5B26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDrinkDetailViewModel.swift; sourceTree = "<group>"; };
 		84E01B6226D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksCategoryDetailViewModel.swift; sourceTree = "<group>"; };
 		84E01B6926D6E2E3008CDA0B /* DrinkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailViewModel.swift; sourceTree = "<group>"; };
-		84E01B8326D82C84008CDA0B /* CookMealLaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CookMealLaterViewModel.swift; path = ../../../../../../Documents/CookMealLaterViewModel.swift; sourceTree = "<group>"; };
+		84E01B8326D82C84008CDA0B /* CookMealLaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookMealLaterViewModel.swift; sourceTree = "<group>"; };
 		84E01B8926D82EEE008CDA0B /* CoockLaterDetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoockLaterDetailMealViewModel.swift; sourceTree = "<group>"; };
 		84E01B8F26D833CB008CDA0B /* CookDrinkLaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookDrinkLaterViewModel.swift; sourceTree = "<group>"; };
 		84E01B9526D83887008CDA0B /* CookLaterDetailDrinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookLaterDetailDrinkViewModel.swift; sourceTree = "<group>"; };
