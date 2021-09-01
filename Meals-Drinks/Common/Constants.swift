@@ -16,7 +16,8 @@ struct Constants {
         static let mealCategoryUrl = "https://www.themealdb.com/api/json/v1/1/categories.php"
         static let mealsInCategoryPath = "https://www.themealdb.com/api/json/v1/1/filter.php?"
         static let detailMealPath = "https://www.themealdb.com/api/json/v1/1/lookup.php?"
-        static let searchIngredientPath = "https://www.themealdb.com/api/json/v2/9973533/filter.php?"
+        static let searchIngredientPath = "https://www.themealdb.com/api/json/"
+        static let searchIngredientSecondPath = "/filter.php?"
     }
     struct drinkNetwork {
         

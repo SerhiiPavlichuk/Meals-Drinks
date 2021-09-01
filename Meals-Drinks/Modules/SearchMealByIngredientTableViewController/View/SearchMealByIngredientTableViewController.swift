@@ -26,7 +26,8 @@ class SearchMealByIngredientTableViewController: UIViewController {
     
     func searchIngredients(for ingredient: String) {
         
-        let url = "https://www.themealdb.com/api/json/v2/9973533/filter.php?i=\(ingredient)"
+        let url = Constants.mealNetwork.searchIngredientPath + Constants.mealNetwork.apiKey + Constants.mealNetwork.searchIngredientSecondPath + "i=\(ingredient)"
+    
         
         AF.request(url).validate()
             .responseDecodable(of: IngredientsResult.self) { response in
