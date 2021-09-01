@@ -67,6 +67,22 @@ struct MealsNetworkManager {
             }
         }
     }
+    
+    func detailMealByIngredientRequest(mealId: MealsByIngridients?, completion: @escaping(([DetailMealInformation]?) -> ())) {
+        
+        if let mealIdForUrl = mealId?.idMeal{
+            let stringID = String(describing : mealIdForUrl)
+            let url = Constants.mealNetwork.detailMealPath + "i=\(stringID)"
+            
+            AF.request(url).responseJSON { responce in
+                let decoder = JSONDecoder()
+                if let data = try? decoder.decode(Meal.self, from: responce.data!) {
+                    let detailMeal = data.meal ?? []
+                    completion(detailMeal)
+                }
+            }
+        }
+    }
 //        func searchIngredients(for ingredient: String, completion: @escaping(([MealsByIngridients]?) -> ())) {
 //    
 //            let url = Constants.mealNetwork.searchIngredientPath + "i=\(ingredient)"

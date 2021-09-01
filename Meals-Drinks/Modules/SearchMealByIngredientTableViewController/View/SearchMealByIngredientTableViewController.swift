@@ -14,8 +14,6 @@ class SearchMealByIngredientTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
-    
     var items: [MealsByIngridients] = []
     
     override func viewDidLoad() {
@@ -24,9 +22,8 @@ class SearchMealByIngredientTableViewController: UIViewController {
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
         
-        
-        
     }
+    
     func searchIngredients(for ingredient: String) {
         
         let url = "https://www.themealdb.com/api/json/v2/9973533/filter.php?i=\(ingredient)"
@@ -39,8 +36,7 @@ class SearchMealByIngredientTableViewController: UIViewController {
                 }
                 self.tableView.reloadData()
             }
-    }
-    
+      }
 }
 
 extension SearchMealByIngredientTableViewController: UISearchBarDelegate {
@@ -70,23 +66,18 @@ extension SearchMealByIngredientTableViewController: UITableViewDataSource{
     }
 }
 
+extension SearchMealByIngredientTableViewController: UITableViewDelegate{
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        let identifier = String(describing: DetailMealFromSearchByIngredient.self)
 
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? DetailMealFromSearchByIngredient {
 
+            detailViewController.viewModel.mealsByIngredients = self.items[indexPath.row]
 
-//extension SearchDrinkByIngredientViewController: UITableViewDelegate{
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        let identifier = String(describing: DetailDrinkFromSearchByIngredient.self)
-//
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? DetailDrinkFromSearchByIngredient {
-//
-//            detailViewController.? = self.items[indexPath.row]
-//
-//            self.navigationController?.pushViewController(detailViewController, animated: true)
-//        }
-//    }
-//}
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
+    }
+}

@@ -26,6 +26,7 @@ struct Constants {
         static let drinkCategoryUrl = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
         static let drinksInCategoryPath = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?"
         static let detailDrinkPath = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?"
+        static let searchIngredientPath = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?"
         static let iBAUrl = "https://iba-world.com/"
 
     }

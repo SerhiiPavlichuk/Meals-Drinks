@@ -61,6 +61,9 @@
 		84CA46AA26CC626E004A12B4 /* DrinksCategoryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA46A826CC626E004A12B4 /* DrinksCategoryResult.swift */; };
 		84CEE3D826D6D3190099EA78 /* DrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE3D726D6D3190099EA78 /* DrinksViewModel.swift */; };
 		84CEE3DA26D6D42B0099EA78 /* DrinksDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE3D926D6D42B0099EA78 /* DrinksDataManager.swift */; };
+		84DBEFED26E008BF004702C5 /* DetailDrinkFromSearchByIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBEFEC26E008BF004702C5 /* DetailDrinkFromSearchByIngredientViewModel.swift */; };
+		84DBEFF626E00BDD004702C5 /* DetailMealFromSearchByIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBEFF526E00BDD004702C5 /* DetailMealFromSearchByIngredientViewController.swift */; };
+		84DBEFF826E00C44004702C5 /* DetailMealFromSearchByIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBEFF726E00C44004702C5 /* DetailMealFromSearchByIngredientViewModel.swift */; };
 		84E01B5C26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B5B26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift */; };
 		84E01B6326D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B6226D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift */; };
 		84E01B6A26D6E2E3008CDA0B /* DrinkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01B6926D6E2E3008CDA0B /* DrinkDetailViewModel.swift */; };
@@ -71,7 +74,7 @@
 		84E5DFB526DFF60C006A81BA /* SearchDrinkByIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5DFB426DFF60C006A81BA /* SearchDrinkByIngredientViewController.swift */; };
 		84E5DFB826DFF89E006A81BA /* IngredientsDrinkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5DFB626DFF89D006A81BA /* IngredientsDrinkResult.swift */; };
 		84E5DFB926DFF89E006A81BA /* DrinksByIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5DFB726DFF89E006A81BA /* DrinksByIngredients.swift */; };
-		84E5DFBC26DFFDB3006A81BA /* DetailDrinkFromSearchByIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5DFBB26DFFDB3006A81BA /* DetailDrinkFromSearchByIngredient.swift */; };
+		84E5DFBC26DFFDB3006A81BA /* DetailDrinkFromSearchByIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5DFBB26DFFDB3006A81BA /* DetailDrinkFromSearchByIngredientViewController.swift */; };
 		84F614DB26CD2F2B00BACDDD /* CookDrinkLaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F614DA26CD2F2B00BACDDD /* CookDrinkLaterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +137,9 @@
 		84CA46A826CC626E004A12B4 /* DrinksCategoryResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksCategoryResult.swift; sourceTree = "<group>"; };
 		84CEE3D726D6D3190099EA78 /* DrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewModel.swift; sourceTree = "<group>"; };
 		84CEE3D926D6D42B0099EA78 /* DrinksDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksDataManager.swift; sourceTree = "<group>"; };
+		84DBEFEC26E008BF004702C5 /* DetailDrinkFromSearchByIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDrinkFromSearchByIngredientViewModel.swift; sourceTree = "<group>"; };
+		84DBEFF526E00BDD004702C5 /* DetailMealFromSearchByIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealFromSearchByIngredientViewController.swift; sourceTree = "<group>"; };
+		84DBEFF726E00C44004702C5 /* DetailMealFromSearchByIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealFromSearchByIngredientViewModel.swift; sourceTree = "<group>"; };
 		84E01B5B26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDrinkDetailViewModel.swift; sourceTree = "<group>"; };
 		84E01B6226D6DD27008CDA0B /* DrinksCategoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksCategoryDetailViewModel.swift; sourceTree = "<group>"; };
 		84E01B6926D6E2E3008CDA0B /* DrinkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailViewModel.swift; sourceTree = "<group>"; };
@@ -144,7 +150,7 @@
 		84E5DFB426DFF60C006A81BA /* SearchDrinkByIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDrinkByIngredientViewController.swift; sourceTree = "<group>"; };
 		84E5DFB626DFF89D006A81BA /* IngredientsDrinkResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsDrinkResult.swift; sourceTree = "<group>"; };
 		84E5DFB726DFF89E006A81BA /* DrinksByIngredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksByIngredients.swift; sourceTree = "<group>"; };
-		84E5DFBB26DFFDB3006A81BA /* DetailDrinkFromSearchByIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDrinkFromSearchByIngredient.swift; sourceTree = "<group>"; };
+		84E5DFBB26DFFDB3006A81BA /* DetailDrinkFromSearchByIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDrinkFromSearchByIngredientViewController.swift; sourceTree = "<group>"; };
 		84F614DA26CD2F2B00BACDDD /* CookDrinkLaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookDrinkLaterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -309,7 +315,6 @@
 		84A62E8F26D2D75400816292 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				84E5DFBA26DFFD92006A81BA /* DetailDrinkFromSearchByIngredient */,
 				84E5DFB326DFF5D8006A81BA /* SearchDrinkByIngredientViewController */,
 				84A62E9226D2D9A900816292 /* MealViewController */,
 				84BAD42B26D4006F006418AE /* RandomMealDetailViewController */,
@@ -321,8 +326,10 @@
 				84E01B6426D6E231008CDA0B /* DrinkDetailViewController */,
 				84E01B5726D6D7F8008CDA0B /* RandomDrinkDetailViewController */,
 				84CEE3CF26D6D2440099EA78 /* DrinksViewController */,
+				84DBEFF126E00B81004702C5 /* DetailMealFromSearchByIngredientViewController */,
 				84E01B5D26D6DC83008CDA0B /* DrinksCategoryDetailViewController */,
 				84E01B9126D8372D008CDA0B /* CookLaterDetailDrinkViewController */,
+				84E5DFBA26DFFD92006A81BA /* DetailDrinkFromSearchByIngredientViewController */,
 				84E01B8B26D8330D008CDA0B /* CookDrinkLaterViewController */,
 			);
 			path = Modules;
@@ -583,6 +590,69 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		84DBEFE926E00853004702C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84E5DFBB26DFFDB3006A81BA /* DetailDrinkFromSearchByIngredientViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84DBEFEA26E0086A004702C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84DBEFEB26E00870004702C5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84DBEFEC26E008BF004702C5 /* DetailDrinkFromSearchByIngredientViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84DBEFEF26E00B03004702C5 /* DetailMealFromSearchByIngredient */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailMealFromSearchByIngredient;
+			sourceTree = "<group>";
+		};
+		84DBEFF126E00B81004702C5 /* DetailMealFromSearchByIngredientViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84DBEFF426E00BB3004702C5 /* ViewModel */,
+				84DBEFF326E00BAE004702C5 /* View */,
+				84DBEFF226E00BA8004702C5 /* Model */,
+			);
+			path = DetailMealFromSearchByIngredientViewController;
+			sourceTree = "<group>";
+		};
+		84DBEFF226E00BA8004702C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84DBEFF326E00BAE004702C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84DBEFF526E00BDD004702C5 /* DetailMealFromSearchByIngredientViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84DBEFF426E00BB3004702C5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84DBEFF726E00C44004702C5 /* DetailMealFromSearchByIngredientViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		84E01B5726D6D7F8008CDA0B /* RandomDrinkDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -662,6 +732,7 @@
 		84E01B6426D6E231008CDA0B /* DrinkDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
+				84DBEFEF26E00B03004702C5 /* DetailMealFromSearchByIngredient */,
 				84E01B6726D6E291008CDA0B /* ViewModel */,
 				84E01B6626D6E28B008CDA0B /* View */,
 				84E01B6526D6E285008CDA0B /* Model */,
@@ -835,12 +906,14 @@
 			path = SearchDrinkByIngredientViewController;
 			sourceTree = "<group>";
 		};
-		84E5DFBA26DFFD92006A81BA /* DetailDrinkFromSearchByIngredient */ = {
+		84E5DFBA26DFFD92006A81BA /* DetailDrinkFromSearchByIngredientViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84E5DFBB26DFFDB3006A81BA /* DetailDrinkFromSearchByIngredient.swift */,
+				84DBEFEB26E00870004702C5 /* ViewModel */,
+				84DBEFEA26E0086A004702C5 /* Model */,
+				84DBEFE926E00853004702C5 /* View */,
 			);
-			path = DetailDrinkFromSearchByIngredient;
+			path = DetailDrinkFromSearchByIngredientViewController;
 			sourceTree = "<group>";
 		};
 		84E5DFBD26E00576006A81BA /* Model */ = {
@@ -1007,12 +1080,13 @@
 				843E630C26CBAAF700C74D11 /* Constants.swift in Sources */,
 				84E01B5C26D6D85B008CDA0B /* RandomDrinkDetailViewModel.swift in Sources */,
 				84CEE3D826D6D3190099EA78 /* DrinksViewModel.swift in Sources */,
-				84E5DFBC26DFFDB3006A81BA /* DetailDrinkFromSearchByIngredient.swift in Sources */,
+				84E5DFBC26DFFDB3006A81BA /* DetailDrinkFromSearchByIngredientViewController.swift in Sources */,
 				8420BA0326CA3E9E00ABE4F2 /* DetailMealInformation.swift in Sources */,
 				845BA5FC26D2118B0018C44A /* Drink.swift in Sources */,
 				849C359526C1C11D00665B60 /* CategoriesMealCollectionViewCell.swift in Sources */,
 				849C359926C1C43800665B60 /* MealCategory.swift in Sources */,
 				84CA46A226CC5992004A12B4 /* RandomDrinksResult.swift in Sources */,
+				84DBEFF626E00BDD004702C5 /* DetailMealFromSearchByIngredientViewController.swift in Sources */,
 				845BA5FB26D2118B0018C44A /* DetailDrinkInformation.swift in Sources */,
 				8439CFCA26C1B1D100BB2105 /* MealViewController.swift in Sources */,
 				8439D87226C6E530000A56B6 /* MealsInCategoryDetailViewController.swift in Sources */,
@@ -1025,6 +1099,7 @@
 				84CA46A526CC5C7A004A12B4 /* CategoryDrinksCollectionViewCell.swift in Sources */,
 				84CA46A126CC5992004A12B4 /* RandomDrinks.swift in Sources */,
 				8420B9FD26C98A5400ABE4F2 /* MealsInCategory.swift in Sources */,
+				84DBEFED26E008BF004702C5 /* DetailDrinkFromSearchByIngredientViewModel.swift in Sources */,
 				84CA469826CC513E004A12B4 /* DrinksNetworkManager.swift in Sources */,
 				84E5DFB526DFF60C006A81BA /* SearchDrinkByIngredientViewController.swift in Sources */,
 				845C825626DD6F1E00A1D2F7 /* IngredientsResult.swift in Sources */,
@@ -1043,6 +1118,7 @@
 				84E01B8426D82C84008CDA0B /* CookMealLaterViewModel.swift in Sources */,
 				8420B9FE26C98A5400ABE4F2 /* OpenMealCategory.swift in Sources */,
 				845A048026CCF42B00B38B5E /* DrinksRealm.swift in Sources */,
+				84DBEFF826E00C44004702C5 /* DetailMealFromSearchByIngredientViewModel.swift in Sources */,
 				845948B326CAA6430097BF81 /* MealsRealm.swift in Sources */,
 				8439CFE126C1B36900BB2105 /* MealInformation.swift in Sources */,
 				845948B626CAB29A0097BF81 /* CookMealLaterViewController.swift in Sources */,

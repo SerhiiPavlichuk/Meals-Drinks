@@ -26,7 +26,7 @@ class SearchDrinkByIngredientViewController: UIViewController {
     
     func searchIngredients(for ingredient: String) {
         
-        let url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=\(ingredient)"
+        let url = Constants.drinkNetwork.searchIngredientPath +  "i=\(ingredient)"
         
         AF.request(url).validate()
             .responseDecodable(of: IngredientsDrinkResult.self) { response in
@@ -58,12 +58,12 @@ extension SearchDrinkByIngredientViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let identifier = String(describing: DetailDrinkFromSearchByIngredient.self)
+        let identifier = String(describing: DetailDrinkFromSearchByIngredientViewController.self)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? DetailDrinkFromSearchByIngredient {
+        if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? DetailDrinkFromSearchByIngredientViewController {
             
-            detailViewController.drinks = self.items[indexPath.row]
+            detailViewController.viewModel.drinks = self.items[indexPath.row]
             
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }

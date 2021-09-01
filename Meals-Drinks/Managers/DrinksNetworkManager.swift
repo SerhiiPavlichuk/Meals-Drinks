@@ -15,7 +15,7 @@ struct DrinksNetworkManager {
     
     func requestRandomDrinks(completion: @escaping(([RandomDrinks]) -> ())){
         
-        let url = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php"
+        let url = Constants.drinkNetwork.randomDrinkPath + Constants.drinkNetwork.apiKey + Constants.drinkNetwork.randomDrinkSecondPath
         
         AF.request(url).responseJSON { responce in
             let decoder = JSONDecoder()
@@ -28,7 +28,7 @@ struct DrinksNetworkManager {
     
     func requestDrinkCategory(completion: @escaping(([DrinksCategory]) -> ())) {
         
-        let url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
+        let url = Constants.drinkNetwork.drinkCategoryUrl
         
         AF.request(url).responseJSON { responce in
             let decoder = JSONDecoder()
@@ -42,7 +42,8 @@ struct DrinksNetworkManager {
         
         if let categoryNameForURL = drinkCategory?.strCategory{
             let stringID = String(describing : categoryNameForURL)
-            let urlString = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=\(stringID)"
+            let urlString = Constants.drinkNetwork.drinksInCategoryPath + "c=\(stringID)"
+            
             let url = urlString.replacingOccurrences(of: " ", with: "%20")
             
             AF.request(url).responseJSON { responce in
@@ -58,7 +59,23 @@ struct DrinksNetworkManager {
         
         if let drinkIdforUrl = drinkId?.idDrink{
             let stringID = String(describing : drinkIdforUrl)
-            let url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=\(stringID)"
+            let url = Constants.drinkNetwork.detailDrinkPath + "i=\(stringID)"
+            
+            AF.request(url).responseJSON { responce in
+                let decoder = JSONDecoder()
+                if let data = try? decoder.decode(Drink.self, from: responce.data!) {
+                    let detailDrink = data.drink ?? []
+                    completion(detailDrink)
+                }
+            }
+        }
+    }
+    
+    func detailDrinkByIngredientRequest(drinkId: DrinksByIngredients?, completion: @escaping(([DetailDrinkInformation]?) -> ())) {
+        
+        if let drinkIdforUrl = drinkId?.idDrink{
+            let stringID = String(describing : drinkIdforUrl)
+            let url = Constants.drinkNetwork.detailDrinkPath + "i=\(stringID)"
             
             AF.request(url).responseJSON { responce in
                 let decoder = JSONDecoder()
