@@ -16,13 +16,20 @@ class MealsInCategoryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
         self.title = self.viewModel.mealCategory?.nameCategory
         self.viewModel.loadMealsInCategory(completion: {
             self.tableView.reloadData()
         })
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           
+           self.navigationController?.isNavigationBarHidden = false
+
+       }
 }
 
 extension MealsInCategoryDetailViewController: UITableViewDataSource{

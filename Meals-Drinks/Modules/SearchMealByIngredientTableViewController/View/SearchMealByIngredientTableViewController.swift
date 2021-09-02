@@ -18,11 +18,18 @@ class SearchMealByIngredientTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         searchBar.delegate = self
-        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           
+           self.navigationController?.isNavigationBarHidden = false
+
+       }
     
     func searchIngredients(for ingredient: String) {
         

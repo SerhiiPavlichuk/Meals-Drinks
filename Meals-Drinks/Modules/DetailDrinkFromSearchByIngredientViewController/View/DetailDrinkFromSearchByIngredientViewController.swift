@@ -22,7 +22,6 @@ class DetailDrinkFromSearchByIngredientViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            
             self.viewModel.loadDetailDrink(completion: {
                 
                 self.displayDrinkDetailInformation()
@@ -48,6 +47,13 @@ class DetailDrinkFromSearchByIngredientViewController: UIViewController {
             let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
             self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           
+           self.navigationController?.isNavigationBarHidden = false
+
+       }
         
         func displayDrinkDetailInformation() {
             

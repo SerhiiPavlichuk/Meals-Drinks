@@ -19,8 +19,15 @@ class SearchDrinkByIngredientViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
         searchBar.delegate = self
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
         
     }
     

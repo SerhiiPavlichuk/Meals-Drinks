@@ -41,6 +41,7 @@
 		847D71BC26CE9D69005514D5 /* DrinksInCategoryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D71BA26CE9D69005514D5 /* DrinksInCategoryResult.swift */; };
 		847D71BD26CE9D69005514D5 /* DrinksInCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D71BB26CE9D69005514D5 /* DrinksInCategory.swift */; };
 		84916E7726D12155004BA3BB /* DrinkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84916E7626D12155004BA3BB /* DrinkDetailViewController.swift */; };
+		84998F8C26E1476F00FEB373 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84998F8B26E1476F00FEB373 /* FirstScreenViewController.swift */; };
 		849B1F6826CF980500C7A8FE /* CoockLaterDetailMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B1F6726CF980500C7A8FE /* CoockLaterDetailMealViewController.swift */; };
 		849C359526C1C11D00665B60 /* CategoriesMealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C359326C1C11D00665B60 /* CategoriesMealCollectionViewCell.swift */; };
 		849C359626C1C11D00665B60 /* CategoriesMealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849C359426C1C11D00665B60 /* CategoriesMealCollectionViewCell.xib */; };
@@ -117,6 +118,7 @@
 		847D71BA26CE9D69005514D5 /* DrinksInCategoryResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksInCategoryResult.swift; sourceTree = "<group>"; };
 		847D71BB26CE9D69005514D5 /* DrinksInCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksInCategory.swift; sourceTree = "<group>"; };
 		84916E7626D12155004BA3BB /* DrinkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailViewController.swift; sourceTree = "<group>"; };
+		84998F8B26E1476F00FEB373 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		849B1F6726CF980500C7A8FE /* CoockLaterDetailMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoockLaterDetailMealViewController.swift; sourceTree = "<group>"; };
 		849C359326C1C11D00665B60 /* CategoriesMealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesMealCollectionViewCell.swift; sourceTree = "<group>"; };
 		849C359426C1C11D00665B60 /* CategoriesMealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesMealCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -312,9 +314,26 @@
 			path = NetworkModels;
 			sourceTree = "<group>";
 		};
+		84998F8D26E1480F00FEB373 /* FirstScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84998F8E26E1481600FEB373 /* View */,
+			);
+			path = FirstScreenViewController;
+			sourceTree = "<group>";
+		};
+		84998F8E26E1481600FEB373 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84998F8B26E1476F00FEB373 /* FirstScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		84A62E8F26D2D75400816292 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				84998F8D26E1480F00FEB373 /* FirstScreenViewController */,
 				84E5DFB326DFF5D8006A81BA /* SearchDrinkByIngredientViewController */,
 				84A62E9226D2D9A900816292 /* MealViewController */,
 				84BAD42B26D4006F006418AE /* RandomMealDetailViewController */,
@@ -613,13 +632,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		84DBEFEF26E00B03004702C5 /* DetailMealFromSearchByIngredient */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DetailMealFromSearchByIngredient;
-			sourceTree = "<group>";
-		};
 		84DBEFF126E00B81004702C5 /* DetailMealFromSearchByIngredientViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -732,7 +744,6 @@
 		84E01B6426D6E231008CDA0B /* DrinkDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84DBEFEF26E00B03004702C5 /* DetailMealFromSearchByIngredient */,
 				84E01B6726D6E291008CDA0B /* ViewModel */,
 				84E01B6626D6E28B008CDA0B /* View */,
 				84E01B6526D6E285008CDA0B /* Model */,
@@ -1091,6 +1102,7 @@
 				8439CFCA26C1B1D100BB2105 /* MealViewController.swift in Sources */,
 				8439D87226C6E530000A56B6 /* MealsInCategoryDetailViewController.swift in Sources */,
 				84A62E9726D2DABA00816292 /* MealsDataManager.swift in Sources */,
+				84998F8C26E1476F00FEB373 /* FirstScreenViewController.swift in Sources */,
 				84001CA726D41FCE0053DB20 /* MealsInCategoryDetailViewModel.swift in Sources */,
 				845A047E26CCEEA000B38B5E /* RandomDrinkDetailViewController.swift in Sources */,
 				845560AC26C2FDBC009CEE0F /* RandomMealDetailViewController.swift in Sources */,
@@ -1268,6 +1280,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VVT5US76Z7;
 				INFOPLIST_FILE = "Meals-Drinks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1287,6 +1300,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VVT5US76Z7;
 				INFOPLIST_FILE = "Meals-Drinks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

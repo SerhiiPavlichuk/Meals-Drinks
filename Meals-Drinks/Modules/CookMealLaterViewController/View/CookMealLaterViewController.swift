@@ -26,9 +26,8 @@ class CookMealLaterViewController: UIViewController {
         
         self.viewModel.meal = self.viewModel.getMeals()
         self.tableView.reloadData()
+        self.navigationController?.isNavigationBarHidden = false
     }
-    
-
 }
 
 extension CookMealLaterViewController: UITableViewDataSource{

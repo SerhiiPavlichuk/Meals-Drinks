@@ -48,6 +48,13 @@ class RandomDrinkDetailViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           
+           self.navigationController?.isNavigationBarHidden = false
+
+       }
+    
     @objc func addToCookLaterButtonPressed(){
 
         self.viewModel.saveDrinkRealm(self.viewModel.randomDrink, completion: {

@@ -21,13 +21,19 @@ class CookLaterDetailDrinkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         if let drinkImageView = self.viewModel.drink?.strDrinkThumb {
             self.drinkImageView.sd_setImage(with: URL(string: drinkImageView), completed: nil)
         }
         self.title = self.viewModel.drink?.strDrink
         self.instructionsLabel.text = self.viewModel.drink?.strInstructions
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           
+           self.navigationController?.isNavigationBarHidden = false
+
+       }
     
     @IBAction func loadSiteInSafariButtonPressed(_ sender: Any) {
         

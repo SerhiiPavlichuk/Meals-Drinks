@@ -25,16 +25,17 @@ class DrinksViewController: UIViewController {
                                      forCellWithReuseIdentifier: categoryDrinksCollectionViewCellIdentifier)
         
         self.viewModel.loadCategories(completion: {
-                   self.collectionView.reloadData()
-               })
+            self.collectionView.reloadData()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.viewModel.loadRandomDrinks(completion: {
-                           self.tableView.reloadData()
-                       })
+            self.tableView.reloadData()
+        })
+        self.navigationController?.isNavigationBarHidden = false
     }
 }
 

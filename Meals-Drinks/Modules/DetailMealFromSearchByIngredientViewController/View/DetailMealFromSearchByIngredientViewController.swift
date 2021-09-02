@@ -30,6 +30,13 @@ class DetailMealFromSearchByIngredient: UIViewController {
         self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           
+           self.navigationController?.isNavigationBarHidden = false
+
+       }
+    
     func displayMealDetailInformation() {
         
         self.title = self.viewModel.mealsByIngredients?.strMeal

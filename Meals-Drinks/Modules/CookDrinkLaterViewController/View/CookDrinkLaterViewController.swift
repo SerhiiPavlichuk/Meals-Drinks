@@ -25,8 +25,11 @@ class CookDrinkLaterViewController: UIViewController {
         
         self.viewModel.drink = self.viewModel.getDrinks()
         self.tableView.reloadData()
+        self.navigationController?.isNavigationBarHidden = false
+        
+        
     }
-
+    
 }
 
 extension CookDrinkLaterViewController: UITableViewDataSource{

@@ -32,6 +32,12 @@ class CoockLaterDetailMealViewController: UIViewController {
         self.title = self.viewModel.meal?.mealName
         self.instructionsLabel.text = self.viewModel.meal?.strInstructions
     }
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           
+           self.navigationController?.isNavigationBarHidden = false
+
+       }
     
     func requestVideos (){
         

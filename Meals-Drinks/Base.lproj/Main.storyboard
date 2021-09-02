@@ -282,10 +282,10 @@
             </objects>
             <point key="canvasLocation" x="4406" y="-323"/>
         </scene>
-        <!--View Controller-->
+        <!--First Screen View Controller-->
         <scene sceneID="Yrt-PU-SVg">
             <objects>
-                <viewController id="LWX-r1-yVp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstScreenViewController" id="LWX-r1-yVp" customClass="FirstScreenViewController" customModule="Meals_Drinks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BMh-2b-cZ4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -596,6 +596,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TVK-K7-Iqj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
