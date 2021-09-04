@@ -83,20 +83,18 @@ struct MealsNetworkManager {
             }
         }
     }
-//        func searchIngredients(for ingredient: String, completion: @escaping(([MealsByIngridients]?) -> ())) {
-//    
-//            let url = Constants.mealNetwork.searchIngredientPath + "i=\(ingredient)"
-//    
-//          AF.request(url).validate()
-//            .responseDecodable(of: IngredientsResult.self) { response in
-//              guard let meals = response.value else { return }
-//              if let meal = meals.meals {
-//              items = meal
-//                completion(meal)
-//              }
-//            }
-//        }
-    
+    func searchIngredients(for ingredient: String, completion: @escaping(([MealsByIngridients]?) -> ())) {
+        
+        let url = Constants.mealNetwork.searchIngredientPath + Constants.mealNetwork.apiKey + Constants.mealNetwork.searchIngredientSecondPath + "i=\(ingredient)"
+        
+        AF.request(url).responseJSON { responce in
+            let decoder = JSONDecoder()
+            if let data = try? decoder.decode(IngredientsResult.self, from: responce.data!) {
+                let meal = data.meals ?? []
+                completion(meal)
+            }
+        }
+    }
 }
 
 

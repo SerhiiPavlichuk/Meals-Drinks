@@ -86,4 +86,16 @@ struct DrinksNetworkManager {
             }
         }
     }
+    func searchIngredients(for ingredient: String, completion: @escaping(([DrinksByIngredients]?) -> ())) {
+         
+         let url = Constants.drinkNetwork.searchIngredientPath + Constants.drinkNetwork.apiKey + Constants.drinkNetwork.searchIngredientSecondPath + "i=\(ingredient)"
+         
+         AF.request(url).responseJSON { responce in
+             let decoder = JSONDecoder()
+             if let data = try? decoder.decode(IngredientsDrinkResult.self, from: responce.data!) {
+                 let drink = data.drinks ?? []
+                 completion(drink)
+             }
+         }
+     }
 }
