@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 
   <p align="center">
-    This is a graduation project for completing <a href="https://web-academy.ua/">a IOS course by Web-Academy</a>
+    This is a graduation project for completing a IOS course by <a href="https://web-academy.ua/"> Web-Academy</a>
   </p>
 
 <!-- TABLE OF CONTENTS -->
