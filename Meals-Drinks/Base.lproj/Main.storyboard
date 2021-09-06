@@ -995,7 +995,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="IngredientsTextView" destination="8wi-jz-9uA" id="htZ-II-gr5"/>
                         <outlet property="drinkImageView" destination="mSG-7N-dfM" id="ETW-FU-YCA"/>
                         <outlet property="ingredientsTextView" destination="8wi-jz-9uA" id="M6b-Ip-PUr"/>
                         <outlet property="instructionsLabel" destination="Ofz-5B-DKh" id="iGy-dd-ygm"/>
@@ -1252,6 +1251,7 @@
         <!--Detail Drink From Search By Ingredient View Controller-->
         <scene sceneID="Fdl-JB-OTz">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofb-Q0-Al8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DetailDrinkFromSearchByIngredientViewController" id="qQU-uv-3Ho" customClass="DetailDrinkFromSearchByIngredientViewController" customModule="Meals_Drinks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aMr-L6-5hv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -1290,8 +1290,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oGv-eo-Ute">
-                                                <rect key="frame" x="16" y="296" width="382" height="135.5"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CsH-20-Qk4">
+                                                <rect key="frame" x="-64" y="314" width="382" height="135.5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -1301,7 +1302,6 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="oGv-eo-Ute" firstAttribute="top" secondItem="2oQ-uP-VIU" secondAttribute="bottom" constant="16" id="1Eo-Ke-200"/>
                                             <constraint firstAttribute="trailing" secondItem="2oQ-uP-VIU" secondAttribute="trailing" constant="16" id="6NQ-lk-qnd"/>
                                             <constraint firstItem="WGm-wY-dWW" firstAttribute="top" secondItem="fQI-em-eJK" secondAttribute="bottom" constant="16" id="6bq-Wl-IU6"/>
                                             <constraint firstItem="WGm-wY-dWW" firstAttribute="top" secondItem="fQI-em-eJK" secondAttribute="bottom" constant="16" id="8SG-9a-uXX"/>
@@ -1313,10 +1313,7 @@
                                             <constraint firstItem="fQI-em-eJK" firstAttribute="leading" secondItem="tcG-ii-sB8" secondAttribute="leading" constant="16" id="Uws-GT-H7a"/>
                                             <constraint firstAttribute="trailing" secondItem="WGm-wY-dWW" secondAttribute="trailing" constant="16" id="Yhj-QH-Ij3"/>
                                             <constraint firstItem="WGm-wY-dWW" firstAttribute="leading" secondItem="tcG-ii-sB8" secondAttribute="leading" constant="16" id="i96-L7-Qxc"/>
-                                            <constraint firstAttribute="trailing" secondItem="oGv-eo-Ute" secondAttribute="trailing" constant="16" id="iU6-Mw-cHX"/>
                                             <constraint firstItem="WGm-wY-dWW" firstAttribute="top" secondItem="fQI-em-eJK" secondAttribute="bottom" constant="16" id="pyH-aE-gsC"/>
-                                            <constraint firstItem="fQI-em-eJK" firstAttribute="top" secondItem="oGv-eo-Ute" secondAttribute="bottom" constant="16" id="qYv-D1-Lpc"/>
-                                            <constraint firstItem="oGv-eo-Ute" firstAttribute="leading" secondItem="tcG-ii-sB8" secondAttribute="leading" constant="16" id="xaw-eb-Ioz"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-jZ-f5n">
@@ -1362,13 +1359,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="IngredientsTextView" destination="oGv-eo-Ute" id="zuo-qA-Rhr"/>
                         <outlet property="drinkImageView" destination="2oQ-uP-VIU" id="tpm-mR-cdB"/>
-                        <outlet property="ingredientsTextView" destination="oGv-eo-Ute" id="tv8-uz-93J"/>
                         <outlet property="instructionsLabel" destination="WGm-wY-dWW" id="Ke5-Br-H8H"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ofb-Q0-Al8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2345" y="2481"/>
         </scene>

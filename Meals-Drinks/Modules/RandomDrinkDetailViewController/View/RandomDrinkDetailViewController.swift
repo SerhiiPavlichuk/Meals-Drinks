@@ -17,7 +17,7 @@ class RandomDrinkDetailViewController: UIViewController {
     @IBOutlet weak var ingredientsTextView: UITextView!
     
     var viewModel: RandomDrinkDetailViewModel = RandomDrinkDetailViewModel()
-  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,38 +31,53 @@ class RandomDrinkDetailViewController: UIViewController {
         let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDrinkDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
         self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
         
-        var text = ""
-        for i in 1...10 {
-            text += viewModel.randomDrink?.strIngredient1 ?? "" + "\n"
-            text += viewModel.randomDrink?.strIngredient2 ?? "" + "\n"
-            text += viewModel.randomDrink?.strIngredient3 ?? "" + "\n"
-            text += viewModel.randomDrink?.strIngredient4 ?? "" + "\n"
-            text += viewModel.randomDrink?.strIngredient5 ?? "" + "\n"
-            text += viewModel.randomDrink?.strIngredient6 ?? "" + "\n"
-            text += viewModel.randomDrink?.strIngredient7 ?? "" + "\n"
-            text += viewModel.randomDrink?.strIngredient8 ?? "" + "\n"
-            text += viewModel.randomDrink?.strIngredient9 ?? "" + "\n"
-            text += viewModel.randomDrink?.strIngredient10 ?? "" + "\n"
-            
-            self.ingredientsTextView.text = text
-        }
+        createIngredientsList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           
-           self.navigationController?.isNavigationBarHidden = false
-
-       }
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
+        
+    }
+    
+    func addIngredients(measure: String?, ingredient: String?){
+        guard measure != nil else {return}
+        ingredientsTextView.text += measure!
+        guard ingredient != nil else {return}
+        ingredientsTextView.text += " \(ingredient!)\n"
+    }
+    
+    func createIngredientsList(){
+        ingredientsTextView.text = ""
+        addIngredients(measure: viewModel.randomDrink?.strMeasure1, ingredient: viewModel.randomDrink?.strIngredient1)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure2, ingredient: viewModel.randomDrink?.strIngredient2)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure3, ingredient: viewModel.randomDrink?.strIngredient3)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure4, ingredient: viewModel.randomDrink?.strIngredient4)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure5, ingredient: viewModel.randomDrink?.strIngredient5)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure6, ingredient: viewModel.randomDrink?.strIngredient6)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure7, ingredient: viewModel.randomDrink?.strIngredient7)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure8, ingredient: viewModel.randomDrink?.strIngredient8)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure9, ingredient: viewModel.randomDrink?.strIngredient9)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure10, ingredient: viewModel.randomDrink?.strIngredient10)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure11, ingredient: viewModel.randomDrink?.strIngredient11)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure12, ingredient: viewModel.randomDrink?.strIngredient12)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure13, ingredient: viewModel.randomDrink?.strIngredient13)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure14, ingredient: viewModel.randomDrink?.strIngredient14)
+        addIngredients(measure: viewModel.randomDrink?.strMeasure15, ingredient: viewModel.randomDrink?.strIngredient15)
+        if ingredientsTextView.text != "" {
+            ingredientsTextView.text.removeLast()
+        }
+    }
     
     @objc func addToCookLaterButtonPressed(){
-
+        
         self.viewModel.saveDrinkRealm(self.viewModel.randomDrink, completion: {
-
+            
             let alert = UIAlertController(title: Constants.ui.drinkSavedMessage,
                                           message: nil,
                                           preferredStyle: UIAlertController.Style.alert)
-
+            
             alert.addAction(UIAlertAction(title: Constants.ui.okDrinkMessage,
                                           style: UIAlertAction.Style.default,
                                           handler: nil))

@@ -13,80 +13,93 @@ import SafariServices
 
 class DetailDrinkFromSearchByIngredientViewController: UIViewController {
     
-        @IBOutlet weak var drinkImageView: UIImageView!
-        @IBOutlet weak var ingredientsTextView: UITextView!
-        @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var drinkImageView: UIImageView!
+    @IBOutlet weak var ingredientsTextView: UITextView!
+    @IBOutlet weak var instructionsLabel: UILabel!
+    
+    var viewModel: DetailDrinkFromSearchByIngredientViewModel = DetailDrinkFromSearchByIngredientViewModel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        var viewModel: DetailDrinkFromSearchByIngredientViewModel = DetailDrinkFromSearchByIngredientViewModel()
+        self.viewModel.loadDetailDrink(completion: {
+            
+            self.displayDrinkDetailInformation()
+            self.createIngredientsList()
+        })
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            
-            self.viewModel.loadDetailDrink(completion: {
-                
-                self.displayDrinkDetailInformation()
-                
-                var text = ""
-                
-                for i in 1...10 {
-                    text += self.viewModel.detailDrink?.strIngredient1 ?? "" + "\n"
-                    text += self.viewModel.detailDrink?.strIngredient2 ?? "" + "\n"
-                    text += self.viewModel.detailDrink?.strIngredient3 ?? "" + "\n"
-                    text += self.viewModel.detailDrink?.strIngredient4 ?? "" + "\n"
-                    text += self.viewModel.detailDrink?.strIngredient5 ?? "" + "\n"
-                    text += self.viewModel.detailDrink?.strIngredient6 ?? "" + "\n"
-                    text += self.viewModel.detailDrink?.strIngredient7 ?? "" + "\n"
-                    text += self.viewModel.detailDrink?.strIngredient8 ?? "" + "\n"
-                    text += self.viewModel.detailDrink?.strIngredient9 ?? "" + "\n"
-                    text += self.viewModel.detailDrink?.strIngredient10 ?? "" + "\n"
-                    
-                    self.ingredientsTextView.text = text
-                }
-            })
-            
-            let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
-            self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
-        }
+        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+        self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
+    }
     
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           
-           self.navigationController?.isNavigationBarHidden = false
-
-       }
+        super.viewWillAppear(animated)
         
-        func displayDrinkDetailInformation() {
-            
-            self.title = self.viewModel.drinks?.strDrink
-            self.instructionsLabel.text = viewModel.detailDrink?.strInstructions
-            if let drinkImage = viewModel.detailDrink?.strDrinkThumb {
-                self.drinkImageView.sd_setImage(with: URL(string: drinkImage), completed: nil)
-                
-            }
-        }
+        self.navigationController?.isNavigationBarHidden = false
         
-        @IBAction func loadSiteInSafariButtonPressed(_ sender: Any) {
-            
-            let url = URL(string: Constants.drinkNetwork.iBAUrl)!
-            let config = SFSafariViewController.Configuration()
-            config.entersReaderIfAvailable = true
-            
-            let vc = SFSafariViewController(url: url, configuration: config)
-            present(vc, animated: true)
-        }
+    }
+    
+    func displayDrinkDetailInformation() {
         
-        @objc func addToCookLaterButtonPressed(){
+        self.title = self.viewModel.drinks?.strDrink
+        self.instructionsLabel.text = viewModel.detailDrink?.strInstructions
+        if let drinkImage = viewModel.detailDrink?.strDrinkThumb {
+            self.drinkImageView.sd_setImage(with: URL(string: drinkImage), completed: nil)
             
-            self.viewModel.saveDetailDrinkRealm(self.viewModel.detailDrink, completion: {
-                
-                let alert = UIAlertController(title: Constants.ui.drinkSavedMessage,
-                                              message: nil,
-                                              preferredStyle: UIAlertController.Style.alert)
-                
-                alert.addAction(UIAlertAction(title: Constants.ui.okDrinkMessage,
-                                              style: UIAlertAction.Style.default,
-                                              handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            })
         }
     }
+    
+    func addIngredients(measure: String?, ingredient: String?){
+        guard measure != nil else {return}
+        ingredientsTextView.text += measure!
+        guard ingredient != nil else {return}
+        ingredientsTextView.text += " \(ingredient!)\n"
+    }
+    
+    func createIngredientsList(){
+        ingredientsTextView.text = ""
+        addIngredients(measure: viewModel.detailDrink?.strMeasure1, ingredient: viewModel.detailDrink?.strIngredient1)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure2, ingredient: viewModel.detailDrink?.strIngredient2)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure3, ingredient: viewModel.detailDrink?.strIngredient3)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure4, ingredient: viewModel.detailDrink?.strIngredient4)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure5, ingredient: viewModel.detailDrink?.strIngredient5)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure6, ingredient: viewModel.detailDrink?.strIngredient6)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure7, ingredient: viewModel.detailDrink?.strIngredient7)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure8, ingredient: viewModel.detailDrink?.strIngredient8)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure9, ingredient: viewModel.detailDrink?.strIngredient9)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure10, ingredient: viewModel.detailDrink?.strIngredient10)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure11, ingredient: viewModel.detailDrink?.strIngredient11)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure12, ingredient: viewModel.detailDrink?.strIngredient12)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure13, ingredient: viewModel.detailDrink?.strIngredient13)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure14, ingredient: viewModel.detailDrink?.strIngredient14)
+        addIngredients(measure: viewModel.detailDrink?.strMeasure15, ingredient: viewModel.detailDrink?.strIngredient15)
+        if ingredientsTextView.text != "" {
+            ingredientsTextView.text.removeLast()
+        }
+    }
+    
+    @IBAction func loadSiteInSafariButtonPressed(_ sender: Any) {
+        
+        let url = URL(string: Constants.drinkNetwork.iBAUrl)!
+        let config = SFSafariViewController.Configuration()
+        config.entersReaderIfAvailable = true
+        
+        let vc = SFSafariViewController(url: url, configuration: config)
+        present(vc, animated: true)
+    }
+    
+    @objc func addToCookLaterButtonPressed(){
+        
+        self.viewModel.saveDetailDrinkRealm(self.viewModel.detailDrink, completion: {
+            
+            let alert = UIAlertController(title: Constants.ui.drinkSavedMessage,
+                                          message: nil,
+                                          preferredStyle: UIAlertController.Style.alert)
+            
+            alert.addAction(UIAlertAction(title: Constants.ui.okDrinkMessage,
+                                          style: UIAlertAction.Style.default,
+                                          handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        })
+    }
+}
