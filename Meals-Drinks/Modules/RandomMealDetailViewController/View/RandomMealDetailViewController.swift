@@ -37,7 +37,7 @@ class RandomMealDetailViewController: UIViewController {
         
         let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
         self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
-//        createIngredientsList()
+        createIngredientsList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,34 +56,34 @@ class RandomMealDetailViewController: UIViewController {
         }
     }
     
-//    func addIngredients(measure: String?, ingredient: String?){
-//        guard measure != nil else {return}
-//        ingredientsTextView.text += measure!
-//        guard ingredient != nil else {return}
-//        ingredientsTextView.text += " \(ingredient!)\n"
-//    }
-//
-//    func createIngredientsList(){
-//        ingredientsTextView.text = ""
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure1, ingredient: viewModel.randomMeal?.strIngredient1)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure2, ingredient: viewModel.randomMeal?.strIngredient2)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure3, ingredient: viewModel.randomMeal?.strIngredient3)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure4, ingredient: viewModel.randomMeal?.strIngredient4)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure5, ingredient: viewModel.randomMeal?.strIngredient5)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure6, ingredient: viewModel.randomMeal?.strIngredient6)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure7, ingredient: viewModel.randomMeal?.strIngredient7)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure8, ingredient: viewModel.randomMeal?.strIngredient8)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure9, ingredient: viewModel.randomMeal?.strIngredient9)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure10, ingredient: viewModel.randomMeal?.strIngredient10)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure11, ingredient: viewModel.randomMeal?.strIngredient11)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure12, ingredient: viewModel.randomMeal?.strIngredient12)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure13, ingredient: viewModel.randomMeal?.strIngredient13)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure14, ingredient: viewModel.randomMeal?.strIngredient14)
-//        addIngredients(measure: viewModel.randomMeal?.strMeasure15, ingredient: viewModel.randomMeal?.strIngredient15)
-//        if ingredientsTextView.text != "" {
-//            ingredientsTextView.text.removeLast()
-//        }
-//    }
+    func addIngredients(measure: String?, ingredient: String?){
+        guard measure != nil else {return}
+        ingredientsTextView.text += measure!
+        guard ingredient != nil else {return}
+        ingredientsTextView.text += " \(ingredient!)\n"
+    }
+
+    func createIngredientsList(){
+        ingredientsTextView.text = ""
+        addIngredients(measure: viewModel.randomMeal?.strMeasure1, ingredient: viewModel.randomMeal?.strIngredient1)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure2, ingredient: viewModel.randomMeal?.strIngredient2)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure3, ingredient: viewModel.randomMeal?.strIngredient3)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure4, ingredient: viewModel.randomMeal?.strIngredient4)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure5, ingredient: viewModel.randomMeal?.strIngredient5)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure6, ingredient: viewModel.randomMeal?.strIngredient6)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure7, ingredient: viewModel.randomMeal?.strIngredient7)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure8, ingredient: viewModel.randomMeal?.strIngredient8)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure9, ingredient: viewModel.randomMeal?.strIngredient9)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure10, ingredient: viewModel.randomMeal?.strIngredient10)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure11, ingredient: viewModel.randomMeal?.strIngredient11)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure12, ingredient: viewModel.randomMeal?.strIngredient12)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure13, ingredient: viewModel.randomMeal?.strIngredient13)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure14, ingredient: viewModel.randomMeal?.strIngredient14)
+        addIngredients(measure: viewModel.randomMeal?.strMeasure15, ingredient: viewModel.randomMeal?.strIngredient15)
+        if ingredientsTextView.text != "" {
+            ingredientsTextView.text.removeLast()
+        }
+    }
     
     @objc func addToCookLaterButtonPressed(){
         

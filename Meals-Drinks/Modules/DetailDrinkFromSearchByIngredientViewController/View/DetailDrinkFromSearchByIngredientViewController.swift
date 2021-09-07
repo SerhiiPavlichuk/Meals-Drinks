@@ -17,6 +17,7 @@ class DetailDrinkFromSearchByIngredientViewController: UIViewController {
     @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var instructionsLabel: UILabel!
     
+    
     var viewModel: DetailDrinkFromSearchByIngredientViewModel = DetailDrinkFromSearchByIngredientViewModel()
     
     override func viewDidLoad() {
