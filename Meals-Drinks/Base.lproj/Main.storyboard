@@ -293,9 +293,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6v-Hd-2sl">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoFirstPage" translatesAutoresizingMaskIntoConstraints="NO" id="k2K-gM-28P">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMj-4H-35O">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="439.5"/>
                                         <constraints>
@@ -312,23 +309,15 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="tMj-4H-35O" firstAttribute="leading" secondItem="b6v-Hd-2sl" secondAttribute="leading" id="2TC-Sx-SSv"/>
                                     <constraint firstAttribute="trailing" secondItem="tMj-4H-35O" secondAttribute="trailing" id="2kz-tm-ndF"/>
-                                    <constraint firstItem="eS9-ge-tgh" firstAttribute="trailing" secondItem="k2K-gM-28P" secondAttribute="trailing" id="4cy-px-dYk"/>
                                     <constraint firstAttribute="bottom" secondItem="eS9-ge-tgh" secondAttribute="bottom" constant="-1" id="52y-L0-9iK"/>
-                                    <constraint firstItem="k2K-gM-28P" firstAttribute="top" secondItem="b6v-Hd-2sl" secondAttribute="top" id="9Pj-vO-rOa"/>
-                                    <constraint firstAttribute="bottom" secondItem="k2K-gM-28P" secondAttribute="bottom" id="BvG-6Q-Ilw"/>
-                                    <constraint firstItem="k2K-gM-28P" firstAttribute="leading" secondItem="b6v-Hd-2sl" secondAttribute="leading" id="EOg-bD-5LI"/>
-                                    <constraint firstItem="eS9-ge-tgh" firstAttribute="leading" secondItem="k2K-gM-28P" secondAttribute="leading" id="EQb-iY-hDU"/>
-                                    <constraint firstAttribute="trailing" secondItem="k2K-gM-28P" secondAttribute="trailing" id="Ehd-2h-iX5"/>
-                                    <constraint firstAttribute="bottom" secondItem="k2K-gM-28P" secondAttribute="bottom" id="J3c-TM-CDH"/>
                                     <constraint firstItem="eS9-ge-tgh" firstAttribute="top" secondItem="tMj-4H-35O" secondAttribute="bottom" constant="8.5" id="X9E-iT-hwY"/>
-                                    <constraint firstAttribute="trailing" secondItem="k2K-gM-28P" secondAttribute="trailing" id="ZYo-TO-Cog"/>
                                     <constraint firstItem="tMj-4H-35O" firstAttribute="top" secondItem="b6v-Hd-2sl" secondAttribute="top" id="mQX-Ag-yEU"/>
-                                    <constraint firstItem="k2K-gM-28P" firstAttribute="leading" secondItem="b6v-Hd-2sl" secondAttribute="leading" id="mbL-yq-wjK"/>
-                                    <constraint firstItem="k2K-gM-28P" firstAttribute="top" secondItem="b6v-Hd-2sl" secondAttribute="top" id="yV4-fB-8CC"/>
+                                    <constraint firstItem="eS9-ge-tgh" firstAttribute="leading" secondItem="tMj-4H-35O" secondAttribute="leading" id="rXC-Z7-9EE"/>
+                                    <constraint firstItem="eS9-ge-tgh" firstAttribute="trailing" secondItem="tMj-4H-35O" secondAttribute="trailing" id="ydI-vu-DTy"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1547,7 +1536,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogoFirstPage" width="432" height="848"/>
         <image name="deskclock" catalog="system" width="128" height="124"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
