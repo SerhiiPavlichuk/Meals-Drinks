@@ -24,7 +24,7 @@ class RandomMealDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        if let video = self.viewModel.randomMeal?.strYoutube {
+        if (self.viewModel.randomMeal?.strYoutube) != nil {
             self.requestVideos()
         }
         

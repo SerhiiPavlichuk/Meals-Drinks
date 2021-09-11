@@ -13,7 +13,7 @@ class FirstScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var imageView: UIImageView = {
+        let imageView: UIImageView = {
             let imageView = UIImageView(frame: .zero)
             imageView.image = UIImage(named: "LogoFirstPage")
             imageView.contentMode = .scaleToFill

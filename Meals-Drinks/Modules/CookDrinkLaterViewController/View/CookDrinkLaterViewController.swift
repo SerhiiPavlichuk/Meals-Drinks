@@ -58,7 +58,6 @@ extension CookDrinkLaterViewController: UITableViewDelegate{
             viewModel.drink.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
-            let realm = try! viewModel.realm
             try! viewModel.realm?.write {
                 viewModel.realm?.delete(item)
             }

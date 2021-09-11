@@ -22,7 +22,7 @@ class CoockLaterDetailMealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let video = self.viewModel.meal?.strYoutube {
+        if (self.viewModel.meal?.strYoutube) != nil {
             self.requestVideos()
         }
         
@@ -41,7 +41,7 @@ class CoockLaterDetailMealViewController: UIViewController {
     
     func requestVideos (){
         
-        var baseUrl = self.viewModel.meal?.strYoutube
+        let baseUrl = self.viewModel.meal?.strYoutube
         if let range = baseUrl!.range(of: "=") {
             let id = baseUrl![range.upperBound...]
             self.videoPlayer.load(withVideoId: String(id))
