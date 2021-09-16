@@ -20,6 +20,8 @@ class MealDetailViewController: UIViewController {
     
     var viewModel: MealDetailViewModel = MealDetailViewModel()
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,8 +30,7 @@ class MealDetailViewController: UIViewController {
             self.createIngredientsList()
         })
         
-        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
-        self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
+        setupAddButtonUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +39,13 @@ class MealDetailViewController: UIViewController {
            self.navigationController?.isNavigationBarHidden = false
 
        }
+    
+    //MARK: - Methods
+    
+    func setupAddButtonUI() {
+        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+        self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
+    }
     
     func displayMealDetailInformation() {
         

@@ -14,9 +14,28 @@ class MealViewController: UIViewController {
     
     var viewModel: MealViewModel = MealViewModel()
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupCollectionViewUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
+        
+        setupTableViewUI()
+        
+    }
+    
+    //MARK: - Methods
+    
+    
+    func setupCollectionViewUI(){
         let categoryCollectionViewCellIdentifier = String(describing: CategoriesMealCollectionViewCell.self)
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
@@ -26,18 +45,17 @@ class MealViewController: UIViewController {
         self.viewModel.loadCategories(completion: {
             self.collectionView.reloadData()
         })
+        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.isNavigationBarHidden = false
-        
+    func setupTableViewUI(){
         self.viewModel.loadRandomMeals(completion: {
             self.tableView.reloadData()
         })
     }
 }
+
+    //MARK: - Extensions
+
 
 extension MealViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

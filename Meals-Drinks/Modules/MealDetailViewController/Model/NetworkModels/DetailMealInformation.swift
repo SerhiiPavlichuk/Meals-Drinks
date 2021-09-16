@@ -12,41 +12,41 @@ struct DetailMealInformation : Codable {
     let strMealThumb : String?
     var strTags : String?
     let strYoutube : String?
-    var strIngredient1 : String?
-    var strIngredient2 : String?
-    var strIngredient3 : String?
-    var strIngredient4 : String?
-    var strIngredient5 : String?
-    var strIngredient6 : String?
-    var strIngredient7 : String?
-    var strIngredient8 : String?
-    var strIngredient9 : String?
-    var strIngredient10 : String?
-    var strIngredient11 : String?
-    var strIngredient12 : String?
-    var strIngredient13 : String?
-    var strIngredient14 : String?
-    var strIngredient15 : String?
+    let strIngredient1 : String?
+    let strIngredient2 : String?
+    let strIngredient3 : String?
+    let strIngredient4 : String?
+    let strIngredient5 : String?
+    let strIngredient6 : String?
+    let strIngredient7 : String?
+    let strIngredient8 : String?
+    let strIngredient9 : String?
+    let strIngredient10 : String?
+    let strIngredient11 : String?
+    let strIngredient12 : String?
+    let strIngredient13 : String?
+    let strIngredient14 : String?
+    let strIngredient15 : String?
     var strIngredient16 : String?
     var strIngredient17 : String?
     var strIngredient18 : String?
     var strIngredient19 : String?
     var strIngredient20 : String?
-    var strMeasure1 : String?
-    var strMeasure2 : String?
-    var strMeasure3 : String?
-    var strMeasure4 : String?
-    var strMeasure5 : String?
-    var strMeasure6 : String?
-    var strMeasure7 : String?
-    var strMeasure8 : String?
-    var strMeasure9 : String?
-    var strMeasure10 : String?
-    var strMeasure11 : String?
-    var strMeasure12 : String?
-    var strMeasure13 : String?
-    var strMeasure14 : String?
-    var strMeasure15 : String?
+    let strMeasure1 : String?
+    let strMeasure2 : String?
+    let strMeasure3 : String?
+    let strMeasure4 : String?
+    let strMeasure5 : String?
+    let strMeasure6 : String?
+    let strMeasure7 : String?
+    let strMeasure8 : String?
+    let strMeasure9 : String?
+    let strMeasure10 : String?
+    let strMeasure11 : String?
+    let strMeasure12 : String?
+    let strMeasure13 : String?
+    let strMeasure14 : String?
+    let strMeasure15 : String?
     var strMeasure16 : String?
     var strMeasure17 : String?
     var strMeasure18 : String?
@@ -170,6 +170,7 @@ struct DetailMealInformation : Codable {
         strCreativeCommonsConfirmed = try values.decodeIfPresent(String.self, forKey: .strCreativeCommonsConfirmed)
         dateModified = try values.decodeIfPresent(String.self, forKey: .dateModified)
     }
+    
     init(from mealRealm: MealsRealm) {
         self.idMeal = mealRealm.idMeal
         self.mealName = mealRealm.mealName
@@ -178,6 +179,35 @@ struct DetailMealInformation : Codable {
         self.strMealThumb = mealRealm.strMealThumb
         self.strYoutube = mealRealm.strYoutube
         self.strSource = mealRealm.strSource
+        self.strIngredient1 = mealRealm.strIngredient1
+        self.strIngredient2 = mealRealm.strIngredient2
+        self.strIngredient3 = mealRealm.strIngredient3
+        self.strIngredient4 = mealRealm.strIngredient4
+        self.strIngredient5 = mealRealm.strIngredient5
+        self.strIngredient6 = mealRealm.strIngredient6
+        self.strIngredient7 = mealRealm.strIngredient7
+        self.strIngredient8 = mealRealm.strIngredient8
+        self.strIngredient9 = mealRealm.strIngredient9
+        self.strIngredient10 = mealRealm.strIngredient10
+        self.strIngredient11 = mealRealm.strIngredient11
+        self.strIngredient12 = mealRealm.strIngredient12
+        self.strIngredient13 = mealRealm.strIngredient13
+        self.strIngredient14 = mealRealm.strIngredient14
+        self.strIngredient15 = mealRealm.strIngredient15
+        self.strMeasure1 = mealRealm.strMeasure1
+        self.strMeasure2 = mealRealm.strMeasure2
+        self.strMeasure3 = mealRealm.strMeasure3
+        self.strMeasure4 = mealRealm.strMeasure4
+        self.strMeasure5 = mealRealm.strMeasure5
+        self.strMeasure6 = mealRealm.strMeasure6
+        self.strMeasure7 = mealRealm.strMeasure7
+        self.strMeasure8 = mealRealm.strMeasure8
+        self.strMeasure9 = mealRealm.strMeasure9
+        self.strMeasure10 = mealRealm.strMeasure10
+        self.strMeasure11 = mealRealm.strMeasure11
+        self.strMeasure12 = mealRealm.strMeasure12
+        self.strMeasure13 = mealRealm.strMeasure13
+        self.strMeasure14 = mealRealm.strMeasure14
+        self.strMeasure15 = mealRealm.strMeasure15
     }
 }
-

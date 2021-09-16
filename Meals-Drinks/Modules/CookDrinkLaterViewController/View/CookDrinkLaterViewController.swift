@@ -14,6 +14,8 @@ class CookDrinkLaterViewController: UIViewController {
     
     var viewModel: CookDrinkLaterViewModel = CookDrinkLaterViewModel()
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +33,8 @@ class CookDrinkLaterViewController: UIViewController {
     }
     
 }
+
+    //MARK: - Extensions
 
 extension CookDrinkLaterViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

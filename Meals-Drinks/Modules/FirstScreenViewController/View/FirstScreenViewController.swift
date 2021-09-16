@@ -10,29 +10,51 @@ import UIKit
 
 class FirstScreenViewController: UIViewController {
     
+    private let imageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
+        imageView.image = UIImage(named: Constants.ui.logoImage)
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageView: UIImageView = {
-            let imageView = UIImageView(frame: .zero)
-            imageView.image = UIImage(named: "LogoFirstPage")
-            imageView.contentMode = .scaleToFill
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            return imageView
-        }()
+        view.addSubview(imageView)
         
-        view.insertSubview(imageView, at: 0)
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    //MARK:- Add launchScreen animation
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        imageView.center = view.center
+        launchScreenAnimate()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.7, execute: {
+            self.launchScreenAnimate()
+        })
+    }
+    
+    private func launchScreenAnimate() {
+        UIView.animate(withDuration: 0.8, animations: {
+            let size = self.view.frame.size.width * 20
+            let diffX = size - self.view.frame.size.width
+            let diffY = self.view.frame.size.height - size
+            
+            self.imageView.frame = CGRect(
+                x: -(diffX/2),
+                y: diffY/2,
+                width: size,
+                height: size
+            )
+            
+            self.imageView.alpha = 0
+        })
     }
 }

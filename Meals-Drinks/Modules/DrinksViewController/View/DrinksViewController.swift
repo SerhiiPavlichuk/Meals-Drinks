@@ -15,18 +15,12 @@ class DrinksViewController: UIViewController {
     
     var viewModel: DrinksViewModel = DrinksViewModel()
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let categoryDrinksCollectionViewCellIdentifier = String(describing: CategoryDrinksCollectionViewCell.self)
-        
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
-        self.collectionView.register(UINib(nibName: categoryDrinksCollectionViewCellIdentifier, bundle: nil),
-                                     forCellWithReuseIdentifier: categoryDrinksCollectionViewCellIdentifier)
-        
-        self.viewModel.loadCategories(completion: {
-            self.collectionView.reloadData()
-        })
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +31,26 @@ class DrinksViewController: UIViewController {
         })
         self.navigationController?.isNavigationBarHidden = false
     }
+    
+    //MARK:- Method
+    
+    func setupUI(){
+        
+        let categoryDrinksCollectionViewCellIdentifier = String(describing: CategoryDrinksCollectionViewCell.self)
+        
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
+        self.collectionView.register(UINib(nibName: categoryDrinksCollectionViewCellIdentifier, bundle: nil),
+                                     forCellWithReuseIdentifier: categoryDrinksCollectionViewCellIdentifier)
+        
+        self.viewModel.loadCategories(completion: {
+            self.collectionView.reloadData()
+        })
+        
+    }
 }
+
+
+    //MARK: - Extensions
 
 extension DrinksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

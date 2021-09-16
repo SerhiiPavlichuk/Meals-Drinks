@@ -18,19 +18,14 @@ class RandomDrinkDetailViewController: UIViewController {
     
     var viewModel: RandomDrinkDetailViewModel = RandomDrinkDetailViewModel()
     
+    //MARK: - Life cycle
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let drinkImage = self.viewModel.randomDrink?.strDrinkThumb {
-            self.drinkImageView.sd_setImage(with: URL(string: drinkImage), completed: nil)
-        }
-        self.title = self.viewModel.randomDrink?.strDrink
-        self.instructionsLabel.text = self.viewModel.randomDrink?.strInstructions
-        
-        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDrinkDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
-        self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
-        
+        setupUI()
+        setupAddButton()
         createIngredientsList()
     }
     
@@ -39,6 +34,24 @@ class RandomDrinkDetailViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = false
         
+    }
+    
+    //MARK: - Methods
+    
+    func setupUI(){
+        
+        if let drinkImage = self.viewModel.randomDrink?.strDrinkThumb {
+                   self.drinkImageView.sd_setImage(with: URL(string: drinkImage), completed: nil)
+               }
+               self.title = self.viewModel.randomDrink?.strDrink
+               self.instructionsLabel.text = self.viewModel.randomDrink?.strInstructions
+        
+    }
+    
+    func setupAddButton(){
+        
+        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDrinkDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+        self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
     }
     
     func addIngredients(measure: String?, ingredient: String?){

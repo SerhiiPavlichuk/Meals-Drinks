@@ -15,6 +15,8 @@ class SearchMealByIngredientTableViewController: UIViewController {
     
     var viewModel: SearchMealByIngredientTableViewModel = SearchMealByIngredientTableViewModel()
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,8 @@ class SearchMealByIngredientTableViewController: UIViewController {
         
     }
 }
+
+    //MARK: - Extensions
 
 extension SearchMealByIngredientTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

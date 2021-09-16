@@ -19,43 +19,43 @@ struct DetailDrinkInformation : Codable {
     var strInstructionsZH : String?
     var strInstructionsZH2 : String?
     let strDrinkThumb : String?
-    var strIngredient1 : String?
-    var strIngredient2 : String?
-    var strIngredient3 : String?
-    var strIngredient4 : String?
-    var strIngredient5 : String?
-    var strIngredient6 : String?
-    var strIngredient7 : String?
-    var strIngredient8 : String?
-    var strIngredient9 : String?
-    var strIngredient10 : String?
-    var strIngredient11 : String?
-    var strIngredient12 : String?
-    var strIngredient13 : String?
-    var strIngredient14 : String?
-    var strIngredient15 : String?
-    var strMeasure1 : String?
-    var strMeasure2 : String?
-    var strMeasure3 : String?
-    var strMeasure4 : String?
-    var strMeasure5 : String?
-    var strMeasure6 : String?
-    var strMeasure7 : String?
-    var strMeasure8 : String?
-    var strMeasure9 : String?
-    var strMeasure10 : String?
-    var strMeasure11 : String?
-    var strMeasure12 : String?
-    var strMeasure13 : String?
-    var strMeasure14 : String?
-    var strMeasure15 : String?
+    let strIngredient1 : String?
+    let strIngredient2 : String?
+    let strIngredient3 : String?
+    let strIngredient4 : String?
+    let strIngredient5 : String?
+    let strIngredient6 : String?
+    let strIngredient7 : String?
+    let strIngredient8 : String?
+    let strIngredient9 : String?
+    let strIngredient10 : String?
+    let strIngredient11 : String?
+    let strIngredient12 : String?
+    let strIngredient13 : String?
+    let strIngredient14 : String?
+    let strIngredient15 : String?
+    let strMeasure1 : String?
+    let strMeasure2 : String?
+    let strMeasure3 : String?
+    let strMeasure4 : String?
+    let strMeasure5 : String?
+    let strMeasure6 : String?
+    let strMeasure7 : String?
+    let strMeasure8 : String?
+    let strMeasure9 : String?
+    let strMeasure10 : String?
+    let strMeasure11 : String?
+    let strMeasure12 : String?
+    let strMeasure13 : String?
+    let strMeasure14 : String?
+    let strMeasure15 : String?
     var strImageSource : String?
     var strImageAttribution : String?
     var strCreativeCommonsConfirmed : String?
     var dateModified : String?
-
+    
     enum CodingKeys: String, CodingKey {
-
+        
         case idDrink = "idDrink"
         case strDrink = "strDrink"
         case strDrinkAlternate = "strDrinkAlternate"
@@ -108,7 +108,7 @@ struct DetailDrinkInformation : Codable {
         case strCreativeCommonsConfirmed = "strCreativeCommonsConfirmed"
         case dateModified = "dateModified"
     }
-
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         idDrink = try values.decodeIfPresent(String.self, forKey: .idDrink)
@@ -169,6 +169,37 @@ struct DetailDrinkInformation : Codable {
         self.strCategory = drinkRealm.strCategory
         self.strInstructions = drinkRealm.strInstructions
         self.strDrinkThumb = drinkRealm.strDrinkThumb
-      
+        self.strIngredient1 = drinkRealm.strIngredient1
+        self.strIngredient2 = drinkRealm.strIngredient2
+        self.strIngredient3 = drinkRealm.strIngredient3
+        self.strIngredient4 = drinkRealm.strIngredient4
+        self.strIngredient5 = drinkRealm.strIngredient5
+        self.strIngredient6 = drinkRealm.strIngredient6
+        self.strIngredient7 = drinkRealm.strIngredient7
+        self.strIngredient8 = drinkRealm.strIngredient8
+        self.strIngredient9 = drinkRealm.strIngredient9
+        self.strIngredient10 = drinkRealm.strIngredient10
+        self.strIngredient11 = drinkRealm.strIngredient11
+        self.strIngredient12 = drinkRealm.strIngredient12
+        self.strIngredient13 = drinkRealm.strIngredient13
+        self.strIngredient14 = drinkRealm.strIngredient14
+        self.strIngredient15 = drinkRealm.strIngredient15
+        self.strMeasure1 = drinkRealm.strMeasure1
+        self.strMeasure2 = drinkRealm.strMeasure2
+        self.strMeasure3 = drinkRealm.strMeasure3
+        self.strMeasure4 = drinkRealm.strMeasure4
+        self.strMeasure5 = drinkRealm.strMeasure5
+        self.strMeasure6 = drinkRealm.strMeasure6
+        self.strMeasure7 = drinkRealm.strMeasure7
+        self.strMeasure8 = drinkRealm.strMeasure8
+        self.strMeasure9 = drinkRealm.strMeasure9
+        self.strMeasure10 = drinkRealm.strMeasure10
+        self.strMeasure11 = drinkRealm.strMeasure11
+        self.strMeasure12 = drinkRealm.strMeasure12
+        self.strMeasure13 = drinkRealm.strMeasure13
+        self.strMeasure14 = drinkRealm.strMeasure14
+        self.strMeasure15 = drinkRealm.strMeasure15
     }
+    
 }
+

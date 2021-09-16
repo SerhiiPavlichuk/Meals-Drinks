@@ -6,11 +6,9 @@
 //
 
 import Foundation
-import RealmSwift
 
 class CoockLaterDetailMealViewModel {
     
-    let realm = try? Realm()
     var meal: MealsRealm? = nil
     
 }

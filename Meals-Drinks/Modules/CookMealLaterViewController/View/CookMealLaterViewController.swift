@@ -15,6 +15,8 @@ class CookMealLaterViewController: UIViewController {
     
     var viewModel: CookMealLaterViewModel = CookMealLaterViewModel()
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,8 @@ class CookMealLaterViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
 }
+
+    //MARK: - Extensions
 
 extension CookMealLaterViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

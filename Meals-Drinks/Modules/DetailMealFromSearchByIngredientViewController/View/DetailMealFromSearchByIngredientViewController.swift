@@ -21,18 +21,14 @@ class DetailMealFromSearchByIngredient: UIViewController {
     
     var viewModel: DetailMealFromSearchByIngredientViewModel = DetailMealFromSearchByIngredientViewModel()
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+        setupUI()
+        setupAddButton()
         
-        self.viewModel.loadDetailMeal(completion: {
-            self.displayMealDetailInformation()
-            self.createIngredientsList()
-        })
-        
-        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
-        self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
-        
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +37,23 @@ class DetailMealFromSearchByIngredient: UIViewController {
            self.navigationController?.isNavigationBarHidden = false
 
        }
+    
+    //MARK:- Methods
+    
+    func setupUI() {
+        
+        self.viewModel.loadDetailMeal(completion: {
+                self.displayMealDetailInformation()
+                self.createIngredientsList()
+            })
+    }
+    
+    func setupAddButton() {
+        
+        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+        self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
+    }
+    
     
     func displayMealDetailInformation() {
         

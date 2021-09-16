@@ -21,22 +21,13 @@ class RandomMealDetailViewController: UIViewController {
     
     var viewModel: RandomMealDetailViewModel = RandomMealDetailViewModel()
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        if (self.viewModel.randomMeal?.strYoutube) != nil {
-            self.requestVideos()
-        }
         
-        if let mealImage = self.viewModel.randomMeal?.strMealThumb {
-            self.mealImageView.sd_setImage(with: URL(string: mealImage), completed: nil)
-        }
-        
-        self.title = self.viewModel.randomMeal?.mealName
-        self.instructionsLabel.text = self.viewModel.randomMeal?.strInstructions
-        
-        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
-        self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
+        requestVideos()
+        setupUI()
         createIngredientsList()
     }
     
@@ -47,8 +38,24 @@ class RandomMealDetailViewController: UIViewController {
         
     }
     
-    func requestVideos (){
+    //MARK: - Methods
+    
+    func setupUI(){
         
+        if let mealImage = self.viewModel.randomMeal?.strMealThumb {
+            self.mealImageView.sd_setImage(with: URL(string: mealImage), completed: nil)
+        }
+        
+        self.title = self.viewModel.randomMeal?.mealName
+        self.instructionsLabel.text = self.viewModel.randomMeal?.strInstructions
+        
+        let addToCookLaterButtonPressed = UIBarButtonItem(title: Constants.ui.RandomDetailViewControllerBarButtonItem, style: .done, target: self, action: #selector(addToCookLaterButtonPressed))
+        self.navigationItem.rightBarButtonItem = addToCookLaterButtonPressed
+        
+    }
+    
+    func requestVideos (){
+        guard self.viewModel.randomMeal?.strYoutube != nil else { return }
         let baseUrl = self.viewModel.randomMeal?.strYoutube
         if let range = baseUrl!.range(of: "=") {
             let id = baseUrl![range.upperBound...]
@@ -62,7 +69,7 @@ class RandomMealDetailViewController: UIViewController {
         guard ingredient != nil else {return}
         ingredientsTextView.text += " \(ingredient!)\n"
     }
-
+    
     func createIngredientsList(){
         ingredientsTextView.text = ""
         addIngredients(measure: viewModel.randomMeal?.strMeasure1, ingredient: viewModel.randomMeal?.strIngredient1)

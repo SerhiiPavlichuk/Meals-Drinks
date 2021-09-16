@@ -343,8 +343,6 @@
 		84A62E8F26D2D75400816292 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				84998F8D26E1480F00FEB373 /* FirstScreenViewController */,
-				84E5DFB326DFF5D8006A81BA /* SearchDrinkByIngredientViewController */,
 				84A62E9226D2D9A900816292 /* MealViewController */,
 				84BAD42B26D4006F006418AE /* RandomMealDetailViewController */,
 				84E01B8526D82EA4008CDA0B /* CookLaterDetailMealViewController */,
@@ -354,6 +352,8 @@
 				8456861126DE3B6000E3017B /* SearchMealByIngredientTableViewController */,
 				84E01B6426D6E231008CDA0B /* DrinkDetailViewController */,
 				84E01B5726D6D7F8008CDA0B /* RandomDrinkDetailViewController */,
+				84E5DFB326DFF5D8006A81BA /* SearchDrinkByIngredientViewController */,
+				84998F8D26E1480F00FEB373 /* FirstScreenViewController */,
 				84CEE3CF26D6D2440099EA78 /* DrinksViewController */,
 				84DBEFF126E00B81004702C5 /* DetailMealFromSearchByIngredientViewController */,
 				84E01B5D26D6DC83008CDA0B /* DrinksCategoryDetailViewController */,

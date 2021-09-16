@@ -14,24 +14,36 @@ class DrinksCategoryDetailViewController: UIViewController {
     
     var viewModel: DrinksCategoryDetailViewModel = DrinksCategoryDetailViewModel()
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
+        
+    }
+    
+    //MARK: - Method
+
+    func setupUI() {
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
         self.title = self.viewModel.drinksCategory?.strCategory
         
         self.viewModel.loadDrinksInCategory(completion: {
-                   self.tableView.reloadData()
-               })
+            self.tableView.reloadData()
+        })
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           
-           self.navigationController?.isNavigationBarHidden = false
-
-       }
 }
+
+
+//MARK: - Extensions
 
 extension DrinksCategoryDetailViewController: UITableViewDataSource{
     

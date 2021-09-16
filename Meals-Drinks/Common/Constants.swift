@@ -41,6 +41,7 @@ struct Constants {
         static let drinkSavedMessage = "Drink saved!"
         static let okMealMessage = "Ok 🍲" 
         static let okDrinkMessage = "Ok 🍹"
+        static let logoImage = "1"
     }
     
 }
