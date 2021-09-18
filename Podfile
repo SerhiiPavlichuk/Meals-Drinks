@@ -8,6 +8,7 @@ target 'Meals-Drinks' do
  pod 'SDWebImage'
  pod 'youtube-ios-player-helper'
  pod 'RealmSwift'
+ pod 'lottie-ios'
 
 
 end

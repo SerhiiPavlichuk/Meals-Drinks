@@ -1507,8 +1507,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-k8-6gh">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoFirstPage" translatesAutoresizingMaskIntoConstraints="NO" id="d9O-B1-V3M">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jk-3L-vPC" customClass="AnimationView" customModule="Lottie">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="389.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="burger"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJX-6L-sjB" customClass="AnimationView" customModule="Lottie">
+                                        <rect key="frame" x="0.0" y="506.5" width="414" height="389.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="drink"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="make your choise.png" translatesAutoresizingMaskIntoConstraints="NO" id="LvN-ad-gng">
+                                        <rect key="frame" x="0.0" y="389.5" width="414" height="117"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="117" id="rHc-Cz-Doh"/>
+                                        </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="na2-vk-fa2">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
@@ -1525,17 +1542,34 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="AJX-6L-sjB" firstAttribute="top" secondItem="LvN-ad-gng" secondAttribute="bottom" id="2ta-CA-oFQ"/>
+                                    <constraint firstItem="LvN-ad-gng" firstAttribute="leading" secondItem="MDy-k8-6gh" secondAttribute="leading" id="2vR-45-7Vs"/>
+                                    <constraint firstItem="AJX-6L-sjB" firstAttribute="leading" secondItem="MDy-k8-6gh" secondAttribute="leading" id="3rX-w2-Jbl"/>
+                                    <constraint firstItem="0Jk-3L-vPC" firstAttribute="top" secondItem="MDy-k8-6gh" secondAttribute="top" id="4Ol-4D-nXN"/>
+                                    <constraint firstItem="AJX-6L-sjB" firstAttribute="top" secondItem="LvN-ad-gng" secondAttribute="bottom" id="65c-iV-sxv"/>
                                     <constraint firstAttribute="bottom" secondItem="eo9-QH-zNo" secondAttribute="bottom" constant="-1" id="ADZ-Hg-ZWd"/>
                                     <constraint firstItem="na2-vk-fa2" firstAttribute="height" secondItem="MDy-k8-6gh" secondAttribute="height" multiplier="0.5" id="ByQ-TD-rwR"/>
                                     <constraint firstItem="na2-vk-fa2" firstAttribute="top" secondItem="MDy-k8-6gh" secondAttribute="top" id="Epa-UM-oYf"/>
+                                    <constraint firstItem="LvN-ad-gng" firstAttribute="top" secondItem="0Jk-3L-vPC" secondAttribute="bottom" id="Gd8-RW-Uwc"/>
                                     <constraint firstItem="eo9-QH-zNo" firstAttribute="leading" secondItem="na2-vk-fa2" secondAttribute="leading" id="Hov-fL-YEg"/>
+                                    <constraint firstItem="LvN-ad-gng" firstAttribute="top" secondItem="0Jk-3L-vPC" secondAttribute="bottom" id="JJl-y4-u9B"/>
                                     <constraint firstAttribute="trailing" secondItem="na2-vk-fa2" secondAttribute="trailing" id="LaV-k7-Lhb"/>
-                                    <constraint firstAttribute="trailing" secondItem="d9O-B1-V3M" secondAttribute="trailing" id="Lwu-ma-Lfj"/>
-                                    <constraint firstAttribute="bottom" secondItem="d9O-B1-V3M" secondAttribute="bottom" id="RxW-Bl-zEp"/>
-                                    <constraint firstItem="d9O-B1-V3M" firstAttribute="leading" secondItem="MDy-k8-6gh" secondAttribute="leading" id="Zw8-WS-aTR"/>
+                                    <constraint firstItem="LvN-ad-gng" firstAttribute="top" secondItem="0Jk-3L-vPC" secondAttribute="bottom" id="Msx-Jt-04p"/>
+                                    <constraint firstAttribute="trailing" secondItem="LvN-ad-gng" secondAttribute="trailing" id="Ncg-Cy-Df1"/>
+                                    <constraint firstItem="LvN-ad-gng" firstAttribute="leading" secondItem="MDy-k8-6gh" secondAttribute="leading" id="NvP-1p-2sw"/>
+                                    <constraint firstAttribute="trailing" secondItem="LvN-ad-gng" secondAttribute="trailing" id="OAe-iC-B8h"/>
+                                    <constraint firstItem="AJX-6L-sjB" firstAttribute="top" secondItem="LvN-ad-gng" secondAttribute="bottom" id="Yfz-ki-V4K"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Jk-3L-vPC" secondAttribute="trailing" id="ajC-lt-n1K"/>
                                     <constraint firstItem="na2-vk-fa2" firstAttribute="leading" secondItem="MDy-k8-6gh" secondAttribute="leading" id="ak4-2d-POZ"/>
-                                    <constraint firstItem="d9O-B1-V3M" firstAttribute="top" secondItem="MDy-k8-6gh" secondAttribute="top" id="bvI-1V-nWu"/>
+                                    <constraint firstItem="LvN-ad-gng" firstAttribute="leading" secondItem="MDy-k8-6gh" secondAttribute="leading" id="bLL-vM-gS8"/>
+                                    <constraint firstItem="LvN-ad-gng" firstAttribute="top" secondItem="0Jk-3L-vPC" secondAttribute="bottom" id="dHL-78-rie"/>
+                                    <constraint firstItem="LvN-ad-gng" firstAttribute="centerY" secondItem="MDy-k8-6gh" secondAttribute="centerY" id="dgN-5V-ugo"/>
+                                    <constraint firstAttribute="trailing" secondItem="AJX-6L-sjB" secondAttribute="trailing" id="etN-dX-cdO"/>
+                                    <constraint firstAttribute="bottom" secondItem="AJX-6L-sjB" secondAttribute="bottom" id="gqA-j0-JMZ"/>
+                                    <constraint firstItem="LvN-ad-gng" firstAttribute="top" secondItem="0Jk-3L-vPC" secondAttribute="bottom" id="iPA-2O-lpG"/>
                                     <constraint firstItem="eo9-QH-zNo" firstAttribute="top" secondItem="na2-vk-fa2" secondAttribute="bottom" constant="8.5" id="j1h-Fp-C2k"/>
+                                    <constraint firstAttribute="trailing" secondItem="LvN-ad-gng" secondAttribute="trailing" id="mfq-4H-JIJ"/>
+                                    <constraint firstItem="0Jk-3L-vPC" firstAttribute="leading" secondItem="MDy-k8-6gh" secondAttribute="leading" id="q9W-7o-aWf"/>
                                     <constraint firstItem="eo9-QH-zNo" firstAttribute="trailing" secondItem="na2-vk-fa2" secondAttribute="trailing" id="yo8-fx-3eM"/>
                                 </constraints>
                             </view>
@@ -1550,17 +1584,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="o2b-CZ-NoG"/>
+                    <connections>
+                        <outlet property="burgerAnimationView" destination="0Jk-3L-vPC" id="gpp-dg-clr"/>
+                        <outlet property="drinkAnimationView" destination="AJX-6L-sjB" id="bGq-eV-YON"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OtH-Kj-BKf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-272" y="739"/>
+            <point key="canvasLocation" x="-272.46376811594206" y="738.61607142857144"/>
         </scene>
     </scenes>
     <resources>
-        <image name="LogoFirstPage" width="432" height="848"/>
         <image name="deskclock" catalog="system" width="128" height="124"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="make your choise.png" width="600" height="200"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

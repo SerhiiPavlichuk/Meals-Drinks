@@ -14,6 +14,9 @@
 		8420BA0026C98DAE00ABE4F2 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420B9FF26C98DAE00ABE4F2 /* MealDetailViewController.swift */; };
 		8420BA0326CA3E9E00ABE4F2 /* DetailMealInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420BA0126CA3E9D00ABE4F2 /* DetailMealInformation.swift */; };
 		8420BA0426CA3E9E00ABE4F2 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420BA0226CA3E9E00ABE4F2 /* Meal.swift */; };
+		8420FD4D26F3E65200249F80 /* burger.json in Resources */ = {isa = PBXBuildFile; fileRef = 8420FD4B26F3E65200249F80 /* burger.json */; };
+		8420FD4E26F3E65200249F80 /* drink.json in Resources */ = {isa = PBXBuildFile; fileRef = 8420FD4C26F3E65200249F80 /* drink.json */; };
+		8420FD5026F5D04E00249F80 /* make your choise.png in Resources */ = {isa = PBXBuildFile; fileRef = 8420FD4F26F5D04D00249F80 /* make your choise.png */; };
 		8439B7BF26CB8AB600C1AE85 /* MealsNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439B7BE26CB8AB600C1AE85 /* MealsNetworkManager.swift */; };
 		8439CFC626C1B1D100BB2105 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439CFC526C1B1D100BB2105 /* AppDelegate.swift */; };
 		8439CFC826C1B1D100BB2105 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439CFC726C1B1D100BB2105 /* SceneDelegate.swift */; };
@@ -90,6 +93,9 @@
 		8420B9FF26C98DAE00ABE4F2 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		8420BA0126CA3E9D00ABE4F2 /* DetailMealInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMealInformation.swift; sourceTree = "<group>"; };
 		8420BA0226CA3E9E00ABE4F2 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		8420FD4B26F3E65200249F80 /* burger.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = burger.json; sourceTree = "<group>"; };
+		8420FD4C26F3E65200249F80 /* drink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drink.json; sourceTree = "<group>"; };
+		8420FD4F26F5D04D00249F80 /* make your choise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "make your choise.png"; sourceTree = "<group>"; };
 		8439B7BE26CB8AB600C1AE85 /* MealsNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsNetworkManager.swift; sourceTree = "<group>"; };
 		8439CFC226C1B1D100BB2105 /* Meals-Drinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meals-Drinks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8439CFC526C1B1D100BB2105 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +228,15 @@
 			path = NetworkModels;
 			sourceTree = "<group>";
 		};
+		8420FD4A26F3E63500249F80 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				8420FD4B26F3E65200249F80 /* burger.json */,
+				8420FD4C26F3E65200249F80 /* drink.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		8439B7BD26CB8A9000C1AE85 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +273,7 @@
 				84A62E9126D2D77D00816292 /* Default Files */,
 				84A62E8F26D2D75400816292 /* Modules */,
 				8439B7BD26CB8A9000C1AE85 /* Managers */,
+				8420FD4A26F3E63500249F80 /* Animations */,
 				8439CFD926C1B30600BB2105 /* Common */,
 				8439CFCB26C1B1D100BB2105 /* Main.storyboard */,
 				8439CFD326C1B1D200BB2105 /* Info.plist */,
@@ -370,6 +386,7 @@
 				8439CFC526C1B1D100BB2105 /* AppDelegate.swift */,
 				8439CFC726C1B1D100BB2105 /* SceneDelegate.swift */,
 				8439CFCE26C1B1D200BB2105 /* Assets.xcassets */,
+				8420FD4F26F5D04D00249F80 /* make your choise.png */,
 				845948B726CAC1DF0097BF81 /* Launch Screen.storyboard */,
 			);
 			path = "Default Files";
@@ -1031,6 +1048,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				845948B826CAC1DF0097BF81 /* Launch Screen.storyboard in Resources */,
+				8420FD4D26F3E65200249F80 /* burger.json in Resources */,
+				8420FD5026F5D04E00249F80 /* make your choise.png in Resources */,
+				8420FD4E26F3E65200249F80 /* drink.json in Resources */,
 				845560AE26C313B3009CEE0F /* Podfile in Resources */,
 				849C359626C1C11D00665B60 /* CategoriesMealCollectionViewCell.xib in Resources */,
 				8439CFCF26C1B1D200BB2105 /* Assets.xcassets in Resources */,
