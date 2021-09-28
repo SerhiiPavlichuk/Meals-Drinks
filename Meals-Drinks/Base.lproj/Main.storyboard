@@ -1597,10 +1597,6 @@
             <point key="canvasLocation" x="-272.46376811594206" y="738.61607142857144"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="0Jk-3L-vPC"/>
-        <designable name="AJX-6L-sjB"/>
-    </designables>
     <resources>
         <image name="deskclock" catalog="system" width="128" height="124"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>

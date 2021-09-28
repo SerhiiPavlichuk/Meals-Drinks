@@ -52,7 +52,7 @@ extension DrinksCategoryDetailViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ui.defaultCellIdentifier) else {
             return UITableViewCell()
         }
         cell.textLabel?.text = self.viewModel.drinksInCategory[indexPath.row].strDrink

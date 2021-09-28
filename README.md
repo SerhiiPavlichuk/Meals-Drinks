@@ -33,7 +33,14 @@ Video-presentation [here](https://youtu.be/UQXQI9L9ASY)
    - Detail of selected Drink
    - Add/Remove from the "Cook later" list
 
-## Built With
-* [Swift](https://developer.apple.com/swift/)
-* [TheMealDB API](https://www.themealdb.com/)
-* [TheCoctailDB API](https://www.thecocktaildb.com/)
+## Technologies Used
+
+* MVVM app architecture
+* Parsing JSON from [TheMealDB API](https://www.themealdb.com/) and [TheCoctailDB API](https://www.thecocktaildb.com/) transforming it to fit the required model, along with persisting the data.
+* Keeping a clear separation of concerns between classes (API managers, model controllers and carving datasources away from view controllers).
+* Using 3rd party libraries with CocoaPods.
+* RealmSwift
+* Networking using Alamofire
+* Autolayout
+* Custom UITableViews, UICollectionViews
+* Animation

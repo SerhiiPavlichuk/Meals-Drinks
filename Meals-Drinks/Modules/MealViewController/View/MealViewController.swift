@@ -38,7 +38,7 @@ class MealViewController: UIViewController {
     func setupCollectionViewUI(){
         let categoryCollectionViewCellIdentifier = String(describing: CategoriesMealCollectionViewCell.self)
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
+       
         self.collectionView.register(UINib(nibName: categoryCollectionViewCellIdentifier, bundle: nil),
                                      forCellWithReuseIdentifier: categoryCollectionViewCellIdentifier)
         
@@ -48,6 +48,8 @@ class MealViewController: UIViewController {
         
     }
     func setupTableViewUI(){
+        
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
         self.viewModel.loadRandomMeals(completion: {
             self.tableView.reloadData()
         })
