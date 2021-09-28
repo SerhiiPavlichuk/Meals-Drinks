@@ -9,7 +9,7 @@
 
 * [About The Project](#about-the-project)
 * [Features](#features)
-* [Built With](#built-with)
+* [Technologies Used](#technologies-used)
 * [Privacy Policy](PrivacyPolicy.md)
 
 <!-- ABOUT THE PROJECT -->
@@ -42,5 +42,5 @@ Video-presentation [here](https://youtu.be/UQXQI9L9ASY)
 * RealmSwift
 * Networking using Alamofire
 * Autolayout
-* Custom UITableViews, UICollectionViews
+* Custom UICollectionViews
 * Animation
