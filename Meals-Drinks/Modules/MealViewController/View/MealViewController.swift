@@ -37,18 +37,14 @@ class MealViewController: UIViewController {
     
     func setupCollectionViewUI(){
         let categoryCollectionViewCellIdentifier = String(describing: CategoriesMealCollectionViewCell.self)
-        
-       
-        self.collectionView.register(UINib(nibName: categoryCollectionViewCellIdentifier, bundle: nil),
+        collectionView.register(UINib(nibName: categoryCollectionViewCellIdentifier, bundle: nil),
                                      forCellWithReuseIdentifier: categoryCollectionViewCellIdentifier)
-        
         self.viewModel.loadCategories(completion: {
             self.collectionView.reloadData()
         })
-        
     }
+    
     func setupTableViewUI(){
-        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ui.defaultCellIdentifier)
         self.viewModel.loadRandomMeals(completion: {
             self.tableView.reloadData()
@@ -74,16 +70,11 @@ extension MealViewController: UITableViewDataSource {
 }
 
 extension MealViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let identifier = String(describing: RandomMealDetailViewController.self)
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(identifier: identifier) as? RandomMealDetailViewController {
-            
             detailViewController.viewModel.randomMeal = self.viewModel.randomMeals[indexPath.row]
-            
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }

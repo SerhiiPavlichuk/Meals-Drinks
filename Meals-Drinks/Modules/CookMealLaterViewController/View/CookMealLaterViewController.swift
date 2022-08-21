@@ -54,7 +54,7 @@ extension CookMealLaterViewController: UITableViewDelegate{
         return .delete
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
+        if editingStyle == .delete {
             let item = viewModel.meal[indexPath.row]
             tableView.beginUpdates()
             viewModel.meal.remove(at: indexPath.row)
